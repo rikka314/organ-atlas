@@ -6,7 +6,7 @@
 
 ## 当前模型选择
 
-本次更新采用 2026 年 11 月 23 日最新 Harness 源码复建的双肺、气管与主支气管、肝脏、胃、食管、大小肠、左肾、胰腺、脾脏和上下恒牙列。右眼继续使用现有的最新 Harness 成品；心脏保留心耳遮挡修订版，大脑保留 USCBrain 成人 MRI 大体外观版。每件模型的研究范围和仍待核实之处见网页中的「标本说明」。
+本次更新采用 2026 年 11 月 23 日最新 Harness 源码复建的双肺、气管与主支气管、肝脏、胃、食管、大小肠、左肾、胰腺、脾脏和上下恒牙列。右眼继续使用现有的最新 Harness 成品；[默认心脏](https://rikka314.github.io/organ-atlas/?organ=heart)采用房室瓣支撑 R1：打开[显露心瓣膜](https://rikka314.github.io/organ-atlas/?organ=heart&view=interior)，可分别沿[左侧](https://rikka314.github.io/organ-atlas/?organ=heart&view=left-chain)和[右侧](https://rikka314.github.io/organ-atlas/?organ=heart&view=right-chain)腱索从瓣叶追到乳头肌与室壁。[下载心脏模型](models/heart-av-support-r1/README.md)。大脑保留 USCBrain 成人 MRI 大体外观版。每件模型的研究范围和仍待核实之处见网页中的「标本说明」。
 
 [![三维人体总览](preview/overview.png)](https://rikka314.github.io/organ-atlas/)
 

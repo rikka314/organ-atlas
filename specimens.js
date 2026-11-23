@@ -4,11 +4,11 @@ export const specimens = [
     "name": "心脏",
     "latin": "Cor",
     "system": "循环系统",
-    "version": "心腔、瓣膜与冠脉",
-    "url": "./models/heart/whole.glb",
+    "version": "房室瓣支撑 R1",
+    "url": "./models/heart-av-support-r1/whole.glb",
     "thumbnail": "./media/heart.webp",
     "status": "教学展示",
-    "note": "移去房壁和室壁，可以看见四组瓣膜。局部接面与血流通路仍待核实。",
+    "note": "选择「显露心瓣膜」，沿腱索从瓣叶追到乳头肌与心室壁；可分别切换左、右支撑链。模型为静态教学构型，不模拟瓣膜运动或血流。",
     "view": [
       0.7962,
       -0.2413,
@@ -16,24 +16,55 @@ export const specimens = [
     ],
     "interior": {
       "label": "显露心瓣膜",
-      "modes": {
-        "ventricles": "hidden",
-        "atria": "hidden",
-        "auricles": "hidden",
-        "aorta": "hidden",
-        "pulmonary": "hidden",
-        "caval": "hidden",
-        "pulmonaryVeins": "hidden",
-        "arteries": "hidden",
-        "veins": "hidden",
-        "fat": "hidden"
-      }
+      "asset": "opened",
+      "only": [
+        "lv-wall",
+        "rv-wall",
+        "mv",
+        "tv",
+        "av",
+        "pv",
+        "mv-papillary-Anterolateral",
+        "mv-chordae-Anterolateral_Anterior_Stem",
+        "mv-chordae-Anterolateral_Anterior_01",
+        "mv-chordae-Anterolateral_Anterior_02",
+        "mv-chordae-Anterolateral_Posterior_Stem",
+        "mv-chordae-Anterolateral_Posterior_01",
+        "mv-chordae-Anterolateral_Posterior_02",
+        "mv-papillary-Posteromedial",
+        "mv-chordae-Posteromedial_Anterior_Stem",
+        "mv-chordae-Posteromedial_Anterior_01",
+        "mv-chordae-Posteromedial_Anterior_02",
+        "mv-chordae-Posteromedial_Posterior_Stem",
+        "mv-chordae-Posteromedial_Posterior_01",
+        "mv-chordae-Posteromedial_Posterior_02",
+        "tv-papillary-Anterior",
+        "tv-chordae-Anterior_Anterior_Stem",
+        "tv-chordae-Anterior_Anterior_01",
+        "tv-chordae-Anterior_Anterior_02",
+        "tv-chordae-Anterior_Posterior_Stem",
+        "tv-chordae-Anterior_Posterior_01",
+        "tv-chordae-Anterior_Posterior_02",
+        "tv-papillary-Posterior",
+        "tv-chordae-Posterior_Posterior_Stem",
+        "tv-chordae-Posterior_Posterior_01",
+        "tv-chordae-Posterior_Posterior_02",
+        "tv-chordae-Posterior_Septal_Stem",
+        "tv-chordae-Posterior_Septal_01",
+        "tv-chordae-Posterior_Septal_02",
+        "tv-papillary-Septal",
+        "tv-chordae-Septal_Septal_Stem",
+        "tv-chordae-Septal_Septal_01",
+        "tv-chordae-Septal_Septal_02",
+        "tv-chordae-Septal_Anterior_Stem",
+        "tv-chordae-Septal_Anterior_01",
+        "tv-chordae-Septal_Anterior_02"
+      ]
     },
     "parts": [
       {
         "id": "ventricles",
-        "name": "心室壁",
-        "color": "#bd796e",
+        "name": "完整心室壁",
         "meshes": [
           "Ventricular_myocardium"
         ]
@@ -41,51 +72,58 @@ export const specimens = [
       {
         "id": "atria",
         "name": "心房壁",
-        "color": "#be8b84",
-        "meshes": [
-          "Atrial_Myocardium"
-        ],
         "materials": [
           "Atlas tissue • atrium",
-          "Atlas tissue • inner"
+          "Atlas tissue • inner",
+          "Heart tissue / atrium",
+          "Heart tissue / inner"
+        ],
+        "meshes": [
+          "Atrial_Myocardium"
         ]
       },
       {
         "id": "auricles",
         "name": "双侧心耳",
-        "color": "#c28c80",
+        "materials": [
+          "Atlas tissue • auricle",
+          "Heart tissue / auricle"
+        ],
         "meshes": [
           "Atrial_Myocardium"
-        ],
-        "materials": [
-          "Atlas tissue • auricle"
         ]
       },
       {
-        "id": "valves",
-        "name": "四组心瓣膜",
-        "color": "#e3c5a0",
+        "id": "mv",
+        "name": "二尖瓣（MV）",
         "meshes": [
-          "Valve_MV",
-          "Valve_TV",
-          "Valve_AV",
+          "Valve_MV"
+        ]
+      },
+      {
+        "id": "tv",
+        "name": "三尖瓣（TV）",
+        "meshes": [
+          "Valve_TV"
+        ]
+      },
+      {
+        "id": "av",
+        "name": "主动脉瓣（AV）",
+        "meshes": [
+          "Valve_AV"
+        ]
+      },
+      {
+        "id": "pv",
+        "name": "肺动脉瓣（PV）",
+        "meshes": [
           "Valve_PV"
-        ]
-      },
-      {
-        "id": "junctions",
-        "name": "瓣口与静脉接合区",
-        "color": "#a06258",
-        "meshes": [
-          "Interface_IVC",
-          "Interface_TV",
-          "Interface_MV"
         ]
       },
       {
         "id": "aorta",
         "name": "主动脉",
-        "color": "#bb7968",
         "meshes": [
           "Aorta"
         ]
@@ -93,7 +131,6 @@ export const specimens = [
       {
         "id": "pulmonary",
         "name": "肺动脉",
-        "color": "#648798",
         "meshes": [
           "Pulmonary_tree"
         ]
@@ -101,7 +138,6 @@ export const specimens = [
       {
         "id": "caval",
         "name": "上、下腔静脉",
-        "color": "#607d89",
         "meshes": [
           "SVC",
           "IVC"
@@ -110,7 +146,6 @@ export const specimens = [
       {
         "id": "pulmonaryVeins",
         "name": "肺静脉",
-        "color": "#bd786c",
         "meshes": [
           "LSPV",
           "LIPV",
@@ -119,11 +154,18 @@ export const specimens = [
         ]
       },
       {
+        "id": "junctions",
+        "name": "瓣口与静脉接合区",
+        "meshes": [
+          "Interface_IVC",
+          "Interface_TV",
+          "Interface_MV"
+        ]
+      },
+      {
         "id": "arteries",
         "name": "冠状动脉",
-        "color": "#c65c42",
         "meshes": [
-          "A00_Left_coronary_stem",
           "A01_Anterior_interventricular",
           "A02_First_diagonal",
           "A03_Second_diagonal",
@@ -135,13 +177,13 @@ export const specimens = [
           "A09_Right_AV_to_posterior",
           "A10_Acute_marginal",
           "A11_Anterior_RV_twigs",
-          "A12_Posterior_wall_branch"
+          "A12_Posterior_wall_branch",
+          "A00_Left_coronary_stem"
         ]
       },
       {
         "id": "veins",
         "name": "心静脉与冠状窦",
-        "color": "#467083",
         "meshes": [
           "V01_Great_cardiac",
           "V02_Anterior_tributary",
@@ -154,15 +196,1557 @@ export const specimens = [
       {
         "id": "fat",
         "name": "沟内脂肪",
-        "color": "#d4ac82",
         "meshes": [
           "F01_Anterior_groove",
           "F02_Left_coronary_groove",
           "F03_Right_coronary_groove",
           "F04_Posterior_groove"
         ]
+      },
+      {
+        "id": "mv-papillary-Anterolateral",
+        "name": "左室乳头肌 · Anterolateral",
+        "meshes": [
+          "Papillary_LV_Anterolateral"
+        ]
+      },
+      {
+        "id": "mv-chordae-Anterolateral_Anterior_Stem",
+        "name": "左室腱索段 · Anterolateral_Anterior_Stem",
+        "meshes": [
+          "Chorda_LV_Anterolateral_Anterior_Stem"
+        ]
+      },
+      {
+        "id": "mv-chordae-Anterolateral_Anterior_01",
+        "name": "左室腱索段 · Anterolateral_Anterior_01",
+        "meshes": [
+          "Chorda_LV_Anterolateral_Anterior_01"
+        ]
+      },
+      {
+        "id": "mv-chordae-Anterolateral_Anterior_02",
+        "name": "左室腱索段 · Anterolateral_Anterior_02",
+        "meshes": [
+          "Chorda_LV_Anterolateral_Anterior_02"
+        ]
+      },
+      {
+        "id": "mv-chordae-Anterolateral_Posterior_Stem",
+        "name": "左室腱索段 · Anterolateral_Posterior_Stem",
+        "meshes": [
+          "Chorda_LV_Anterolateral_Posterior_Stem"
+        ]
+      },
+      {
+        "id": "mv-chordae-Anterolateral_Posterior_01",
+        "name": "左室腱索段 · Anterolateral_Posterior_01",
+        "meshes": [
+          "Chorda_LV_Anterolateral_Posterior_01"
+        ]
+      },
+      {
+        "id": "mv-chordae-Anterolateral_Posterior_02",
+        "name": "左室腱索段 · Anterolateral_Posterior_02",
+        "meshes": [
+          "Chorda_LV_Anterolateral_Posterior_02"
+        ]
+      },
+      {
+        "id": "mv-papillary-Posteromedial",
+        "name": "左室乳头肌 · Posteromedial",
+        "meshes": [
+          "Papillary_LV_Posteromedial"
+        ]
+      },
+      {
+        "id": "mv-chordae-Posteromedial_Anterior_Stem",
+        "name": "左室腱索段 · Posteromedial_Anterior_Stem",
+        "meshes": [
+          "Chorda_LV_Posteromedial_Anterior_Stem"
+        ]
+      },
+      {
+        "id": "mv-chordae-Posteromedial_Anterior_01",
+        "name": "左室腱索段 · Posteromedial_Anterior_01",
+        "meshes": [
+          "Chorda_LV_Posteromedial_Anterior_01"
+        ]
+      },
+      {
+        "id": "mv-chordae-Posteromedial_Anterior_02",
+        "name": "左室腱索段 · Posteromedial_Anterior_02",
+        "meshes": [
+          "Chorda_LV_Posteromedial_Anterior_02"
+        ]
+      },
+      {
+        "id": "mv-chordae-Posteromedial_Posterior_Stem",
+        "name": "左室腱索段 · Posteromedial_Posterior_Stem",
+        "meshes": [
+          "Chorda_LV_Posteromedial_Posterior_Stem"
+        ]
+      },
+      {
+        "id": "mv-chordae-Posteromedial_Posterior_01",
+        "name": "左室腱索段 · Posteromedial_Posterior_01",
+        "meshes": [
+          "Chorda_LV_Posteromedial_Posterior_01"
+        ]
+      },
+      {
+        "id": "mv-chordae-Posteromedial_Posterior_02",
+        "name": "左室腱索段 · Posteromedial_Posterior_02",
+        "meshes": [
+          "Chorda_LV_Posteromedial_Posterior_02"
+        ]
+      },
+      {
+        "id": "tv-papillary-Anterior",
+        "name": "右室乳头肌 · Anterior",
+        "meshes": [
+          "Papillary_RV_Anterior"
+        ]
+      },
+      {
+        "id": "tv-chordae-Anterior_Anterior_Stem",
+        "name": "右室腱索段 · Anterior_Anterior_Stem",
+        "meshes": [
+          "Chorda_RV_Anterior_Anterior_Stem"
+        ]
+      },
+      {
+        "id": "tv-chordae-Anterior_Anterior_01",
+        "name": "右室腱索段 · Anterior_Anterior_01",
+        "meshes": [
+          "Chorda_RV_Anterior_Anterior_01"
+        ]
+      },
+      {
+        "id": "tv-chordae-Anterior_Anterior_02",
+        "name": "右室腱索段 · Anterior_Anterior_02",
+        "meshes": [
+          "Chorda_RV_Anterior_Anterior_02"
+        ]
+      },
+      {
+        "id": "tv-chordae-Anterior_Posterior_Stem",
+        "name": "右室腱索段 · Anterior_Posterior_Stem",
+        "meshes": [
+          "Chorda_RV_Anterior_Posterior_Stem"
+        ]
+      },
+      {
+        "id": "tv-chordae-Anterior_Posterior_01",
+        "name": "右室腱索段 · Anterior_Posterior_01",
+        "meshes": [
+          "Chorda_RV_Anterior_Posterior_01"
+        ]
+      },
+      {
+        "id": "tv-chordae-Anterior_Posterior_02",
+        "name": "右室腱索段 · Anterior_Posterior_02",
+        "meshes": [
+          "Chorda_RV_Anterior_Posterior_02"
+        ]
+      },
+      {
+        "id": "tv-papillary-Posterior",
+        "name": "右室乳头肌 · Posterior",
+        "meshes": [
+          "Papillary_RV_Posterior"
+        ]
+      },
+      {
+        "id": "tv-chordae-Posterior_Posterior_Stem",
+        "name": "右室腱索段 · Posterior_Posterior_Stem",
+        "meshes": [
+          "Chorda_RV_Posterior_Posterior_Stem"
+        ]
+      },
+      {
+        "id": "tv-chordae-Posterior_Posterior_01",
+        "name": "右室腱索段 · Posterior_Posterior_01",
+        "meshes": [
+          "Chorda_RV_Posterior_Posterior_01"
+        ]
+      },
+      {
+        "id": "tv-chordae-Posterior_Posterior_02",
+        "name": "右室腱索段 · Posterior_Posterior_02",
+        "meshes": [
+          "Chorda_RV_Posterior_Posterior_02"
+        ]
+      },
+      {
+        "id": "tv-chordae-Posterior_Septal_Stem",
+        "name": "右室腱索段 · Posterior_Septal_Stem",
+        "meshes": [
+          "Chorda_RV_Posterior_Septal_Stem"
+        ]
+      },
+      {
+        "id": "tv-chordae-Posterior_Septal_01",
+        "name": "右室腱索段 · Posterior_Septal_01",
+        "meshes": [
+          "Chorda_RV_Posterior_Septal_01"
+        ]
+      },
+      {
+        "id": "tv-chordae-Posterior_Septal_02",
+        "name": "右室腱索段 · Posterior_Septal_02",
+        "meshes": [
+          "Chorda_RV_Posterior_Septal_02"
+        ]
+      },
+      {
+        "id": "tv-papillary-Septal",
+        "name": "右室乳头肌 · Septal",
+        "meshes": [
+          "Papillary_RV_Septal"
+        ]
+      },
+      {
+        "id": "tv-chordae-Septal_Septal_Stem",
+        "name": "右室腱索段 · Septal_Septal_Stem",
+        "meshes": [
+          "Chorda_RV_Septal_Septal_Stem"
+        ]
+      },
+      {
+        "id": "tv-chordae-Septal_Septal_01",
+        "name": "右室腱索段 · Septal_Septal_01",
+        "meshes": [
+          "Chorda_RV_Septal_Septal_01"
+        ]
+      },
+      {
+        "id": "tv-chordae-Septal_Septal_02",
+        "name": "右室腱索段 · Septal_Septal_02",
+        "meshes": [
+          "Chorda_RV_Septal_Septal_02"
+        ]
+      },
+      {
+        "id": "tv-chordae-Septal_Anterior_Stem",
+        "name": "右室腱索段 · Septal_Anterior_Stem",
+        "meshes": [
+          "Chorda_RV_Septal_Anterior_Stem"
+        ]
+      },
+      {
+        "id": "tv-chordae-Septal_Anterior_01",
+        "name": "右室腱索段 · Septal_Anterior_01",
+        "meshes": [
+          "Chorda_RV_Septal_Anterior_01"
+        ]
+      },
+      {
+        "id": "tv-chordae-Septal_Anterior_02",
+        "name": "右室腱索段 · Septal_Anterior_02",
+        "meshes": [
+          "Chorda_RV_Septal_Anterior_02"
+        ]
       }
-    ]
+    ],
+    "isolatedViews": [
+      {
+        "key": "opened",
+        "label": "双室开窗",
+        "asset": "opened"
+      },
+      {
+        "key": "left-chain",
+        "label": "左链条 · 二尖瓣至左室壁",
+        "asset": "left-open",
+        "only": [
+          "lv-wall",
+          "mv",
+          "mv-papillary-Anterolateral",
+          "mv-chordae-Anterolateral_Anterior_Stem",
+          "mv-chordae-Anterolateral_Anterior_01",
+          "mv-chordae-Anterolateral_Anterior_02",
+          "mv-chordae-Anterolateral_Posterior_Stem",
+          "mv-chordae-Anterolateral_Posterior_01",
+          "mv-chordae-Anterolateral_Posterior_02",
+          "mv-papillary-Posteromedial",
+          "mv-chordae-Posteromedial_Anterior_Stem",
+          "mv-chordae-Posteromedial_Anterior_01",
+          "mv-chordae-Posteromedial_Anterior_02",
+          "mv-chordae-Posteromedial_Posterior_Stem",
+          "mv-chordae-Posteromedial_Posterior_01",
+          "mv-chordae-Posteromedial_Posterior_02"
+        ]
+      },
+      {
+        "key": "right-chain",
+        "label": "右链条 · 三尖瓣至右室壁",
+        "asset": "right-open",
+        "only": [
+          "rv-wall",
+          "tv",
+          "tv-papillary-Anterior",
+          "tv-chordae-Anterior_Anterior_Stem",
+          "tv-chordae-Anterior_Anterior_01",
+          "tv-chordae-Anterior_Anterior_02",
+          "tv-chordae-Anterior_Posterior_Stem",
+          "tv-chordae-Anterior_Posterior_01",
+          "tv-chordae-Anterior_Posterior_02",
+          "tv-papillary-Posterior",
+          "tv-chordae-Posterior_Posterior_Stem",
+          "tv-chordae-Posterior_Posterior_01",
+          "tv-chordae-Posterior_Posterior_02",
+          "tv-chordae-Posterior_Septal_Stem",
+          "tv-chordae-Posterior_Septal_01",
+          "tv-chordae-Posterior_Septal_02",
+          "tv-papillary-Septal",
+          "tv-chordae-Septal_Septal_Stem",
+          "tv-chordae-Septal_Septal_01",
+          "tv-chordae-Septal_Septal_02",
+          "tv-chordae-Septal_Anterior_Stem",
+          "tv-chordae-Septal_Anterior_01",
+          "tv-chordae-Septal_Anterior_02"
+        ]
+      }
+    ],
+    "assets": {
+      "opened": {
+        "url": "./models/heart-av-support-r1/open-wall.glb",
+        "parts": [
+          {
+            "id": "lv-wall",
+            "name": "左心室开窗壁（支撑终点）",
+            "meshes": [
+              "LV_wall_open"
+            ]
+          },
+          {
+            "id": "rv-wall",
+            "name": "右心室开窗壁（支撑终点）",
+            "meshes": [
+              "RV_wall_open"
+            ]
+          },
+          {
+            "id": "atria",
+            "name": "心房壁",
+            "materials": [
+              "Atlas tissue • atrium",
+              "Atlas tissue • inner",
+              "Heart tissue / atrium",
+              "Heart tissue / inner"
+            ],
+            "meshes": [
+              "Atrial_Myocardium"
+            ]
+          },
+          {
+            "id": "auricles",
+            "name": "双侧心耳",
+            "materials": [
+              "Atlas tissue • auricle",
+              "Heart tissue / auricle"
+            ],
+            "meshes": [
+              "Atrial_Myocardium"
+            ]
+          },
+          {
+            "id": "mv",
+            "name": "二尖瓣（MV）",
+            "meshes": [
+              "Valve_MV"
+            ]
+          },
+          {
+            "id": "tv",
+            "name": "三尖瓣（TV）",
+            "meshes": [
+              "Valve_TV"
+            ]
+          },
+          {
+            "id": "av",
+            "name": "主动脉瓣（AV）",
+            "meshes": [
+              "Valve_AV"
+            ]
+          },
+          {
+            "id": "pv",
+            "name": "肺动脉瓣（PV）",
+            "meshes": [
+              "Valve_PV"
+            ]
+          },
+          {
+            "id": "aorta",
+            "name": "主动脉",
+            "meshes": [
+              "Aorta"
+            ]
+          },
+          {
+            "id": "pulmonary",
+            "name": "肺动脉",
+            "meshes": [
+              "Pulmonary_tree"
+            ]
+          },
+          {
+            "id": "caval",
+            "name": "上、下腔静脉",
+            "meshes": [
+              "SVC",
+              "IVC"
+            ]
+          },
+          {
+            "id": "pulmonaryVeins",
+            "name": "肺静脉",
+            "meshes": [
+              "LSPV",
+              "LIPV",
+              "RSPV",
+              "RIPV"
+            ]
+          },
+          {
+            "id": "junctions",
+            "name": "瓣口与静脉接合区",
+            "meshes": [
+              "Interface_IVC",
+              "Interface_TV",
+              "Interface_MV"
+            ]
+          },
+          {
+            "id": "arteries",
+            "name": "冠状动脉",
+            "meshes": [
+              "A01_Anterior_interventricular",
+              "A02_First_diagonal",
+              "A03_Second_diagonal",
+              "A04_Anterior_ventricular_branch",
+              "A05_Distal_diagonal",
+              "A06_Left_AV_groove",
+              "A07_Obtuse_marginal",
+              "A08_Lateral_ventricular_branch",
+              "A09_Right_AV_to_posterior",
+              "A10_Acute_marginal",
+              "A11_Anterior_RV_twigs",
+              "A12_Posterior_wall_branch",
+              "A00_Left_coronary_stem"
+            ]
+          },
+          {
+            "id": "veins",
+            "name": "心静脉与冠状窦",
+            "meshes": [
+              "V01_Great_cardiac",
+              "V02_Anterior_tributary",
+              "V03_Coronary_sinus",
+              "V04_Middle_cardiac",
+              "V05_Posterior_LV_tributary",
+              "V06_Small_cardiac"
+            ]
+          },
+          {
+            "id": "fat",
+            "name": "沟内脂肪",
+            "meshes": [
+              "F01_Anterior_groove",
+              "F02_Left_coronary_groove",
+              "F03_Right_coronary_groove",
+              "F04_Posterior_groove"
+            ]
+          },
+          {
+            "id": "mv-papillary-Anterolateral",
+            "name": "左室乳头肌 · Anterolateral",
+            "meshes": [
+              "Papillary_LV_Anterolateral"
+            ]
+          },
+          {
+            "id": "mv-chordae-Anterolateral_Anterior_Stem",
+            "name": "左室腱索段 · Anterolateral_Anterior_Stem",
+            "meshes": [
+              "Chorda_LV_Anterolateral_Anterior_Stem"
+            ]
+          },
+          {
+            "id": "mv-chordae-Anterolateral_Anterior_01",
+            "name": "左室腱索段 · Anterolateral_Anterior_01",
+            "meshes": [
+              "Chorda_LV_Anterolateral_Anterior_01"
+            ]
+          },
+          {
+            "id": "mv-chordae-Anterolateral_Anterior_02",
+            "name": "左室腱索段 · Anterolateral_Anterior_02",
+            "meshes": [
+              "Chorda_LV_Anterolateral_Anterior_02"
+            ]
+          },
+          {
+            "id": "mv-chordae-Anterolateral_Posterior_Stem",
+            "name": "左室腱索段 · Anterolateral_Posterior_Stem",
+            "meshes": [
+              "Chorda_LV_Anterolateral_Posterior_Stem"
+            ]
+          },
+          {
+            "id": "mv-chordae-Anterolateral_Posterior_01",
+            "name": "左室腱索段 · Anterolateral_Posterior_01",
+            "meshes": [
+              "Chorda_LV_Anterolateral_Posterior_01"
+            ]
+          },
+          {
+            "id": "mv-chordae-Anterolateral_Posterior_02",
+            "name": "左室腱索段 · Anterolateral_Posterior_02",
+            "meshes": [
+              "Chorda_LV_Anterolateral_Posterior_02"
+            ]
+          },
+          {
+            "id": "mv-papillary-Posteromedial",
+            "name": "左室乳头肌 · Posteromedial",
+            "meshes": [
+              "Papillary_LV_Posteromedial"
+            ]
+          },
+          {
+            "id": "mv-chordae-Posteromedial_Anterior_Stem",
+            "name": "左室腱索段 · Posteromedial_Anterior_Stem",
+            "meshes": [
+              "Chorda_LV_Posteromedial_Anterior_Stem"
+            ]
+          },
+          {
+            "id": "mv-chordae-Posteromedial_Anterior_01",
+            "name": "左室腱索段 · Posteromedial_Anterior_01",
+            "meshes": [
+              "Chorda_LV_Posteromedial_Anterior_01"
+            ]
+          },
+          {
+            "id": "mv-chordae-Posteromedial_Anterior_02",
+            "name": "左室腱索段 · Posteromedial_Anterior_02",
+            "meshes": [
+              "Chorda_LV_Posteromedial_Anterior_02"
+            ]
+          },
+          {
+            "id": "mv-chordae-Posteromedial_Posterior_Stem",
+            "name": "左室腱索段 · Posteromedial_Posterior_Stem",
+            "meshes": [
+              "Chorda_LV_Posteromedial_Posterior_Stem"
+            ]
+          },
+          {
+            "id": "mv-chordae-Posteromedial_Posterior_01",
+            "name": "左室腱索段 · Posteromedial_Posterior_01",
+            "meshes": [
+              "Chorda_LV_Posteromedial_Posterior_01"
+            ]
+          },
+          {
+            "id": "mv-chordae-Posteromedial_Posterior_02",
+            "name": "左室腱索段 · Posteromedial_Posterior_02",
+            "meshes": [
+              "Chorda_LV_Posteromedial_Posterior_02"
+            ]
+          },
+          {
+            "id": "tv-papillary-Anterior",
+            "name": "右室乳头肌 · Anterior",
+            "meshes": [
+              "Papillary_RV_Anterior"
+            ]
+          },
+          {
+            "id": "tv-chordae-Anterior_Anterior_Stem",
+            "name": "右室腱索段 · Anterior_Anterior_Stem",
+            "meshes": [
+              "Chorda_RV_Anterior_Anterior_Stem"
+            ]
+          },
+          {
+            "id": "tv-chordae-Anterior_Anterior_01",
+            "name": "右室腱索段 · Anterior_Anterior_01",
+            "meshes": [
+              "Chorda_RV_Anterior_Anterior_01"
+            ]
+          },
+          {
+            "id": "tv-chordae-Anterior_Anterior_02",
+            "name": "右室腱索段 · Anterior_Anterior_02",
+            "meshes": [
+              "Chorda_RV_Anterior_Anterior_02"
+            ]
+          },
+          {
+            "id": "tv-chordae-Anterior_Posterior_Stem",
+            "name": "右室腱索段 · Anterior_Posterior_Stem",
+            "meshes": [
+              "Chorda_RV_Anterior_Posterior_Stem"
+            ]
+          },
+          {
+            "id": "tv-chordae-Anterior_Posterior_01",
+            "name": "右室腱索段 · Anterior_Posterior_01",
+            "meshes": [
+              "Chorda_RV_Anterior_Posterior_01"
+            ]
+          },
+          {
+            "id": "tv-chordae-Anterior_Posterior_02",
+            "name": "右室腱索段 · Anterior_Posterior_02",
+            "meshes": [
+              "Chorda_RV_Anterior_Posterior_02"
+            ]
+          },
+          {
+            "id": "tv-papillary-Posterior",
+            "name": "右室乳头肌 · Posterior",
+            "meshes": [
+              "Papillary_RV_Posterior"
+            ]
+          },
+          {
+            "id": "tv-chordae-Posterior_Posterior_Stem",
+            "name": "右室腱索段 · Posterior_Posterior_Stem",
+            "meshes": [
+              "Chorda_RV_Posterior_Posterior_Stem"
+            ]
+          },
+          {
+            "id": "tv-chordae-Posterior_Posterior_01",
+            "name": "右室腱索段 · Posterior_Posterior_01",
+            "meshes": [
+              "Chorda_RV_Posterior_Posterior_01"
+            ]
+          },
+          {
+            "id": "tv-chordae-Posterior_Posterior_02",
+            "name": "右室腱索段 · Posterior_Posterior_02",
+            "meshes": [
+              "Chorda_RV_Posterior_Posterior_02"
+            ]
+          },
+          {
+            "id": "tv-chordae-Posterior_Septal_Stem",
+            "name": "右室腱索段 · Posterior_Septal_Stem",
+            "meshes": [
+              "Chorda_RV_Posterior_Septal_Stem"
+            ]
+          },
+          {
+            "id": "tv-chordae-Posterior_Septal_01",
+            "name": "右室腱索段 · Posterior_Septal_01",
+            "meshes": [
+              "Chorda_RV_Posterior_Septal_01"
+            ]
+          },
+          {
+            "id": "tv-chordae-Posterior_Septal_02",
+            "name": "右室腱索段 · Posterior_Septal_02",
+            "meshes": [
+              "Chorda_RV_Posterior_Septal_02"
+            ]
+          },
+          {
+            "id": "tv-papillary-Septal",
+            "name": "右室乳头肌 · Septal",
+            "meshes": [
+              "Papillary_RV_Septal"
+            ]
+          },
+          {
+            "id": "tv-chordae-Septal_Septal_Stem",
+            "name": "右室腱索段 · Septal_Septal_Stem",
+            "meshes": [
+              "Chorda_RV_Septal_Septal_Stem"
+            ]
+          },
+          {
+            "id": "tv-chordae-Septal_Septal_01",
+            "name": "右室腱索段 · Septal_Septal_01",
+            "meshes": [
+              "Chorda_RV_Septal_Septal_01"
+            ]
+          },
+          {
+            "id": "tv-chordae-Septal_Septal_02",
+            "name": "右室腱索段 · Septal_Septal_02",
+            "meshes": [
+              "Chorda_RV_Septal_Septal_02"
+            ]
+          },
+          {
+            "id": "tv-chordae-Septal_Anterior_Stem",
+            "name": "右室腱索段 · Septal_Anterior_Stem",
+            "meshes": [
+              "Chorda_RV_Septal_Anterior_Stem"
+            ]
+          },
+          {
+            "id": "tv-chordae-Septal_Anterior_01",
+            "name": "右室腱索段 · Septal_Anterior_01",
+            "meshes": [
+              "Chorda_RV_Septal_Anterior_01"
+            ]
+          },
+          {
+            "id": "tv-chordae-Septal_Anterior_02",
+            "name": "右室腱索段 · Septal_Anterior_02",
+            "meshes": [
+              "Chorda_RV_Septal_Anterior_02"
+            ]
+          }
+        ],
+        "view": [
+          1,
+          0.05,
+          0.4
+        ],
+        "cameraFrame": {
+          "target": [
+            0.02130616415,
+            -0.008163528199999999,
+            -0.0017123220500000012
+          ],
+          "width": 0.038313502765054325,
+          "height": 0.057043261867817385
+        }
+      },
+      "left-open": {
+        "url": "./models/heart-av-support-r1/open-wall.glb",
+        "parts": [
+          {
+            "id": "lv-wall",
+            "name": "左心室开窗壁（支撑终点）",
+            "meshes": [
+              "LV_wall_open"
+            ]
+          },
+          {
+            "id": "rv-wall",
+            "name": "右心室开窗壁（支撑终点）",
+            "meshes": [
+              "RV_wall_open"
+            ]
+          },
+          {
+            "id": "atria",
+            "name": "心房壁",
+            "materials": [
+              "Atlas tissue • atrium",
+              "Atlas tissue • inner",
+              "Heart tissue / atrium",
+              "Heart tissue / inner"
+            ],
+            "meshes": [
+              "Atrial_Myocardium"
+            ]
+          },
+          {
+            "id": "auricles",
+            "name": "双侧心耳",
+            "materials": [
+              "Atlas tissue • auricle",
+              "Heart tissue / auricle"
+            ],
+            "meshes": [
+              "Atrial_Myocardium"
+            ]
+          },
+          {
+            "id": "mv",
+            "name": "二尖瓣（MV）",
+            "meshes": [
+              "Valve_MV"
+            ]
+          },
+          {
+            "id": "tv",
+            "name": "三尖瓣（TV）",
+            "meshes": [
+              "Valve_TV"
+            ]
+          },
+          {
+            "id": "av",
+            "name": "主动脉瓣（AV）",
+            "meshes": [
+              "Valve_AV"
+            ]
+          },
+          {
+            "id": "pv",
+            "name": "肺动脉瓣（PV）",
+            "meshes": [
+              "Valve_PV"
+            ]
+          },
+          {
+            "id": "aorta",
+            "name": "主动脉",
+            "meshes": [
+              "Aorta"
+            ]
+          },
+          {
+            "id": "pulmonary",
+            "name": "肺动脉",
+            "meshes": [
+              "Pulmonary_tree"
+            ]
+          },
+          {
+            "id": "caval",
+            "name": "上、下腔静脉",
+            "meshes": [
+              "SVC",
+              "IVC"
+            ]
+          },
+          {
+            "id": "pulmonaryVeins",
+            "name": "肺静脉",
+            "meshes": [
+              "LSPV",
+              "LIPV",
+              "RSPV",
+              "RIPV"
+            ]
+          },
+          {
+            "id": "junctions",
+            "name": "瓣口与静脉接合区",
+            "meshes": [
+              "Interface_IVC",
+              "Interface_TV",
+              "Interface_MV"
+            ]
+          },
+          {
+            "id": "arteries",
+            "name": "冠状动脉",
+            "meshes": [
+              "A01_Anterior_interventricular",
+              "A02_First_diagonal",
+              "A03_Second_diagonal",
+              "A04_Anterior_ventricular_branch",
+              "A05_Distal_diagonal",
+              "A06_Left_AV_groove",
+              "A07_Obtuse_marginal",
+              "A08_Lateral_ventricular_branch",
+              "A09_Right_AV_to_posterior",
+              "A10_Acute_marginal",
+              "A11_Anterior_RV_twigs",
+              "A12_Posterior_wall_branch",
+              "A00_Left_coronary_stem"
+            ]
+          },
+          {
+            "id": "veins",
+            "name": "心静脉与冠状窦",
+            "meshes": [
+              "V01_Great_cardiac",
+              "V02_Anterior_tributary",
+              "V03_Coronary_sinus",
+              "V04_Middle_cardiac",
+              "V05_Posterior_LV_tributary",
+              "V06_Small_cardiac"
+            ]
+          },
+          {
+            "id": "fat",
+            "name": "沟内脂肪",
+            "meshes": [
+              "F01_Anterior_groove",
+              "F02_Left_coronary_groove",
+              "F03_Right_coronary_groove",
+              "F04_Posterior_groove"
+            ]
+          },
+          {
+            "id": "mv-papillary-Anterolateral",
+            "name": "左室乳头肌 · Anterolateral",
+            "meshes": [
+              "Papillary_LV_Anterolateral"
+            ]
+          },
+          {
+            "id": "mv-chordae-Anterolateral_Anterior_Stem",
+            "name": "左室腱索段 · Anterolateral_Anterior_Stem",
+            "meshes": [
+              "Chorda_LV_Anterolateral_Anterior_Stem"
+            ]
+          },
+          {
+            "id": "mv-chordae-Anterolateral_Anterior_01",
+            "name": "左室腱索段 · Anterolateral_Anterior_01",
+            "meshes": [
+              "Chorda_LV_Anterolateral_Anterior_01"
+            ]
+          },
+          {
+            "id": "mv-chordae-Anterolateral_Anterior_02",
+            "name": "左室腱索段 · Anterolateral_Anterior_02",
+            "meshes": [
+              "Chorda_LV_Anterolateral_Anterior_02"
+            ]
+          },
+          {
+            "id": "mv-chordae-Anterolateral_Posterior_Stem",
+            "name": "左室腱索段 · Anterolateral_Posterior_Stem",
+            "meshes": [
+              "Chorda_LV_Anterolateral_Posterior_Stem"
+            ]
+          },
+          {
+            "id": "mv-chordae-Anterolateral_Posterior_01",
+            "name": "左室腱索段 · Anterolateral_Posterior_01",
+            "meshes": [
+              "Chorda_LV_Anterolateral_Posterior_01"
+            ]
+          },
+          {
+            "id": "mv-chordae-Anterolateral_Posterior_02",
+            "name": "左室腱索段 · Anterolateral_Posterior_02",
+            "meshes": [
+              "Chorda_LV_Anterolateral_Posterior_02"
+            ]
+          },
+          {
+            "id": "mv-papillary-Posteromedial",
+            "name": "左室乳头肌 · Posteromedial",
+            "meshes": [
+              "Papillary_LV_Posteromedial"
+            ]
+          },
+          {
+            "id": "mv-chordae-Posteromedial_Anterior_Stem",
+            "name": "左室腱索段 · Posteromedial_Anterior_Stem",
+            "meshes": [
+              "Chorda_LV_Posteromedial_Anterior_Stem"
+            ]
+          },
+          {
+            "id": "mv-chordae-Posteromedial_Anterior_01",
+            "name": "左室腱索段 · Posteromedial_Anterior_01",
+            "meshes": [
+              "Chorda_LV_Posteromedial_Anterior_01"
+            ]
+          },
+          {
+            "id": "mv-chordae-Posteromedial_Anterior_02",
+            "name": "左室腱索段 · Posteromedial_Anterior_02",
+            "meshes": [
+              "Chorda_LV_Posteromedial_Anterior_02"
+            ]
+          },
+          {
+            "id": "mv-chordae-Posteromedial_Posterior_Stem",
+            "name": "左室腱索段 · Posteromedial_Posterior_Stem",
+            "meshes": [
+              "Chorda_LV_Posteromedial_Posterior_Stem"
+            ]
+          },
+          {
+            "id": "mv-chordae-Posteromedial_Posterior_01",
+            "name": "左室腱索段 · Posteromedial_Posterior_01",
+            "meshes": [
+              "Chorda_LV_Posteromedial_Posterior_01"
+            ]
+          },
+          {
+            "id": "mv-chordae-Posteromedial_Posterior_02",
+            "name": "左室腱索段 · Posteromedial_Posterior_02",
+            "meshes": [
+              "Chorda_LV_Posteromedial_Posterior_02"
+            ]
+          },
+          {
+            "id": "tv-papillary-Anterior",
+            "name": "右室乳头肌 · Anterior",
+            "meshes": [
+              "Papillary_RV_Anterior"
+            ]
+          },
+          {
+            "id": "tv-chordae-Anterior_Anterior_Stem",
+            "name": "右室腱索段 · Anterior_Anterior_Stem",
+            "meshes": [
+              "Chorda_RV_Anterior_Anterior_Stem"
+            ]
+          },
+          {
+            "id": "tv-chordae-Anterior_Anterior_01",
+            "name": "右室腱索段 · Anterior_Anterior_01",
+            "meshes": [
+              "Chorda_RV_Anterior_Anterior_01"
+            ]
+          },
+          {
+            "id": "tv-chordae-Anterior_Anterior_02",
+            "name": "右室腱索段 · Anterior_Anterior_02",
+            "meshes": [
+              "Chorda_RV_Anterior_Anterior_02"
+            ]
+          },
+          {
+            "id": "tv-chordae-Anterior_Posterior_Stem",
+            "name": "右室腱索段 · Anterior_Posterior_Stem",
+            "meshes": [
+              "Chorda_RV_Anterior_Posterior_Stem"
+            ]
+          },
+          {
+            "id": "tv-chordae-Anterior_Posterior_01",
+            "name": "右室腱索段 · Anterior_Posterior_01",
+            "meshes": [
+              "Chorda_RV_Anterior_Posterior_01"
+            ]
+          },
+          {
+            "id": "tv-chordae-Anterior_Posterior_02",
+            "name": "右室腱索段 · Anterior_Posterior_02",
+            "meshes": [
+              "Chorda_RV_Anterior_Posterior_02"
+            ]
+          },
+          {
+            "id": "tv-papillary-Posterior",
+            "name": "右室乳头肌 · Posterior",
+            "meshes": [
+              "Papillary_RV_Posterior"
+            ]
+          },
+          {
+            "id": "tv-chordae-Posterior_Posterior_Stem",
+            "name": "右室腱索段 · Posterior_Posterior_Stem",
+            "meshes": [
+              "Chorda_RV_Posterior_Posterior_Stem"
+            ]
+          },
+          {
+            "id": "tv-chordae-Posterior_Posterior_01",
+            "name": "右室腱索段 · Posterior_Posterior_01",
+            "meshes": [
+              "Chorda_RV_Posterior_Posterior_01"
+            ]
+          },
+          {
+            "id": "tv-chordae-Posterior_Posterior_02",
+            "name": "右室腱索段 · Posterior_Posterior_02",
+            "meshes": [
+              "Chorda_RV_Posterior_Posterior_02"
+            ]
+          },
+          {
+            "id": "tv-chordae-Posterior_Septal_Stem",
+            "name": "右室腱索段 · Posterior_Septal_Stem",
+            "meshes": [
+              "Chorda_RV_Posterior_Septal_Stem"
+            ]
+          },
+          {
+            "id": "tv-chordae-Posterior_Septal_01",
+            "name": "右室腱索段 · Posterior_Septal_01",
+            "meshes": [
+              "Chorda_RV_Posterior_Septal_01"
+            ]
+          },
+          {
+            "id": "tv-chordae-Posterior_Septal_02",
+            "name": "右室腱索段 · Posterior_Septal_02",
+            "meshes": [
+              "Chorda_RV_Posterior_Septal_02"
+            ]
+          },
+          {
+            "id": "tv-papillary-Septal",
+            "name": "右室乳头肌 · Septal",
+            "meshes": [
+              "Papillary_RV_Septal"
+            ]
+          },
+          {
+            "id": "tv-chordae-Septal_Septal_Stem",
+            "name": "右室腱索段 · Septal_Septal_Stem",
+            "meshes": [
+              "Chorda_RV_Septal_Septal_Stem"
+            ]
+          },
+          {
+            "id": "tv-chordae-Septal_Septal_01",
+            "name": "右室腱索段 · Septal_Septal_01",
+            "meshes": [
+              "Chorda_RV_Septal_Septal_01"
+            ]
+          },
+          {
+            "id": "tv-chordae-Septal_Septal_02",
+            "name": "右室腱索段 · Septal_Septal_02",
+            "meshes": [
+              "Chorda_RV_Septal_Septal_02"
+            ]
+          },
+          {
+            "id": "tv-chordae-Septal_Anterior_Stem",
+            "name": "右室腱索段 · Septal_Anterior_Stem",
+            "meshes": [
+              "Chorda_RV_Septal_Anterior_Stem"
+            ]
+          },
+          {
+            "id": "tv-chordae-Septal_Anterior_01",
+            "name": "右室腱索段 · Septal_Anterior_01",
+            "meshes": [
+              "Chorda_RV_Septal_Anterior_01"
+            ]
+          },
+          {
+            "id": "tv-chordae-Septal_Anterior_02",
+            "name": "右室腱索段 · Septal_Anterior_02",
+            "meshes": [
+              "Chorda_RV_Septal_Anterior_02"
+            ]
+          }
+        ],
+        "view": [
+          1,
+          0.05,
+          0.4
+        ],
+        "cameraFrame": {
+          "target": [
+            0.02130616415,
+            -0.008163528199999999,
+            -0.0017123220500000012
+          ],
+          "width": 0.038313502765054325,
+          "height": 0.057043261867817385
+        }
+      },
+      "right-open": {
+        "url": "./models/heart-av-support-r1/open-wall.glb",
+        "parts": [
+          {
+            "id": "lv-wall",
+            "name": "左心室开窗壁（支撑终点）",
+            "meshes": [
+              "LV_wall_open"
+            ]
+          },
+          {
+            "id": "rv-wall",
+            "name": "右心室开窗壁（支撑终点）",
+            "meshes": [
+              "RV_wall_open"
+            ]
+          },
+          {
+            "id": "atria",
+            "name": "心房壁",
+            "materials": [
+              "Atlas tissue • atrium",
+              "Atlas tissue • inner",
+              "Heart tissue / atrium",
+              "Heart tissue / inner"
+            ],
+            "meshes": [
+              "Atrial_Myocardium"
+            ]
+          },
+          {
+            "id": "auricles",
+            "name": "双侧心耳",
+            "materials": [
+              "Atlas tissue • auricle",
+              "Heart tissue / auricle"
+            ],
+            "meshes": [
+              "Atrial_Myocardium"
+            ]
+          },
+          {
+            "id": "mv",
+            "name": "二尖瓣（MV）",
+            "meshes": [
+              "Valve_MV"
+            ]
+          },
+          {
+            "id": "tv",
+            "name": "三尖瓣（TV）",
+            "meshes": [
+              "Valve_TV"
+            ]
+          },
+          {
+            "id": "av",
+            "name": "主动脉瓣（AV）",
+            "meshes": [
+              "Valve_AV"
+            ]
+          },
+          {
+            "id": "pv",
+            "name": "肺动脉瓣（PV）",
+            "meshes": [
+              "Valve_PV"
+            ]
+          },
+          {
+            "id": "aorta",
+            "name": "主动脉",
+            "meshes": [
+              "Aorta"
+            ]
+          },
+          {
+            "id": "pulmonary",
+            "name": "肺动脉",
+            "meshes": [
+              "Pulmonary_tree"
+            ]
+          },
+          {
+            "id": "caval",
+            "name": "上、下腔静脉",
+            "meshes": [
+              "SVC",
+              "IVC"
+            ]
+          },
+          {
+            "id": "pulmonaryVeins",
+            "name": "肺静脉",
+            "meshes": [
+              "LSPV",
+              "LIPV",
+              "RSPV",
+              "RIPV"
+            ]
+          },
+          {
+            "id": "junctions",
+            "name": "瓣口与静脉接合区",
+            "meshes": [
+              "Interface_IVC",
+              "Interface_TV",
+              "Interface_MV"
+            ]
+          },
+          {
+            "id": "arteries",
+            "name": "冠状动脉",
+            "meshes": [
+              "A01_Anterior_interventricular",
+              "A02_First_diagonal",
+              "A03_Second_diagonal",
+              "A04_Anterior_ventricular_branch",
+              "A05_Distal_diagonal",
+              "A06_Left_AV_groove",
+              "A07_Obtuse_marginal",
+              "A08_Lateral_ventricular_branch",
+              "A09_Right_AV_to_posterior",
+              "A10_Acute_marginal",
+              "A11_Anterior_RV_twigs",
+              "A12_Posterior_wall_branch",
+              "A00_Left_coronary_stem"
+            ]
+          },
+          {
+            "id": "veins",
+            "name": "心静脉与冠状窦",
+            "meshes": [
+              "V01_Great_cardiac",
+              "V02_Anterior_tributary",
+              "V03_Coronary_sinus",
+              "V04_Middle_cardiac",
+              "V05_Posterior_LV_tributary",
+              "V06_Small_cardiac"
+            ]
+          },
+          {
+            "id": "fat",
+            "name": "沟内脂肪",
+            "meshes": [
+              "F01_Anterior_groove",
+              "F02_Left_coronary_groove",
+              "F03_Right_coronary_groove",
+              "F04_Posterior_groove"
+            ]
+          },
+          {
+            "id": "mv-papillary-Anterolateral",
+            "name": "左室乳头肌 · Anterolateral",
+            "meshes": [
+              "Papillary_LV_Anterolateral"
+            ]
+          },
+          {
+            "id": "mv-chordae-Anterolateral_Anterior_Stem",
+            "name": "左室腱索段 · Anterolateral_Anterior_Stem",
+            "meshes": [
+              "Chorda_LV_Anterolateral_Anterior_Stem"
+            ]
+          },
+          {
+            "id": "mv-chordae-Anterolateral_Anterior_01",
+            "name": "左室腱索段 · Anterolateral_Anterior_01",
+            "meshes": [
+              "Chorda_LV_Anterolateral_Anterior_01"
+            ]
+          },
+          {
+            "id": "mv-chordae-Anterolateral_Anterior_02",
+            "name": "左室腱索段 · Anterolateral_Anterior_02",
+            "meshes": [
+              "Chorda_LV_Anterolateral_Anterior_02"
+            ]
+          },
+          {
+            "id": "mv-chordae-Anterolateral_Posterior_Stem",
+            "name": "左室腱索段 · Anterolateral_Posterior_Stem",
+            "meshes": [
+              "Chorda_LV_Anterolateral_Posterior_Stem"
+            ]
+          },
+          {
+            "id": "mv-chordae-Anterolateral_Posterior_01",
+            "name": "左室腱索段 · Anterolateral_Posterior_01",
+            "meshes": [
+              "Chorda_LV_Anterolateral_Posterior_01"
+            ]
+          },
+          {
+            "id": "mv-chordae-Anterolateral_Posterior_02",
+            "name": "左室腱索段 · Anterolateral_Posterior_02",
+            "meshes": [
+              "Chorda_LV_Anterolateral_Posterior_02"
+            ]
+          },
+          {
+            "id": "mv-papillary-Posteromedial",
+            "name": "左室乳头肌 · Posteromedial",
+            "meshes": [
+              "Papillary_LV_Posteromedial"
+            ]
+          },
+          {
+            "id": "mv-chordae-Posteromedial_Anterior_Stem",
+            "name": "左室腱索段 · Posteromedial_Anterior_Stem",
+            "meshes": [
+              "Chorda_LV_Posteromedial_Anterior_Stem"
+            ]
+          },
+          {
+            "id": "mv-chordae-Posteromedial_Anterior_01",
+            "name": "左室腱索段 · Posteromedial_Anterior_01",
+            "meshes": [
+              "Chorda_LV_Posteromedial_Anterior_01"
+            ]
+          },
+          {
+            "id": "mv-chordae-Posteromedial_Anterior_02",
+            "name": "左室腱索段 · Posteromedial_Anterior_02",
+            "meshes": [
+              "Chorda_LV_Posteromedial_Anterior_02"
+            ]
+          },
+          {
+            "id": "mv-chordae-Posteromedial_Posterior_Stem",
+            "name": "左室腱索段 · Posteromedial_Posterior_Stem",
+            "meshes": [
+              "Chorda_LV_Posteromedial_Posterior_Stem"
+            ]
+          },
+          {
+            "id": "mv-chordae-Posteromedial_Posterior_01",
+            "name": "左室腱索段 · Posteromedial_Posterior_01",
+            "meshes": [
+              "Chorda_LV_Posteromedial_Posterior_01"
+            ]
+          },
+          {
+            "id": "mv-chordae-Posteromedial_Posterior_02",
+            "name": "左室腱索段 · Posteromedial_Posterior_02",
+            "meshes": [
+              "Chorda_LV_Posteromedial_Posterior_02"
+            ]
+          },
+          {
+            "id": "tv-papillary-Anterior",
+            "name": "右室乳头肌 · Anterior",
+            "meshes": [
+              "Papillary_RV_Anterior"
+            ]
+          },
+          {
+            "id": "tv-chordae-Anterior_Anterior_Stem",
+            "name": "右室腱索段 · Anterior_Anterior_Stem",
+            "meshes": [
+              "Chorda_RV_Anterior_Anterior_Stem"
+            ]
+          },
+          {
+            "id": "tv-chordae-Anterior_Anterior_01",
+            "name": "右室腱索段 · Anterior_Anterior_01",
+            "meshes": [
+              "Chorda_RV_Anterior_Anterior_01"
+            ]
+          },
+          {
+            "id": "tv-chordae-Anterior_Anterior_02",
+            "name": "右室腱索段 · Anterior_Anterior_02",
+            "meshes": [
+              "Chorda_RV_Anterior_Anterior_02"
+            ]
+          },
+          {
+            "id": "tv-chordae-Anterior_Posterior_Stem",
+            "name": "右室腱索段 · Anterior_Posterior_Stem",
+            "meshes": [
+              "Chorda_RV_Anterior_Posterior_Stem"
+            ]
+          },
+          {
+            "id": "tv-chordae-Anterior_Posterior_01",
+            "name": "右室腱索段 · Anterior_Posterior_01",
+            "meshes": [
+              "Chorda_RV_Anterior_Posterior_01"
+            ]
+          },
+          {
+            "id": "tv-chordae-Anterior_Posterior_02",
+            "name": "右室腱索段 · Anterior_Posterior_02",
+            "meshes": [
+              "Chorda_RV_Anterior_Posterior_02"
+            ]
+          },
+          {
+            "id": "tv-papillary-Posterior",
+            "name": "右室乳头肌 · Posterior",
+            "meshes": [
+              "Papillary_RV_Posterior"
+            ]
+          },
+          {
+            "id": "tv-chordae-Posterior_Posterior_Stem",
+            "name": "右室腱索段 · Posterior_Posterior_Stem",
+            "meshes": [
+              "Chorda_RV_Posterior_Posterior_Stem"
+            ]
+          },
+          {
+            "id": "tv-chordae-Posterior_Posterior_01",
+            "name": "右室腱索段 · Posterior_Posterior_01",
+            "meshes": [
+              "Chorda_RV_Posterior_Posterior_01"
+            ]
+          },
+          {
+            "id": "tv-chordae-Posterior_Posterior_02",
+            "name": "右室腱索段 · Posterior_Posterior_02",
+            "meshes": [
+              "Chorda_RV_Posterior_Posterior_02"
+            ]
+          },
+          {
+            "id": "tv-chordae-Posterior_Septal_Stem",
+            "name": "右室腱索段 · Posterior_Septal_Stem",
+            "meshes": [
+              "Chorda_RV_Posterior_Septal_Stem"
+            ]
+          },
+          {
+            "id": "tv-chordae-Posterior_Septal_01",
+            "name": "右室腱索段 · Posterior_Septal_01",
+            "meshes": [
+              "Chorda_RV_Posterior_Septal_01"
+            ]
+          },
+          {
+            "id": "tv-chordae-Posterior_Septal_02",
+            "name": "右室腱索段 · Posterior_Septal_02",
+            "meshes": [
+              "Chorda_RV_Posterior_Septal_02"
+            ]
+          },
+          {
+            "id": "tv-papillary-Septal",
+            "name": "右室乳头肌 · Septal",
+            "meshes": [
+              "Papillary_RV_Septal"
+            ]
+          },
+          {
+            "id": "tv-chordae-Septal_Septal_Stem",
+            "name": "右室腱索段 · Septal_Septal_Stem",
+            "meshes": [
+              "Chorda_RV_Septal_Septal_Stem"
+            ]
+          },
+          {
+            "id": "tv-chordae-Septal_Septal_01",
+            "name": "右室腱索段 · Septal_Septal_01",
+            "meshes": [
+              "Chorda_RV_Septal_Septal_01"
+            ]
+          },
+          {
+            "id": "tv-chordae-Septal_Septal_02",
+            "name": "右室腱索段 · Septal_Septal_02",
+            "meshes": [
+              "Chorda_RV_Septal_Septal_02"
+            ]
+          },
+          {
+            "id": "tv-chordae-Septal_Anterior_Stem",
+            "name": "右室腱索段 · Septal_Anterior_Stem",
+            "meshes": [
+              "Chorda_RV_Septal_Anterior_Stem"
+            ]
+          },
+          {
+            "id": "tv-chordae-Septal_Anterior_01",
+            "name": "右室腱索段 · Septal_Anterior_01",
+            "meshes": [
+              "Chorda_RV_Septal_Anterior_01"
+            ]
+          },
+          {
+            "id": "tv-chordae-Septal_Anterior_02",
+            "name": "右室腱索段 · Septal_Anterior_02",
+            "meshes": [
+              "Chorda_RV_Septal_Anterior_02"
+            ]
+          }
+        ],
+        "view": [
+          -0.4,
+          0.1,
+          1
+        ],
+        "cameraFrame": {
+          "target": [
+            -0.0226713462,
+            -0.0087286077,
+            0.007481346349999999
+          ],
+          "width": 0.03190393983872179,
+          "height": 0.0508362687005168
+        }
+      }
+    }
   },
   {
     "id": "lungs",

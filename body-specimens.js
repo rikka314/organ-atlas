@@ -2,8 +2,8 @@ export const bodySpecimens = {
   "heart": {
     "id": "heart",
     "name": "心脏",
-    "version": "心腔、瓣膜与冠脉",
-    "url": "./models/heart/overview.glb"
+    "version": "房室瓣支撑 R1",
+    "url": "./models/heart-av-support-r1/overview.glb"
   },
   "lungs": {
     "id": "lungs",
