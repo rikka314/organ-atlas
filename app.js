@@ -150,7 +150,7 @@ let displayViews = [];
 
 function specimenViews(specimen) {
   return [
-    { key: 'whole', buttonId: 'whole', label: '完整外观', icon: 'cube' },
+    { key: 'whole', buttonId: 'whole', label: specimen.wholeLabel ?? '完整外观', icon: 'cube' },
     specimen.interior
       ? { ...specimen.interior, key: 'interior', buttonId: 'reveal', icon: 'section' }
       : { key: 'wire', buttonId: 'reveal', label: '整体线框', icon: 'wire', defaultMode: 'wire' },

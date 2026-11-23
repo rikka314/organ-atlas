@@ -2892,5 +2892,125 @@ export const specimens = [
         "note": "从上向下看下牙弓，前牙朝画面上方。画面左侧是患者左下 31–37，右侧是患者右下 41–47。"
       }
     }
+  },
+  {
+    "id": "brain",
+    "name": "正常成人脑",
+    "latin": "Encephalon",
+    "system": "中枢神经系统",
+    "version": "成人脑大体外观",
+    "status": "严格底面延髓显露待修订 · USCBrain · CC BY-NC-SA 4.0",
+    "url": "./models/brain/whole.glb",
+    "thumbnail": "./media/brain.webp",
+    "view": [
+      -1,
+      0,
+      0
+    ],
+    "wholeLabel": "完整外观 · 左侧面",
+    "note": "从左侧看，画面左方是额极。沿颞叶上缘可追踪外侧沟，再往后下方看，可见枕叶下方的小脑和小脑前方的脑干。小脑部分细褶按教学标本的走向补形。",
+    "parts": [
+      {
+        "id": "left-hemisphere",
+        "name": "左大脑半球",
+        "color": "#bd9189",
+        "meshes": [
+          "HEMI_L"
+        ]
+      },
+      {
+        "id": "right-hemisphere",
+        "name": "右大脑半球",
+        "color": "#bd9189",
+        "meshes": [
+          "HEMI_R"
+        ]
+      },
+      {
+        "id": "cerebellum",
+        "name": "小脑",
+        "color": "#ac7872",
+        "meshes": [
+          "CEREBELLUM"
+        ]
+      },
+      {
+        "id": "brainstem",
+        "name": "脑干",
+        "color": "#c8ac93",
+        "meshes": [
+          "BRAINSTEM"
+        ]
+      }
+    ],
+    "isolatedViews": [
+      {
+        "key": "right-lateral",
+        "label": "右侧面",
+        "asset": "right-lateral"
+      },
+      {
+        "key": "superior",
+        "label": "顶面",
+        "asset": "superior"
+      },
+      {
+        "key": "posterior",
+        "label": "后面",
+        "asset": "posterior"
+      },
+      {
+        "key": "inferior",
+        "label": "严格底面",
+        "asset": "inferior"
+      },
+      {
+        "key": "ventral-oblique",
+        "label": "前下斜面",
+        "asset": "ventral-oblique"
+      }
+    ],
+    "assets": {
+      "right-lateral": {
+        "view": [
+          1,
+          0,
+          0
+        ],
+        "note": "从右侧看，画面右方是额极。可沿颞叶上缘寻找外侧沟，再沿上方的沟回比较两侧半球。"
+      },
+      "superior": {
+        "view": [
+          0,
+          1,
+          0.0001
+        ],
+        "note": "额极朝画面上方。两半球之间的纵裂沿中线延伸。中央沟在左右半球分别从靠近纵裂处向外、向前斜行。"
+      },
+      "posterior": {
+        "view": [
+          0,
+          0,
+          1
+        ],
+        "note": "从后方可比较左右枕叶及其下方小脑的轮廓。隐藏两侧大脑半球，可以继续观察小脑上面。"
+      },
+      "inferior": {
+        "view": [
+          0,
+          -1,
+          -0.0001
+        ],
+        "note": "额极朝画面上方。在小脑两侧之间可见脑桥隆起。这个方向的延髓显得较短，换到「前下斜面」可追踪脑桥向延髓变细的轮廓。"
+      },
+      "ventral-oblique": {
+        "view": [
+          0,
+          -0.8,
+          -0.6
+        ],
+        "note": "从前下方看，脑桥下方渐细的延髓位于两侧小脑的前方。也可单独隐藏小脑，再与完整外观对照。"
+      }
+    }
   }
 ];

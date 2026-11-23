@@ -3,7 +3,7 @@ import { bodySpecimens } from './body-specimens.js';
 const byId = id => document.getElementById(id);
 const svgNS = 'http://www.w3.org/2000/svg';
 const regions = [
-  ['头面部', ['eye', 'dentition']],
+  ['头面部', ['brain', 'eye', 'dentition']],
   ['颈胸部', ['trachea', 'esophagus', 'lungs', 'heart']],
   ['腹盆部', ['liver', 'stomach', 'pancreas', 'spleen', 'kidney', 'intestines']],
 ];

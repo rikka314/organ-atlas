@@ -70,5 +70,11 @@ export const bodySpecimens = {
     "name": "恒牙列",
     "version": "上下颌 28 颗恒牙",
     "url": "./models/dentition/overview.glb"
+  },
+  "brain": {
+    "id": "brain",
+    "name": "正常成人脑",
+    "version": "成人脑大体外观",
+    "url": "./models/brain/overview.glb"
   }
 };

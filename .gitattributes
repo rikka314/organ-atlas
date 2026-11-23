@@ -1,5 +1,6 @@
 * text=auto
 *.glb binary
+*.blend binary
 *.bin binary
 *.webp binary
 *.png binary
