@@ -13,7 +13,7 @@ export const bodySpecimens = {
   },
   "trachea": {
     "id": "trachea",
-    "name": "气管",
+    "name": "气管与主支气管",
     "version": "气管及主支气管近段",
     "url": "./models/trachea/overview.glb"
   },
@@ -67,7 +67,7 @@ export const bodySpecimens = {
   },
   "dentition": {
     "id": "dentition",
-    "name": "恒牙列",
+    "name": "上下恒牙列",
     "version": "上下颌 28 颗恒牙",
     "url": "./models/dentition/overview.glb"
   },

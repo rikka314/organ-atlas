@@ -171,23 +171,17 @@ export const specimens = [
     "system": "呼吸系统",
     "version": "肺叶、肺底与肺门",
     "url": "./models/lungs/whole.glb",
-    "thumbnail": "./media/lungs.webp",
+    "thumbnail": "./media/lungs.png",
     "status": "教学展示",
-    "note": "从正下方看左上叶舌部、右中叶和两侧下叶怎样相接。剥开右肺后，可以沿米色支气管、蓝色肺动脉和红色肺静脉追踪它们在组织中的前后位置。",
+    "note": "肺叶、气道、动静脉、剖面与材质均来自本次程序生成。旋转或切换局部剥开视图观察前后层次。",
     "view": [
       0,
       0,
       1
     ],
     "interior": {
-      "label": "移去肺叶",
-      "modes": {
-        "rightUpper": "hidden",
-        "rightMiddle": "hidden",
-        "rightLower": "hidden",
-        "leftUpper": "hidden",
-        "leftLower": "hidden"
-      }
+      "label": "显露气道与血管",
+      "asset": "interior"
     },
     "isolatedViews": [
       {
@@ -282,8 +276,8 @@ export const specimens = [
           -1,
           -0.0001
         ],
-        "version": "正下方看双肺",
-        "note": "从足侧朝头侧看，画面左侧是患者左肺，上方是背侧。可分别隐藏左上叶或右中叶，查看它们在肺底前方所占的位置。"
+        "version": "从空场景构建的双肺",
+        "note": "可逐叶隐藏，观察本件的左右肺底和叶裂。"
       },
       "previous-inferior": {
         "url": "./models/lungs/previous-inferior.glb",
@@ -302,8 +296,8 @@ export const specimens = [
           -0.75743,
           0.58393
         ],
-        "version": "双肺下前斜面",
-        "note": "画面左侧是患者右肺。沿着粉色外缘向内转动，可以分别查看膈面、肺底内侧和两肺之间的肺门。"
+        "version": "从空场景构建的双肺",
+        "note": "可逐叶隐藏，观察本件的左右肺底和叶裂。"
       },
       "medial-base": {
         "url": "./models/lungs/whole.glb",
@@ -312,32 +306,276 @@ export const specimens = [
           -0.0923,
           0.9394
         ],
-        "version": "前内侧近于平视",
-        "note": "右下肺静脉的红色管口在两肺之间。向它下方看，可以沿内侧面的凹凸追到前内侧下缘。"
+        "version": "从空场景构建的双肺",
+        "note": "可逐叶隐藏，观察本件的左右肺底和叶裂。"
       },
       "dissection": {
         "url": "./models/lungs/dissection.glb",
-        "version": "右肺局部剥开",
+        "version": "本件右肺局部剥开",
         "view": [
           -0.099228,
           0.074421,
           0.992278
         ],
-        "note": "右肺保留窗缘和深处的肺实质，左肺完整。转动模型，可看前方分支怎样遮住后方分支，以及各条管道在哪里进入肺组织。"
+        "note": "从窗缘看右上叶前段和右下叶上段的气道，以及它们后方深浅不同的肺组织。",
+        "parts": [
+          {
+            "id": "rightUpper",
+            "name": "右肺上叶",
+            "color": "#bf8784",
+            "meshes": [
+              "RUL",
+              "dissection RUL",
+              "dissection_RUL"
+            ]
+          },
+          {
+            "id": "rightMiddle",
+            "name": "右肺中叶",
+            "color": "#bf8784",
+            "meshes": [
+              "RML",
+              "dissection RML",
+              "dissection_RML"
+            ]
+          },
+          {
+            "id": "rightLower",
+            "name": "右肺下叶",
+            "color": "#bf8784",
+            "meshes": [
+              "RLL",
+              "dissection RLL",
+              "dissection_RLL"
+            ]
+          },
+          {
+            "id": "leftUpper",
+            "name": "左肺上叶",
+            "color": "#bf8784",
+            "meshes": [
+              "LUL",
+              "dissection LUL",
+              "dissection_LUL"
+            ]
+          },
+          {
+            "id": "leftLower",
+            "name": "左肺下叶",
+            "color": "#bf8784",
+            "meshes": [
+              "LLL",
+              "dissection LLL",
+              "dissection_LLL"
+            ]
+          },
+          {
+            "id": "airway",
+            "name": "气管与支气管树",
+            "color": "#d8b49b",
+            "meshes": [
+              "Airway_Tree",
+              "dissection Airway_Tree",
+              "dissection_Airway_Tree"
+            ]
+          },
+          {
+            "id": "cartilage",
+            "name": "气管软骨",
+            "color": "#dfcdc0",
+            "meshes": [
+              "Tracheal_Cartilage",
+              "dissection Tracheal_Cartilage",
+              "dissection_Tracheal_Cartilage"
+            ]
+          },
+          {
+            "id": "arteries",
+            "name": "肺动脉",
+            "color": "#627e9d",
+            "meshes": [
+              "Pulmonary_Arteries",
+              "dissection Pulmonary_Arteries",
+              "dissection_Pulmonary_Arteries"
+            ]
+          },
+          {
+            "id": "rightSuperiorVein",
+            "name": "右上肺静脉",
+            "color": "#af625d",
+            "meshes": [
+              "Pulmonary_Vein_R_Superior",
+              "dissection Pulmonary_Vein_R_Superior",
+              "dissection_Pulmonary_Vein_R_Superior"
+            ]
+          },
+          {
+            "id": "rightInferiorVein",
+            "name": "右下肺静脉",
+            "color": "#af625d",
+            "meshes": [
+              "Pulmonary_Vein_R_Inferior",
+              "dissection Pulmonary_Vein_R_Inferior",
+              "dissection_Pulmonary_Vein_R_Inferior"
+            ]
+          },
+          {
+            "id": "leftSuperiorVein",
+            "name": "左上肺静脉",
+            "color": "#af625d",
+            "meshes": [
+              "Pulmonary_Vein_L_Superior",
+              "dissection Pulmonary_Vein_L_Superior",
+              "dissection_Pulmonary_Vein_L_Superior"
+            ]
+          },
+          {
+            "id": "leftInferiorVein",
+            "name": "左下肺静脉",
+            "color": "#af625d",
+            "meshes": [
+              "Pulmonary_Vein_L_Inferior",
+              "dissection Pulmonary_Vein_L_Inferior",
+              "dissection_Pulmonary_Vein_L_Inferior"
+            ]
+          }
+        ]
       },
       "dissection-oblique": {
         "url": "./models/lungs/dissection.glb",
-        "version": "右肺局部剥开 · 斜面",
+        "version": "本件右肺局部剥开",
         "view": [
           -0.255567,
           0.374607,
           0.891266
         ],
-        "note": "同一右肺窗口转过约 20°。可与正面比较，辨认右上叶前段与右下叶上段两条支气管的前后位置。"
+        "note": "从窗缘看右上叶前段和右下叶上段的气道，以及它们后方深浅不同的肺组织。",
+        "parts": [
+          {
+            "id": "rightUpper",
+            "name": "右肺上叶",
+            "color": "#bf8784",
+            "meshes": [
+              "RUL",
+              "dissection RUL",
+              "dissection_RUL"
+            ]
+          },
+          {
+            "id": "rightMiddle",
+            "name": "右肺中叶",
+            "color": "#bf8784",
+            "meshes": [
+              "RML",
+              "dissection RML",
+              "dissection_RML"
+            ]
+          },
+          {
+            "id": "rightLower",
+            "name": "右肺下叶",
+            "color": "#bf8784",
+            "meshes": [
+              "RLL",
+              "dissection RLL",
+              "dissection_RLL"
+            ]
+          },
+          {
+            "id": "leftUpper",
+            "name": "左肺上叶",
+            "color": "#bf8784",
+            "meshes": [
+              "LUL",
+              "dissection LUL",
+              "dissection_LUL"
+            ]
+          },
+          {
+            "id": "leftLower",
+            "name": "左肺下叶",
+            "color": "#bf8784",
+            "meshes": [
+              "LLL",
+              "dissection LLL",
+              "dissection_LLL"
+            ]
+          },
+          {
+            "id": "airway",
+            "name": "气管与支气管树",
+            "color": "#d8b49b",
+            "meshes": [
+              "Airway_Tree",
+              "dissection Airway_Tree",
+              "dissection_Airway_Tree"
+            ]
+          },
+          {
+            "id": "cartilage",
+            "name": "气管软骨",
+            "color": "#dfcdc0",
+            "meshes": [
+              "Tracheal_Cartilage",
+              "dissection Tracheal_Cartilage",
+              "dissection_Tracheal_Cartilage"
+            ]
+          },
+          {
+            "id": "arteries",
+            "name": "肺动脉",
+            "color": "#627e9d",
+            "meshes": [
+              "Pulmonary_Arteries",
+              "dissection Pulmonary_Arteries",
+              "dissection_Pulmonary_Arteries"
+            ]
+          },
+          {
+            "id": "rightSuperiorVein",
+            "name": "右上肺静脉",
+            "color": "#af625d",
+            "meshes": [
+              "Pulmonary_Vein_R_Superior",
+              "dissection Pulmonary_Vein_R_Superior",
+              "dissection_Pulmonary_Vein_R_Superior"
+            ]
+          },
+          {
+            "id": "rightInferiorVein",
+            "name": "右下肺静脉",
+            "color": "#af625d",
+            "meshes": [
+              "Pulmonary_Vein_R_Inferior",
+              "dissection Pulmonary_Vein_R_Inferior",
+              "dissection_Pulmonary_Vein_R_Inferior"
+            ]
+          },
+          {
+            "id": "leftSuperiorVein",
+            "name": "左上肺静脉",
+            "color": "#af625d",
+            "meshes": [
+              "Pulmonary_Vein_L_Superior",
+              "dissection Pulmonary_Vein_L_Superior",
+              "dissection_Pulmonary_Vein_L_Superior"
+            ]
+          },
+          {
+            "id": "leftInferiorVein",
+            "name": "左下肺静脉",
+            "color": "#af625d",
+            "meshes": [
+              "Pulmonary_Vein_L_Inferior",
+              "dissection Pulmonary_Vein_L_Inferior",
+              "dissection_Pulmonary_Vein_L_Inferior"
+            ]
+          }
+        ]
       },
       "hilum": {
         "url": "./models/lungs/hilum.glb",
-        "version": "肺门与气管分叉近景",
+        "version": "本件肺门",
         "view": [
           0.2419219,
           0,
@@ -352,11 +590,133 @@ export const specimens = [
           "width": 0.143,
           "height": 0.1081219512195122
         },
-        "note": "从患者左前方近看，沿气管分叉追踪右主支气管。半透明的肺叶和血管保留了与管道的前后关系。"
+        "note": "自两侧斜看肺门中的气道、肺动脉及肺静脉。",
+        "parts": [
+          {
+            "id": "rightUpper",
+            "name": "右肺上叶",
+            "color": "#bf8784",
+            "meshes": [
+              "RUL",
+              "hilum RUL",
+              "hilum_RUL"
+            ]
+          },
+          {
+            "id": "rightMiddle",
+            "name": "右肺中叶",
+            "color": "#bf8784",
+            "meshes": [
+              "RML",
+              "hilum RML",
+              "hilum_RML"
+            ]
+          },
+          {
+            "id": "rightLower",
+            "name": "右肺下叶",
+            "color": "#bf8784",
+            "meshes": [
+              "RLL",
+              "hilum RLL",
+              "hilum_RLL"
+            ]
+          },
+          {
+            "id": "leftUpper",
+            "name": "左肺上叶",
+            "color": "#bf8784",
+            "meshes": [
+              "LUL",
+              "hilum LUL",
+              "hilum_LUL"
+            ]
+          },
+          {
+            "id": "leftLower",
+            "name": "左肺下叶",
+            "color": "#bf8784",
+            "meshes": [
+              "LLL",
+              "hilum LLL",
+              "hilum_LLL"
+            ]
+          },
+          {
+            "id": "airway",
+            "name": "气管与支气管树",
+            "color": "#d8b49b",
+            "meshes": [
+              "Airway_Tree",
+              "hilum Airway_Tree",
+              "hilum_Airway_Tree"
+            ]
+          },
+          {
+            "id": "cartilage",
+            "name": "气管软骨",
+            "color": "#dfcdc0",
+            "meshes": [
+              "Tracheal_Cartilage",
+              "hilum Tracheal_Cartilage",
+              "hilum_Tracheal_Cartilage"
+            ]
+          },
+          {
+            "id": "arteries",
+            "name": "肺动脉",
+            "color": "#627e9d",
+            "meshes": [
+              "Pulmonary_Arteries",
+              "hilum Pulmonary_Arteries",
+              "hilum_Pulmonary_Arteries"
+            ]
+          },
+          {
+            "id": "rightSuperiorVein",
+            "name": "右上肺静脉",
+            "color": "#af625d",
+            "meshes": [
+              "Pulmonary_Vein_R_Superior",
+              "hilum Pulmonary_Vein_R_Superior",
+              "hilum_Pulmonary_Vein_R_Superior"
+            ]
+          },
+          {
+            "id": "rightInferiorVein",
+            "name": "右下肺静脉",
+            "color": "#af625d",
+            "meshes": [
+              "Pulmonary_Vein_R_Inferior",
+              "hilum Pulmonary_Vein_R_Inferior",
+              "hilum_Pulmonary_Vein_R_Inferior"
+            ]
+          },
+          {
+            "id": "leftSuperiorVein",
+            "name": "左上肺静脉",
+            "color": "#af625d",
+            "meshes": [
+              "Pulmonary_Vein_L_Superior",
+              "hilum Pulmonary_Vein_L_Superior",
+              "hilum_Pulmonary_Vein_L_Superior"
+            ]
+          },
+          {
+            "id": "leftInferiorVein",
+            "name": "左下肺静脉",
+            "color": "#af625d",
+            "meshes": [
+              "Pulmonary_Vein_L_Inferior",
+              "hilum Pulmonary_Vein_L_Inferior",
+              "hilum_Pulmonary_Vein_L_Inferior"
+            ]
+          }
+        ]
       },
       "hilum-opposite": {
         "url": "./models/lungs/hilum.glb",
-        "version": "肺门近景 · 右前斜面",
+        "version": "本件肺门",
         "view": [
           -0.2419219,
           0,
@@ -371,20 +731,142 @@ export const specimens = [
           "width": 0.143,
           "height": 0.1081219512195122
         },
-        "note": "从患者右前方近看，沿较长的左主支气管追向肺门。与另一前斜面切换时，取景中心和尺度相同。"
+        "note": "自两侧斜看肺门中的气道、肺动脉及肺静脉。",
+        "parts": [
+          {
+            "id": "rightUpper",
+            "name": "右肺上叶",
+            "color": "#bf8784",
+            "meshes": [
+              "RUL",
+              "hilum RUL",
+              "hilum_RUL"
+            ]
+          },
+          {
+            "id": "rightMiddle",
+            "name": "右肺中叶",
+            "color": "#bf8784",
+            "meshes": [
+              "RML",
+              "hilum RML",
+              "hilum_RML"
+            ]
+          },
+          {
+            "id": "rightLower",
+            "name": "右肺下叶",
+            "color": "#bf8784",
+            "meshes": [
+              "RLL",
+              "hilum RLL",
+              "hilum_RLL"
+            ]
+          },
+          {
+            "id": "leftUpper",
+            "name": "左肺上叶",
+            "color": "#bf8784",
+            "meshes": [
+              "LUL",
+              "hilum LUL",
+              "hilum_LUL"
+            ]
+          },
+          {
+            "id": "leftLower",
+            "name": "左肺下叶",
+            "color": "#bf8784",
+            "meshes": [
+              "LLL",
+              "hilum LLL",
+              "hilum_LLL"
+            ]
+          },
+          {
+            "id": "airway",
+            "name": "气管与支气管树",
+            "color": "#d8b49b",
+            "meshes": [
+              "Airway_Tree",
+              "hilum Airway_Tree",
+              "hilum_Airway_Tree"
+            ]
+          },
+          {
+            "id": "cartilage",
+            "name": "气管软骨",
+            "color": "#dfcdc0",
+            "meshes": [
+              "Tracheal_Cartilage",
+              "hilum Tracheal_Cartilage",
+              "hilum_Tracheal_Cartilage"
+            ]
+          },
+          {
+            "id": "arteries",
+            "name": "肺动脉",
+            "color": "#627e9d",
+            "meshes": [
+              "Pulmonary_Arteries",
+              "hilum Pulmonary_Arteries",
+              "hilum_Pulmonary_Arteries"
+            ]
+          },
+          {
+            "id": "rightSuperiorVein",
+            "name": "右上肺静脉",
+            "color": "#af625d",
+            "meshes": [
+              "Pulmonary_Vein_R_Superior",
+              "hilum Pulmonary_Vein_R_Superior",
+              "hilum_Pulmonary_Vein_R_Superior"
+            ]
+          },
+          {
+            "id": "rightInferiorVein",
+            "name": "右下肺静脉",
+            "color": "#af625d",
+            "meshes": [
+              "Pulmonary_Vein_R_Inferior",
+              "hilum Pulmonary_Vein_R_Inferior",
+              "hilum_Pulmonary_Vein_R_Inferior"
+            ]
+          },
+          {
+            "id": "leftSuperiorVein",
+            "name": "左上肺静脉",
+            "color": "#af625d",
+            "meshes": [
+              "Pulmonary_Vein_L_Superior",
+              "hilum Pulmonary_Vein_L_Superior",
+              "hilum_Pulmonary_Vein_L_Superior"
+            ]
+          },
+          {
+            "id": "leftInferiorVein",
+            "name": "左下肺静脉",
+            "color": "#af625d",
+            "meshes": [
+              "Pulmonary_Vein_L_Inferior",
+              "hilum Pulmonary_Vein_L_Inferior",
+              "hilum_Pulmonary_Vein_L_Inferior"
+            ]
+          }
+        ]
       },
       "right-fissure": {
-        "version": "右前斜面 25°",
+        "version": "从空场景构建的双肺",
         "url": "./models/lungs/whole.glb",
         "view": [
           -0.9063078,
           0,
           0.4226183
         ],
-        "note": "右上叶和中叶之间是水平裂，中叶和下叶之间是斜裂。沿斜裂从汇合处分向前下，可见邻叶搭接。该视角的斜裂中段仍有一小段边缘偏平。"
+        "note": "可逐叶隐藏，观察本件的左右肺底和叶裂。"
       },
       "section": {
-        "version": "冠状剖面",
+        "version": "本件实体冠状剖面",
         "status": "教学展示",
         "url": "./models/lungs/section.glb",
         "note": "切去双肺前部后，粉色区域是暴露的肺实质。浅色、蓝色和红色的管壁分别属于气道、肺动脉和肺静脉。旋转可看剩余肺叶，每个图层同时控制该部位的表面和切面。",
@@ -394,8 +876,9 @@ export const specimens = [
             "name": "右肺上叶",
             "color": "#bf8784",
             "meshes": [
-              "RUL_posterior",
-              "RUL_cut"
+              "RUL",
+              "section RUL",
+              "section_RUL"
             ]
           },
           {
@@ -403,8 +886,9 @@ export const specimens = [
             "name": "右肺中叶",
             "color": "#bf8784",
             "meshes": [
-              "RML_posterior",
-              "RML_cut"
+              "RML",
+              "section RML",
+              "section_RML"
             ]
           },
           {
@@ -412,8 +896,9 @@ export const specimens = [
             "name": "右肺下叶",
             "color": "#bf8784",
             "meshes": [
-              "RLL_posterior",
-              "RLL_cut"
+              "RLL",
+              "section RLL",
+              "section_RLL"
             ]
           },
           {
@@ -421,8 +906,9 @@ export const specimens = [
             "name": "左肺上叶",
             "color": "#bf8784",
             "meshes": [
-              "LUL_posterior",
-              "LUL_cut"
+              "LUL",
+              "section LUL",
+              "section_LUL"
             ]
           },
           {
@@ -430,8 +916,9 @@ export const specimens = [
             "name": "左肺下叶",
             "color": "#bf8784",
             "meshes": [
-              "LLL_posterior",
-              "LLL_cut"
+              "LLL",
+              "section LLL",
+              "section_LLL"
             ]
           },
           {
@@ -439,8 +926,9 @@ export const specimens = [
             "name": "气管与支气管树",
             "color": "#d8b49b",
             "meshes": [
-              "Airway_Tree_posterior",
-              "Airway_Tree_cut"
+              "Airway_Tree",
+              "section Airway_Tree",
+              "section_Airway_Tree"
             ]
           },
           {
@@ -448,8 +936,9 @@ export const specimens = [
             "name": "气管软骨",
             "color": "#dfcdc0",
             "meshes": [
-              "Tracheal_Cartilage_posterior",
-              "Tracheal_Cartilage_cut"
+              "Tracheal_Cartilage",
+              "section Tracheal_Cartilage",
+              "section_Tracheal_Cartilage"
             ]
           },
           {
@@ -457,8 +946,9 @@ export const specimens = [
             "name": "肺动脉",
             "color": "#627e9d",
             "meshes": [
-              "Pulmonary_Arteries_posterior",
-              "Pulmonary_Arteries_cut"
+              "Pulmonary_Arteries",
+              "section Pulmonary_Arteries",
+              "section_Pulmonary_Arteries"
             ]
           },
           {
@@ -466,8 +956,9 @@ export const specimens = [
             "name": "右上肺静脉",
             "color": "#af625d",
             "meshes": [
-              "Pulmonary_Vein_R_Superior_posterior",
-              "Pulmonary_Vein_R_Superior_cut"
+              "Pulmonary_Vein_R_Superior",
+              "section Pulmonary_Vein_R_Superior",
+              "section_Pulmonary_Vein_R_Superior"
             ]
           },
           {
@@ -475,8 +966,9 @@ export const specimens = [
             "name": "右下肺静脉",
             "color": "#af625d",
             "meshes": [
-              "Pulmonary_Vein_R_Inferior_posterior",
-              "Pulmonary_Vein_R_Inferior_cut"
+              "Pulmonary_Vein_R_Inferior",
+              "section Pulmonary_Vein_R_Inferior",
+              "section_Pulmonary_Vein_R_Inferior"
             ]
           },
           {
@@ -484,8 +976,9 @@ export const specimens = [
             "name": "左上肺静脉",
             "color": "#af625d",
             "meshes": [
-              "Pulmonary_Vein_L_Superior_posterior",
-              "Pulmonary_Vein_L_Superior_cut"
+              "Pulmonary_Vein_L_Superior",
+              "section Pulmonary_Vein_L_Superior",
+              "section_Pulmonary_Vein_L_Superior"
             ]
           },
           {
@@ -493,8 +986,9 @@ export const specimens = [
             "name": "左下肺静脉",
             "color": "#af625d",
             "meshes": [
-              "Pulmonary_Vein_L_Inferior_posterior",
-              "Pulmonary_Vein_L_Inferior_cut"
+              "Pulmonary_Vein_L_Inferior",
+              "section Pulmonary_Vein_L_Inferior",
+              "section_Pulmonary_Vein_L_Inferior"
             ]
           }
         ]
@@ -508,7 +1002,129 @@ export const specimens = [
           0.12,
           0.35
         ],
-        "note": "从内侧看左肺两叶，再显示气道与右肺，可追踪五条叶支气管及其入口。肺血管通路另需核实。"
+        "note": "从内侧看左肺两叶，再显示气道与右肺，可追踪五条叶支气管及其入口。肺血管通路另需核实。",
+        "parts": [
+          {
+            "id": "rightUpper",
+            "name": "右肺上叶",
+            "color": "#bf8784",
+            "meshes": [
+              "RUL",
+              "airway-recess RUL",
+              "airway-recess_RUL"
+            ]
+          },
+          {
+            "id": "rightMiddle",
+            "name": "右肺中叶",
+            "color": "#bf8784",
+            "meshes": [
+              "RML",
+              "airway-recess RML",
+              "airway-recess_RML"
+            ]
+          },
+          {
+            "id": "rightLower",
+            "name": "右肺下叶",
+            "color": "#bf8784",
+            "meshes": [
+              "RLL",
+              "airway-recess RLL",
+              "airway-recess_RLL"
+            ]
+          },
+          {
+            "id": "leftUpper",
+            "name": "左肺上叶",
+            "color": "#bf8784",
+            "meshes": [
+              "LUL",
+              "airway-recess LUL",
+              "airway-recess_LUL"
+            ]
+          },
+          {
+            "id": "leftLower",
+            "name": "左肺下叶",
+            "color": "#bf8784",
+            "meshes": [
+              "LLL",
+              "airway-recess LLL",
+              "airway-recess_LLL"
+            ]
+          },
+          {
+            "id": "airway",
+            "name": "气管与支气管树",
+            "color": "#d8b49b",
+            "meshes": [
+              "Airway_Tree",
+              "airway-recess Airway_Tree",
+              "airway-recess_Airway_Tree"
+            ]
+          },
+          {
+            "id": "cartilage",
+            "name": "气管软骨",
+            "color": "#dfcdc0",
+            "meshes": [
+              "Tracheal_Cartilage",
+              "airway-recess Tracheal_Cartilage",
+              "airway-recess_Tracheal_Cartilage"
+            ]
+          },
+          {
+            "id": "arteries",
+            "name": "肺动脉",
+            "color": "#627e9d",
+            "meshes": [
+              "Pulmonary_Arteries",
+              "airway-recess Pulmonary_Arteries",
+              "airway-recess_Pulmonary_Arteries"
+            ]
+          },
+          {
+            "id": "rightSuperiorVein",
+            "name": "右上肺静脉",
+            "color": "#af625d",
+            "meshes": [
+              "Pulmonary_Vein_R_Superior",
+              "airway-recess Pulmonary_Vein_R_Superior",
+              "airway-recess_Pulmonary_Vein_R_Superior"
+            ]
+          },
+          {
+            "id": "rightInferiorVein",
+            "name": "右下肺静脉",
+            "color": "#af625d",
+            "meshes": [
+              "Pulmonary_Vein_R_Inferior",
+              "airway-recess Pulmonary_Vein_R_Inferior",
+              "airway-recess_Pulmonary_Vein_R_Inferior"
+            ]
+          },
+          {
+            "id": "leftSuperiorVein",
+            "name": "左上肺静脉",
+            "color": "#af625d",
+            "meshes": [
+              "Pulmonary_Vein_L_Superior",
+              "airway-recess Pulmonary_Vein_L_Superior",
+              "airway-recess_Pulmonary_Vein_L_Superior"
+            ]
+          },
+          {
+            "id": "leftInferiorVein",
+            "name": "左下肺静脉",
+            "color": "#af625d",
+            "meshes": [
+              "Pulmonary_Vein_L_Inferior",
+              "airway-recess Pulmonary_Vein_L_Inferior",
+              "airway-recess_Pulmonary_Vein_L_Inferior"
+            ]
+          }
+        ]
       },
       "segments": {
         "version": "十八个教学肺段",
@@ -662,6 +1278,68 @@ export const specimens = [
             ]
           }
         ]
+      },
+      "interior": {
+        "url": "./models/lungs/interior.glb",
+        "parts": [
+          {
+            "id": "airway",
+            "name": "气管与支气管树",
+            "color": "#d8b49b",
+            "meshes": [
+              "Airway_Tree"
+            ]
+          },
+          {
+            "id": "cartilage",
+            "name": "气管软骨",
+            "color": "#dfcdc0",
+            "meshes": [
+              "Tracheal_Cartilage"
+            ]
+          },
+          {
+            "id": "arteries",
+            "name": "肺动脉",
+            "color": "#627e9d",
+            "meshes": [
+              "Pulmonary_Arteries"
+            ]
+          },
+          {
+            "id": "rightSuperiorVein",
+            "name": "右上肺静脉",
+            "color": "#af625d",
+            "meshes": [
+              "Pulmonary_Vein_R_Superior"
+            ]
+          },
+          {
+            "id": "rightInferiorVein",
+            "name": "右下肺静脉",
+            "color": "#af625d",
+            "meshes": [
+              "Pulmonary_Vein_R_Inferior"
+            ]
+          },
+          {
+            "id": "leftSuperiorVein",
+            "name": "左上肺静脉",
+            "color": "#af625d",
+            "meshes": [
+              "Pulmonary_Vein_L_Superior"
+            ]
+          },
+          {
+            "id": "leftInferiorVein",
+            "name": "左下肺静脉",
+            "color": "#af625d",
+            "meshes": [
+              "Pulmonary_Vein_L_Inferior"
+            ]
+          }
+        ],
+        "note": "完整移去五叶肺实质，观察支气管、肺动脉与四支肺静脉的相对走向。"
       }
     },
     "parts": [
@@ -856,9 +1534,9 @@ export const specimens = [
     "system": "消化系统",
     "version": "肝实质、胆囊与肝内管道",
     "url": "./models/liver/whole.glb",
-    "thumbnail": "./media/liver.webp",
+    "thumbnail": "./media/liver.png",
     "status": "教学展示",
-    "note": "隐藏胆囊和四组管道可看肝门孔口及下腔静脉沟。隐藏肝实质可看完整管网。管段本身为封端实体。",
+    "note": "隐藏肝实质可追踪四系管网，选择「只看肝实质孔口」可观察肝门孔口及下腔静脉沟。管段为封端实体。",
     "view": [
       0.065,
       -0.55,
@@ -985,7 +1663,7 @@ export const specimens = [
     "system": "消化系统",
     "version": "胃壁与黏膜皱襞",
     "url": "./models/stomach/whole.glb",
-    "thumbnail": "./media/stomach.webp",
+    "thumbnail": "./media/stomach.jpg",
     "status": "教学展示",
     "note": "打开胃前壁可观察后壁的黏膜皱襞。幽门前的胃窦逐渐收窄，出口朝向仍待核实。",
     "view": [
@@ -995,10 +1673,7 @@ export const specimens = [
     ],
     "interior": {
       "label": "打开胃前壁",
-      "modes": {
-        "frontOuter": "hidden",
-        "frontInner": "hidden"
-      }
+      "asset": "opened"
     },
     "parts": [
       {
@@ -1049,7 +1724,114 @@ export const specimens = [
           "Duodenal cut edge"
         ]
       }
-    ]
+    ],
+    "isolatedViews": [
+      {
+        "key": "white",
+        "label": "仅看白模外形",
+        "asset": "white"
+      }
+    ],
+    "assets": {
+      "opened": {
+        "url": "./models/stomach/opened.glb",
+        "parts": [
+          {
+            "id": "backOuter",
+            "name": "后壁浆膜面",
+            "color": "#c38579",
+            "materials": [
+              "Gastric serosa posterior"
+            ]
+          },
+          {
+            "id": "backInner",
+            "name": "后壁黏膜面",
+            "color": "#ab5751",
+            "materials": [
+              "Gastric mucosa posterior"
+            ]
+          },
+          {
+            "id": "inlet",
+            "name": "食管端口缘",
+            "color": "#d39c8d",
+            "materials": [
+              "Esophageal cut edge"
+            ]
+          },
+          {
+            "id": "outlet",
+            "name": "十二指肠端口缘",
+            "color": "#daa289",
+            "materials": [
+              "Duodenal cut edge"
+            ]
+          },
+          {
+            "id": "cut",
+            "name": "胃壁纵向切缘",
+            "color": "#d09485",
+            "materials": [
+              "Gastric wall section"
+            ]
+          }
+        ]
+      },
+      "white": {
+        "url": "./models/stomach/white.glb",
+        "parts": [
+          {
+            "id": "frontOuter",
+            "name": "前壁浆膜面",
+            "color": "#c38579",
+            "materials": [
+              "Stomach white outer front"
+            ]
+          },
+          {
+            "id": "backOuter",
+            "name": "后壁浆膜面",
+            "color": "#c38579",
+            "materials": [
+              "Stomach white outer back"
+            ]
+          },
+          {
+            "id": "frontInner",
+            "name": "前壁黏膜面",
+            "color": "#ab5751",
+            "materials": [
+              "Stomach white inner front"
+            ]
+          },
+          {
+            "id": "backInner",
+            "name": "后壁黏膜面",
+            "color": "#ab5751",
+            "materials": [
+              "Stomach white inner back"
+            ]
+          },
+          {
+            "id": "inlet",
+            "name": "食管端口缘",
+            "color": "#d39c8d",
+            "materials": [
+              "Stomach white inlet"
+            ]
+          },
+          {
+            "id": "outlet",
+            "name": "十二指肠端口缘",
+            "color": "#daa289",
+            "materials": [
+              "Stomach white outlet"
+            ]
+          }
+        ]
+      }
+    }
   },
   {
     "id": "esophagus",
@@ -1069,55 +1851,40 @@ export const specimens = [
       {
         "id": "neck",
         "name": "颈段食管",
-        "color": "#b7766c",
+        "color": "#bc8279",
         "materials": [
-          "Cervical outer anterior",
-          "Cervical outer posterior",
-          "Cervical inner anterior",
-          "Cervical inner posterior",
-          "Pharyngoesophageal cut edge"
+          "Cervical outer",
+          "Cervical mucosa"
         ]
       },
       {
         "id": "thorax",
         "name": "胸段食管",
-        "color": "#b7766c",
+        "color": "#bb8178",
         "materials": [
-          "Thoracic outer anterior",
-          "Thoracic outer posterior",
-          "Thoracic inner anterior",
-          "Thoracic inner posterior",
-          "Lower thoracic sleeve outer anterior",
-          "Lower thoracic sleeve outer posterior",
-          "Lower thoracic sleeve inner anterior",
-          "Lower thoracic sleeve inner posterior"
+          "Thoracic outer",
+          "Thoracic mucosa"
         ]
       },
       {
         "id": "abdomen",
         "name": "腹段食管",
-        "color": "#c38d81",
+        "color": "#c88a7a",
         "materials": [
-          "Abdominal sleeve outer anterior",
-          "Abdominal sleeve outer posterior",
-          "Abdominal sleeve inner anterior",
-          "Abdominal sleeve inner posterior"
+          "Abdominal outer",
+          "Abdominal mucosa"
         ]
       },
       {
-        "id": "stomach",
-        "name": "胃及十二指肠短段",
-        "color": "#c38579",
+        "id": "rim",
+        "name": "管壁断缘",
+        "color": "#ce9f84",
         "materials": [
-          "Gastric serosa anterior",
-          "Gastric serosa posterior",
-          "Gastric mucosa anterior",
-          "Gastric mucosa posterior",
-          "Duodenal cut edge"
+          "Exposed cut edge"
         ]
       }
     ],
-    "note": "正面看下段渐向患者左侧入胃，转到侧面看长胸段的后凸。颈端前后较扁，胸段保留两处浅压迹。可逐段隐藏或查看线框。",
+    "note": "上端为咽食管交界，下端止于贲门。旋转可见胸段向后弯、末段向前转。",
     "interior": {
       "label": "打开前壁",
       "asset": "opened"
@@ -1125,141 +1892,354 @@ export const specimens = [
     "isolatedViews": [
       {
         "key": "isolated",
-        "label": "单独食管",
+        "label": "右侧面",
         "asset": "isolated"
+      },
+      {
+        "key": "chest",
+        "label": "胸中压迹",
+        "asset": "chest"
+      },
+      {
+        "key": "previousAssembly",
+        "label": "旧版胃食管总装",
+        "asset": "previousAssembly"
+      },
+      {
+        "key": "previousSection",
+        "label": "旧版贲门纵剖",
+        "asset": "previousSection"
+      },
+      {
+        "key": "previousIsolated",
+        "label": "旧版食管对照",
+        "asset": "previousIsolated"
       }
     ],
     "assets": {
-      "opened": {
-        "url": "./models/esophagus/opened.glb",
+      "isolated": {
+        "url": "./models/esophagus/whole.glb",
+        "view": [
+          -1,
+          0,
+          0
+        ],
         "parts": [
           {
             "id": "neck",
             "name": "颈段食管",
-            "color": "#b7766c",
+            "color": "#bc8279",
             "materials": [
-              "Cervical outer anterior",
-              "Cervical outer posterior",
-              "Cervical inner anterior",
-              "Cervical inner posterior",
-              "Pharyngoesophageal cut edge"
+              "Cervical outer",
+              "Cervical mucosa"
             ]
           },
           {
             "id": "thorax",
             "name": "胸段食管",
-            "color": "#b7766c",
+            "color": "#bb8178",
             "materials": [
-              "Thoracic outer anterior",
-              "Thoracic outer posterior",
-              "Thoracic inner anterior",
-              "Thoracic inner posterior",
-              "Lower thoracic sleeve outer anterior",
-              "Lower thoracic sleeve outer posterior",
-              "Lower thoracic sleeve inner anterior",
-              "Lower thoracic sleeve inner posterior"
+              "Thoracic outer",
+              "Thoracic mucosa"
             ]
           },
           {
             "id": "abdomen",
             "name": "腹段食管",
-            "color": "#c38d81",
+            "color": "#c88a7a",
             "materials": [
-              "Abdominal sleeve outer anterior",
-              "Abdominal sleeve outer posterior",
-              "Abdominal sleeve inner anterior",
-              "Abdominal sleeve inner posterior"
+              "Abdominal outer",
+              "Abdominal mucosa"
+            ]
+          },
+          {
+            "id": "rim",
+            "name": "管壁断缘",
+            "color": "#ce9f84",
+            "materials": [
+              "Exposed cut edge"
+            ]
+          }
+        ],
+        "note": "人体右侧观，图右为前方。"
+      },
+      "chest": {
+        "url": "./models/esophagus/whole.glb",
+        "view": [
+          -1,
+          0,
+          0
+        ],
+        "parts": [
+          {
+            "id": "neck",
+            "name": "颈段食管",
+            "color": "#bc8279",
+            "materials": [
+              "Cervical outer",
+              "Cervical mucosa"
+            ]
+          },
+          {
+            "id": "thorax",
+            "name": "胸段食管",
+            "color": "#bb8178",
+            "materials": [
+              "Thoracic outer",
+              "Thoracic mucosa"
+            ]
+          },
+          {
+            "id": "abdomen",
+            "name": "腹段食管",
+            "color": "#c88a7a",
+            "materials": [
+              "Abdominal outer",
+              "Abdominal mucosa"
+            ]
+          },
+          {
+            "id": "rim",
+            "name": "管壁断缘",
+            "color": "#ce9f84",
+            "materials": [
+              "Exposed cut edge"
+            ]
+          }
+        ],
+        "cameraFrame": {
+          "target": [
+            -0.022737208,
+            0.134767909,
+            -0.021070048
+          ],
+          "width": 0.05,
+          "height": 0.07
+        },
+        "note": "人体右侧局部，图右为前方。由前缘浅凹向上下追踪轮廓。"
+      },
+      "opened": {
+        "url": "./models/esophagus/opened.glb",
+        "view": [
+          0,
+          0,
+          1
+        ],
+        "parts": [
+          {
+            "id": "neck",
+            "name": "颈段食管",
+            "color": "#bc8279",
+            "materials": [
+              "Cervical outer",
+              "Cervical mucosa"
+            ]
+          },
+          {
+            "id": "thorax",
+            "name": "胸段食管",
+            "color": "#bb8178",
+            "materials": [
+              "Thoracic outer",
+              "Thoracic mucosa"
+            ]
+          },
+          {
+            "id": "abdomen",
+            "name": "腹段食管",
+            "color": "#c88a7a",
+            "materials": [
+              "Abdominal outer",
+              "Abdominal mucosa"
+            ]
+          },
+          {
+            "id": "rim",
+            "name": "管壁断缘",
+            "color": "#ce9f84",
+            "materials": [
+              "Exposed cut edge"
+            ]
+          }
+        ],
+        "note": "后半壁及两侧断缘可见，管腔从上口延续至贲门端。"
+      },
+      "previousAssembly": {
+        "url": "./models/esophagus/previous-assembly.glb",
+        "parts": [
+          {
+            "id": "neck",
+            "name": "颈段食管",
+            "color": "#bc8279",
+            "materials": [
+              "Cervical outer",
+              "Cervical mucosa"
+            ]
+          },
+          {
+            "id": "thorax",
+            "name": "胸段食管",
+            "color": "#bb8178",
+            "materials": [
+              "Thoracic outer",
+              "Thoracic mucosa"
+            ]
+          },
+          {
+            "id": "abdomen",
+            "name": "腹段食管",
+            "color": "#c88a7a",
+            "materials": [
+              "Abdominal outer",
+              "Abdominal mucosa"
+            ]
+          },
+          {
+            "id": "rim",
+            "name": "管壁断缘",
+            "color": "#ce9f84",
+            "materials": [
+              "Exposed cut edge"
             ]
           },
           {
             "id": "stomach",
-            "name": "胃及十二指肠短段",
-            "color": "#c38579",
+            "name": "胃和十二指肠短段",
+            "color": "#c68b79",
             "materials": [
-              "Gastric serosa anterior",
-              "Gastric serosa posterior",
-              "Gastric mucosa anterior",
-              "Gastric mucosa posterior",
-              "Duodenal cut edge"
+              "Gastric serosa",
+              "Gastric mucosa",
+              "Duodenal outer",
+              "Duodenal mucosa"
             ]
           }
         ],
-        "note": "前壁已打开，可沿同一食管腔看到贲门和胃腔后壁。此处显示一例轻度开放状态。"
+        "note": "此历史总装可同时查看食管、胃和十二指肠短段。"
       },
-      "isolated": {
-        "url": "./models/esophagus/isolated.glb",
+      "previousSection": {
+        "url": "./models/esophagus/previous-section.glb",
         "parts": [
           {
             "id": "neck",
             "name": "颈段食管",
-            "color": "#b7766c",
+            "color": "#bc8279",
             "materials": [
-              "Cervical outer anterior",
-              "Cervical outer posterior",
-              "Cervical inner anterior",
-              "Cervical inner posterior",
-              "Pharyngoesophageal cut edge"
+              "Cervical outer",
+              "Cervical mucosa"
             ]
           },
           {
             "id": "thorax",
             "name": "胸段食管",
-            "color": "#b7766c",
+            "color": "#bb8178",
             "materials": [
-              "Thoracic outer anterior",
-              "Thoracic outer posterior",
-              "Thoracic inner anterior",
-              "Thoracic inner posterior",
-              "Lower thoracic sleeve outer anterior",
-              "Lower thoracic sleeve outer posterior",
-              "Lower thoracic sleeve inner anterior",
-              "Lower thoracic sleeve inner posterior"
+              "Thoracic outer",
+              "Thoracic mucosa"
             ]
           },
           {
             "id": "abdomen",
             "name": "腹段食管",
-            "color": "#c38d81",
+            "color": "#c88a7a",
             "materials": [
-              "Abdominal sleeve outer anterior",
-              "Abdominal sleeve outer posterior",
-              "Abdominal sleeve inner anterior",
-              "Abdominal sleeve inner posterior"
+              "Abdominal outer",
+              "Abdominal mucosa"
+            ]
+          },
+          {
+            "id": "rim",
+            "name": "管壁断缘",
+            "color": "#ce9f84",
+            "materials": [
+              "Exposed cut edge"
+            ]
+          },
+          {
+            "id": "stomach",
+            "name": "胃和十二指肠短段",
+            "color": "#c68b79",
+            "materials": [
+              "Gastric serosa",
+              "Gastric mucosa",
+              "Duodenal outer",
+              "Duodenal mucosa"
             ]
           }
         ],
-        "note": "从咽食管交界到贲门的三个连续分段。转到患者右侧可看胸段向后弯、近膈再向前的走行。"
+        "note": "此历史总装沿前壁切开，可查看胃壁皱襞及贲门连接。"
+      },
+      "previousIsolated": {
+        "url": "./models/esophagus/previous-isolated.glb",
+        "parts": [
+          {
+            "id": "neck",
+            "name": "颈段食管",
+            "color": "#bc8279",
+            "materials": [
+              "Cervical outer",
+              "Cervical mucosa"
+            ]
+          },
+          {
+            "id": "thorax",
+            "name": "胸段食管",
+            "color": "#bb8178",
+            "materials": [
+              "Thoracic outer",
+              "Thoracic mucosa"
+            ]
+          },
+          {
+            "id": "abdomen",
+            "name": "腹段食管",
+            "color": "#c88a7a",
+            "materials": [
+              "Abdominal outer",
+              "Abdominal mucosa"
+            ]
+          },
+          {
+            "id": "rim",
+            "name": "管壁断缘",
+            "color": "#ce9f84",
+            "materials": [
+              "Exposed cut edge"
+            ]
+          }
+        ],
+        "note": "从历史胃食管总装中隔离的食管，可与本次独立生成的食管对照。"
       }
     }
   },
   {
     "id": "intestines",
-    "name": "大小肠与胃",
+    "name": "大小肠",
     "latin": "Intestinum tenue et crassum",
     "system": "消化系统",
     "version": "胃、小肠和大肠",
     "status": "教学展示",
     "url": "./models/intestines/whole.glb",
-    "thumbnail": "./media/intestines.webp",
+    "thumbnail": "./media/intestines.png",
+    "coordinateSpace": "blender-gltf",
     "view": [
       0,
       0,
       1
     ],
-    "note": "从正面可看结肠围住小肠，移开空肠可沿回肠追到盲肠内侧。肠袢取一种教学构形，中下腹仍有几段折返偏长、过于平行。",
+    "note": "从正面沿外围看结肠，转到斜侧观察前后层的肠袢。下腹前排的几段横弯仍较长、较平。",
     "parts": [
       {
-        "id": "stomach",
-        "name": "胃与原有短段",
-        "color": "#c38579",
+        "id": "proximal",
+        "name": "十二指肠近端短段",
+        "color": "#c68679",
         "meshes": [
-          "Stomach"
+          "Proximal duodenum"
         ]
       },
       {
         "id": "duodenum",
-        "name": "十二指肠续段",
-        "color": "#c38579",
+        "name": "其余十二指肠",
+        "color": "#c68679",
         "meshes": [
           "Duodenum"
         ]
@@ -1361,24 +2341,6 @@ export const specimens = [
         ]
       }
     ],
-    "interior": {
-      "label": "仅看大小肠",
-      "only": [
-        "duodenum",
-        "jejunum",
-        "ileum",
-        "caecum",
-        "appendix",
-        "ascending",
-        "hepatic",
-        "transverse",
-        "splenic",
-        "descending",
-        "sigmoid",
-        "rectum",
-        "anal"
-      ]
-    },
     "isolatedViews": [
       {
         "key": "frame",
@@ -1394,16 +2356,56 @@ export const specimens = [
           "sigmoid",
           "rectum",
           "anal"
-        ]
+        ],
+        "note": "正面观察时，从图左的盲肠沿升结肠上行，经过横结肠，再沿图右的降结肠下行。"
+      },
+      {
+        "key": "mobile",
+        "label": "空肠与回肠",
+        "only": [
+          "jejunum",
+          "ileum"
+        ],
+        "note": "空、回肠是一根连续肠管。当前走行展示一种可能的成人排布。"
+      },
+      {
+        "key": "inlet",
+        "label": "十二指肠",
+        "only": [
+          "proximal",
+          "duodenum"
+        ],
+        "note": "近端从幽门后起始，远端在十二指肠空肠曲与空肠相续。"
+      },
+      {
+        "key": "assembly",
+        "label": "胃件组装接口",
+        "only": [
+          "duodenum",
+          "jejunum",
+          "ileum",
+          "caecum",
+          "appendix",
+          "ascending",
+          "hepatic",
+          "transverse",
+          "splenic",
+          "descending",
+          "sigmoid",
+          "rectum",
+          "anal"
+        ],
+        "note": "此视图从 24 毫米球部短段的下游开始。另行生成的胃件如已含同规格球部，可接在此处。胃件若止于幽门，使用整件的近端开口。"
       },
       {
         "key": "ileocaecal",
-        "label": "打开盲肠看两个开口",
+        "label": "盲肠内壁",
         "asset": "ileocaecal"
       },
       {
         "key": "gastroduodenal",
-        "label": "胃与十二指肠",
+        "label": "旧版胃肠组装对照",
+        "asset": "previousAssembly",
         "only": [
           "stomach",
           "duodenum"
@@ -1418,12 +2420,20 @@ export const specimens = [
           0.06,
           0.28
         ],
-        "note": "前外侧壁已切开。内侧壁上方较大的开口通向回肠，下方较小的开口通向阑尾。",
+        "cameraFrame": {
+          "target": [
+            -0.148,
+            -0.294,
+            -0.003
+          ],
+          "width": 0.137,
+          "height": 0.137
+        },
+        "note": "切开前外侧壁后，可见内侧壁有两个开口。较大的接末端回肠，下方小口通阑尾。",
         "parts": [
           {
             "id": "outside",
             "name": "外壁与末端回肠",
-            "color": "#bf8b83",
             "materials": [
               "Colonic serosa",
               "Ileum serosa",
@@ -1433,13 +2443,134 @@ export const specimens = [
           {
             "id": "inside",
             "name": "腔面",
-            "color": "#af605a",
             "materials": [
               "Intestinal mucosa"
             ]
           }
         ]
+      },
+      "previousAssembly": {
+        "url": "./models/intestines/previous-assembly.glb",
+        "parts": [
+          {
+            "id": "stomach",
+            "name": "胃与原有短段",
+            "color": "#c38579",
+            "meshes": [
+              "Stomach"
+            ]
+          },
+          {
+            "id": "duodenum",
+            "name": "十二指肠续段",
+            "color": "#c38579",
+            "meshes": [
+              "Duodenum"
+            ]
+          },
+          {
+            "id": "jejunum",
+            "name": "空肠",
+            "color": "#c78b7f",
+            "meshes": [
+              "Jejunum"
+            ]
+          },
+          {
+            "id": "ileum",
+            "name": "回肠",
+            "color": "#c2847b",
+            "meshes": [
+              "Ileum"
+            ]
+          },
+          {
+            "id": "caecum",
+            "name": "盲肠",
+            "color": "#bf8b83",
+            "meshes": [
+              "Caecum"
+            ]
+          },
+          {
+            "id": "appendix",
+            "name": "阑尾",
+            "color": "#c1827b",
+            "meshes": [
+              "Appendix"
+            ]
+          },
+          {
+            "id": "ascending",
+            "name": "升结肠",
+            "color": "#bf8b83",
+            "meshes": [
+              "Ascending colon"
+            ]
+          },
+          {
+            "id": "hepatic",
+            "name": "右结肠曲",
+            "color": "#bf8b83",
+            "meshes": [
+              "Right colic flexure"
+            ]
+          },
+          {
+            "id": "transverse",
+            "name": "横结肠",
+            "color": "#bf8b83",
+            "meshes": [
+              "Transverse colon"
+            ]
+          },
+          {
+            "id": "splenic",
+            "name": "左结肠曲",
+            "color": "#bf8b83",
+            "meshes": [
+              "Left colic flexure"
+            ]
+          },
+          {
+            "id": "descending",
+            "name": "降结肠",
+            "color": "#bf8b83",
+            "meshes": [
+              "Descending colon"
+            ]
+          },
+          {
+            "id": "sigmoid",
+            "name": "乙状结肠",
+            "color": "#bf8b83",
+            "meshes": [
+              "Sigmoid colon"
+            ]
+          },
+          {
+            "id": "rectum",
+            "name": "直肠",
+            "color": "#b87e79",
+            "meshes": [
+              "Rectum"
+            ]
+          },
+          {
+            "id": "anal",
+            "name": "肛管",
+            "color": "#b87e79",
+            "meshes": [
+              "Anal canal"
+            ]
+          }
+        ],
+        "note": "此视图使用历史总装，可对照旧胃与十二指肠的位置。完整外观显示新源码生成的肠道。"
       }
+    },
+    "interior": {
+      "label": "打开盲肠看两个开口",
+      "asset": "ileocaecal"
     }
   },
   {
@@ -1449,35 +2580,28 @@ export const specimens = [
     "system": "泌尿系统",
     "version": "左肾、肾门与集合系统",
     "status": "肾盂与静脉的显露范围仍待核实",
+    "thumbnail": "./media/kidney.png",
     "url": "./models/kidney/whole.glb",
-    "thumbnail": "./media/kidney.webp",
-    "view": [
-      0,
-      0,
-      1
-    ],
-    "note": "从内侧可看管根周围的肾门组织。冠状剖面可追踪皮质、髓锥和集合系统，管网展示代表性分支。",
     "parts": [
       {
-        "id": "frontCortex",
-        "name": "前半肾实质（含被膜表面）",
-        "color": "#9f6253",
+        "id": "front_parenchyma",
+        "name": "前半肾实质",
         "meshes": [
           "CORTEX_L.anterior"
-        ]
+        ],
+        "defaultMode": "solid"
       },
       {
-        "id": "backCortex",
-        "name": "后半肾实质（含肾柱）",
-        "color": "#c99078",
+        "id": "back_parenchyma",
+        "name": "后半肾实质",
         "meshes": [
           "CORTEX_L.posterior"
-        ]
+        ],
+        "defaultMode": "solid"
       },
       {
-        "id": "frontMedulla",
-        "name": "髓锥与乳头 · 前部",
-        "color": "#ab6b63",
+        "id": "front_medulla",
+        "name": "髓锥和乳头前部",
         "meshes": [
           "PYRAMID_L.01.anterior",
           "PYRAMID_L.02.anterior",
@@ -1488,12 +2612,12 @@ export const specimens = [
           "PYRAMID_L.07.anterior",
           "PYRAMID_L.08.anterior",
           "PYRAMID_L.09.anterior"
-        ]
+        ],
+        "defaultMode": "solid"
       },
       {
-        "id": "backMedulla",
-        "name": "髓锥与乳头 · 后部",
-        "color": "#ab6b63",
+        "id": "back_medulla",
+        "name": "髓锥和乳头后部",
         "meshes": [
           "PYRAMID_L.01.posterior",
           "PYRAMID_L.02.posterior",
@@ -1504,20 +2628,22 @@ export const specimens = [
           "PYRAMID_L.07.posterior",
           "PYRAMID_L.08.posterior",
           "PYRAMID_L.10.posterior"
-        ]
+        ],
+        "defaultMode": "solid"
       },
       {
-        "id": "sinusFat",
-        "name": "肾窦脂肪",
-        "color": "#d8bc83",
+        "id": "major",
+        "name": "大肾盏",
         "meshes": [
-          "SINUS_FAT_L.posterior"
-        ]
+          "MAJOR_CALYX_L.01",
+          "MAJOR_CALYX_L.02",
+          "MAJOR_CALYX_L.03"
+        ],
+        "defaultMode": "solid"
       },
       {
-        "id": "minorCalyces",
+        "id": "minor",
         "name": "小肾盏",
-        "color": "#dcc7aa",
         "meshes": [
           "MINOR_CALYX_L.01",
           "MINOR_CALYX_L.02",
@@ -1529,81 +2655,165 @@ export const specimens = [
           "MINOR_CALYX_L.08",
           "MINOR_CALYX_L.09",
           "MINOR_CALYX_L.10"
-        ]
+        ],
+        "defaultMode": "solid"
       },
       {
-        "id": "majorCalyces",
-        "name": "大肾盏",
-        "color": "#dcc7aa",
-        "meshes": [
-          "MAJOR_CALYX_L.01",
-          "MAJOR_CALYX_L.02",
-          "MAJOR_CALYX_L.03"
-        ]
-      },
-      {
-        "id": "renalPelvis",
+        "id": "pelvis",
         "name": "肾盂",
-        "color": "#d8c1a3",
         "meshes": [
           "PELVIS_L"
-        ]
+        ],
+        "defaultMode": "solid"
       },
       {
-        "id": "proximalUreter",
-        "name": "近端输尿管",
-        "color": "#d3bfa5",
+        "id": "ureter",
+        "name": "输尿管近段",
         "meshes": [
           "URETER_L"
-        ]
+        ],
+        "defaultMode": "solid"
       },
       {
-        "id": "renalArteries",
-        "name": "肾动脉与肾内分支",
-        "color": "#b66350",
-        "materials": [
-          "Kidney | Renal artery"
-        ]
+        "id": "arteries",
+        "name": "肾动脉及分支",
+        "meshes": [
+          "ARTERY_L",
+          "ARTERY_L.arcuate.01.1",
+          "ARTERY_L.arcuate.01.2",
+          "ARTERY_L.arcuate.02.1",
+          "ARTERY_L.arcuate.02.2",
+          "ARTERY_L.arcuate.03.1",
+          "ARTERY_L.arcuate.03.2",
+          "ARTERY_L.arcuate.04.1",
+          "ARTERY_L.arcuate.04.2",
+          "ARTERY_L.arcuate.05.1",
+          "ARTERY_L.arcuate.05.2",
+          "ARTERY_L.arcuate.06.1",
+          "ARTERY_L.arcuate.06.2",
+          "ARTERY_L.arcuate.07.1",
+          "ARTERY_L.arcuate.07.2",
+          "ARTERY_L.cortical.01.1.12",
+          "ARTERY_L.cortical.01.1.6",
+          "ARTERY_L.cortical.01.2.12",
+          "ARTERY_L.cortical.01.2.6",
+          "ARTERY_L.cortical.02.1.12",
+          "ARTERY_L.cortical.02.1.6",
+          "ARTERY_L.cortical.02.2.12",
+          "ARTERY_L.cortical.02.2.6",
+          "ARTERY_L.cortical.03.1.12",
+          "ARTERY_L.cortical.03.1.6",
+          "ARTERY_L.cortical.03.2.12",
+          "ARTERY_L.cortical.03.2.6",
+          "ARTERY_L.cortical.04.1.12",
+          "ARTERY_L.cortical.04.1.6",
+          "ARTERY_L.cortical.04.2.12",
+          "ARTERY_L.cortical.04.2.6",
+          "ARTERY_L.cortical.05.1.12",
+          "ARTERY_L.cortical.05.1.6",
+          "ARTERY_L.cortical.05.2.12",
+          "ARTERY_L.cortical.05.2.6",
+          "ARTERY_L.cortical.06.1.12",
+          "ARTERY_L.cortical.06.1.6",
+          "ARTERY_L.cortical.06.2.12",
+          "ARTERY_L.cortical.06.2.6",
+          "ARTERY_L.cortical.07.1.12",
+          "ARTERY_L.cortical.07.1.6",
+          "ARTERY_L.cortical.07.2.12",
+          "ARTERY_L.cortical.07.2.6",
+          "ARTERY_L.interlobar.01",
+          "ARTERY_L.interlobar.02",
+          "ARTERY_L.interlobar.03",
+          "ARTERY_L.interlobar.04",
+          "ARTERY_L.interlobar.05",
+          "ARTERY_L.interlobar.06",
+          "ARTERY_L.interlobar.07",
+          "ARTERY_L.segmental.inferior",
+          "ARTERY_L.segmental.superior"
+        ],
+        "defaultMode": "solid"
       },
       {
-        "id": "renalVeins",
-        "name": "肾静脉与肾内属支",
-        "color": "#577d91",
-        "materials": [
-          "Kidney | Renal vein"
-        ]
+        "id": "veins",
+        "name": "肾静脉及属支",
+        "meshes": [
+          "VEIN_L",
+          "VEIN_L.arcuate.01.1",
+          "VEIN_L.arcuate.01.2",
+          "VEIN_L.arcuate.03.1",
+          "VEIN_L.arcuate.03.2",
+          "VEIN_L.arcuate.04.1",
+          "VEIN_L.arcuate.04.2",
+          "VEIN_L.arcuate.06.1",
+          "VEIN_L.arcuate.06.2",
+          "VEIN_L.arcuate.07.1",
+          "VEIN_L.arcuate.07.2",
+          "VEIN_L.cortical.01.1.8",
+          "VEIN_L.cortical.01.2.8",
+          "VEIN_L.cortical.03.1.8",
+          "VEIN_L.cortical.03.2.8",
+          "VEIN_L.cortical.04.1.8",
+          "VEIN_L.cortical.04.2.8",
+          "VEIN_L.cortical.06.1.8",
+          "VEIN_L.cortical.06.2.8",
+          "VEIN_L.cortical.07.1.8",
+          "VEIN_L.cortical.07.2.8",
+          "VEIN_L.interlobar.01",
+          "VEIN_L.interlobar.03",
+          "VEIN_L.interlobar.04",
+          "VEIN_L.interlobar.06",
+          "VEIN_L.interlobar.07",
+          "VEIN_L.segmental.inferior",
+          "VEIN_L.segmental.superior"
+        ],
+        "defaultMode": "solid"
       },
       {
-        "id": "hilarSupport",
-        "name": "肾门唇与管根入口",
-        "color": "#a46653",
+        "id": "fat",
+        "name": "肾窦脂肪",
+        "meshes": [
+          "SINUS_FAT_L.posterior"
+        ],
+        "defaultMode": "solid"
+      },
+      {
+        "id": "hilar_support",
+        "name": "肾门唇",
         "meshes": [
           "HILAR_SUPPORT_L"
-        ]
+        ],
+        "defaultMode": "solid"
       }
     ],
+    "coordinateSpace": "blender-gltf",
+    "view": [
+      -0.21796073019504547,
+      0.09907293319702148,
+      0.9709159135818481
+    ],
+    "note": "可旋转观察上极、下极、外侧凸缘及肾门。",
     "interior": {
       "label": "冠状剖面",
       "only": [
-        "backCortex",
-        "backMedulla",
-        "sinusFat",
-        "minorCalyces",
-        "majorCalyces",
-        "renalPelvis",
-        "proximalUreter"
+        "back_parenchyma",
+        "back_medulla",
+        "major",
+        "minor",
+        "pelvis",
+        "ureter",
+        "fat"
       ]
     },
     "isolatedViews": [
       {
         "key": "medial",
-        "label": "肾门内侧",
+        "label": "内侧肾门",
         "asset": "medial"
       },
       {
         "key": "medial-before",
-        "label": "肾门外形对照",
-        "asset": "medialBefore"
+        "label": "修订前肾门",
+        "asset": "medial-before"
       },
       {
         "key": "window",
@@ -1612,67 +2822,58 @@ export const specimens = [
       },
       {
         "key": "papilla",
-        "label": "乳头与小盏",
+        "label": "乳头与小肾盏",
         "asset": "papilla"
       },
       {
+        "key": "papilla-oblique",
+        "label": "斜看同一乳头",
+        "asset": "papilla-oblique"
+      },
+      {
         "key": "networks",
-        "label": "显露肾内管网",
-        "only": [
-          "minorCalyces",
-          "majorCalyces",
-          "renalPelvis",
-          "proximalUreter",
-          "renalArteries",
-          "renalVeins"
-        ]
+        "label": "肾内管网",
+        "asset": "networks"
       },
       {
         "key": "collecting",
         "label": "仅看集合系统",
-        "only": [
-          "minorCalyces",
-          "majorCalyces",
-          "renalPelvis",
-          "proximalUreter"
-        ]
+        "asset": "collecting"
+      },
+      {
+        "key": "white",
+        "label": "M42 白模",
+        "asset": "white"
       },
       {
         "key": "previous",
-        "label": "原版白模",
+        "label": "旧版白模对照",
         "asset": "previous"
       }
     ],
-    "legacyLayers": "previous",
     "assets": {
       "medial": {
         "url": "./models/kidney/whole.glb",
-        "view": [
-          -1,
-          0,
-          0
-        ],
         "parts": [
           {
-            "id": "frontCortex",
-            "name": "前半肾实质（含被膜表面）",
-            "color": "#9f6253",
+            "id": "front_parenchyma",
+            "name": "前半肾实质",
             "meshes": [
               "CORTEX_L.anterior"
-            ]
+            ],
+            "defaultMode": "solid"
           },
           {
-            "id": "backCortex",
-            "name": "后半肾实质（含肾柱）",
-            "color": "#c99078",
+            "id": "back_parenchyma",
+            "name": "后半肾实质",
             "meshes": [
               "CORTEX_L.posterior"
-            ]
+            ],
+            "defaultMode": "solid"
           },
           {
-            "id": "frontMedulla",
-            "name": "髓锥与乳头 · 前部",
-            "color": "#ab6b63",
+            "id": "front_medulla",
+            "name": "髓锥和乳头前部",
             "meshes": [
               "PYRAMID_L.01.anterior",
               "PYRAMID_L.02.anterior",
@@ -1683,12 +2884,12 @@ export const specimens = [
               "PYRAMID_L.07.anterior",
               "PYRAMID_L.08.anterior",
               "PYRAMID_L.09.anterior"
-            ]
+            ],
+            "defaultMode": "solid"
           },
           {
-            "id": "backMedulla",
-            "name": "髓锥与乳头 · 后部",
-            "color": "#ab6b63",
+            "id": "back_medulla",
+            "name": "髓锥和乳头后部",
             "meshes": [
               "PYRAMID_L.01.posterior",
               "PYRAMID_L.02.posterior",
@@ -1699,20 +2900,22 @@ export const specimens = [
               "PYRAMID_L.07.posterior",
               "PYRAMID_L.08.posterior",
               "PYRAMID_L.10.posterior"
-            ]
+            ],
+            "defaultMode": "solid"
           },
           {
-            "id": "sinusFat",
-            "name": "肾窦脂肪",
-            "color": "#d8bc83",
+            "id": "major",
+            "name": "大肾盏",
             "meshes": [
-              "SINUS_FAT_L.posterior"
-            ]
+              "MAJOR_CALYX_L.01",
+              "MAJOR_CALYX_L.02",
+              "MAJOR_CALYX_L.03"
+            ],
+            "defaultMode": "solid"
           },
           {
-            "id": "minorCalyces",
+            "id": "minor",
             "name": "小肾盏",
-            "color": "#dcc7aa",
             "meshes": [
               "MINOR_CALYX_L.01",
               "MINOR_CALYX_L.02",
@@ -1724,89 +2927,166 @@ export const specimens = [
               "MINOR_CALYX_L.08",
               "MINOR_CALYX_L.09",
               "MINOR_CALYX_L.10"
-            ]
+            ],
+            "defaultMode": "solid"
           },
           {
-            "id": "majorCalyces",
-            "name": "大肾盏",
-            "color": "#dcc7aa",
-            "meshes": [
-              "MAJOR_CALYX_L.01",
-              "MAJOR_CALYX_L.02",
-              "MAJOR_CALYX_L.03"
-            ]
-          },
-          {
-            "id": "renalPelvis",
+            "id": "pelvis",
             "name": "肾盂",
-            "color": "#d8c1a3",
             "meshes": [
               "PELVIS_L"
-            ]
+            ],
+            "defaultMode": "solid"
           },
           {
-            "id": "proximalUreter",
-            "name": "近端输尿管",
-            "color": "#d3bfa5",
+            "id": "ureter",
+            "name": "输尿管近段",
             "meshes": [
               "URETER_L"
-            ]
+            ],
+            "defaultMode": "solid"
           },
           {
-            "id": "renalArteries",
-            "name": "肾动脉与肾内分支",
-            "color": "#b66350",
-            "materials": [
-              "Kidney | Renal artery"
-            ]
+            "id": "arteries",
+            "name": "肾动脉及分支",
+            "meshes": [
+              "ARTERY_L",
+              "ARTERY_L.arcuate.01.1",
+              "ARTERY_L.arcuate.01.2",
+              "ARTERY_L.arcuate.02.1",
+              "ARTERY_L.arcuate.02.2",
+              "ARTERY_L.arcuate.03.1",
+              "ARTERY_L.arcuate.03.2",
+              "ARTERY_L.arcuate.04.1",
+              "ARTERY_L.arcuate.04.2",
+              "ARTERY_L.arcuate.05.1",
+              "ARTERY_L.arcuate.05.2",
+              "ARTERY_L.arcuate.06.1",
+              "ARTERY_L.arcuate.06.2",
+              "ARTERY_L.arcuate.07.1",
+              "ARTERY_L.arcuate.07.2",
+              "ARTERY_L.cortical.01.1.12",
+              "ARTERY_L.cortical.01.1.6",
+              "ARTERY_L.cortical.01.2.12",
+              "ARTERY_L.cortical.01.2.6",
+              "ARTERY_L.cortical.02.1.12",
+              "ARTERY_L.cortical.02.1.6",
+              "ARTERY_L.cortical.02.2.12",
+              "ARTERY_L.cortical.02.2.6",
+              "ARTERY_L.cortical.03.1.12",
+              "ARTERY_L.cortical.03.1.6",
+              "ARTERY_L.cortical.03.2.12",
+              "ARTERY_L.cortical.03.2.6",
+              "ARTERY_L.cortical.04.1.12",
+              "ARTERY_L.cortical.04.1.6",
+              "ARTERY_L.cortical.04.2.12",
+              "ARTERY_L.cortical.04.2.6",
+              "ARTERY_L.cortical.05.1.12",
+              "ARTERY_L.cortical.05.1.6",
+              "ARTERY_L.cortical.05.2.12",
+              "ARTERY_L.cortical.05.2.6",
+              "ARTERY_L.cortical.06.1.12",
+              "ARTERY_L.cortical.06.1.6",
+              "ARTERY_L.cortical.06.2.12",
+              "ARTERY_L.cortical.06.2.6",
+              "ARTERY_L.cortical.07.1.12",
+              "ARTERY_L.cortical.07.1.6",
+              "ARTERY_L.cortical.07.2.12",
+              "ARTERY_L.cortical.07.2.6",
+              "ARTERY_L.interlobar.01",
+              "ARTERY_L.interlobar.02",
+              "ARTERY_L.interlobar.03",
+              "ARTERY_L.interlobar.04",
+              "ARTERY_L.interlobar.05",
+              "ARTERY_L.interlobar.06",
+              "ARTERY_L.interlobar.07",
+              "ARTERY_L.segmental.inferior",
+              "ARTERY_L.segmental.superior"
+            ],
+            "defaultMode": "solid"
           },
           {
-            "id": "renalVeins",
-            "name": "肾静脉与肾内属支",
-            "color": "#577d91",
-            "materials": [
-              "Kidney | Renal vein"
-            ]
+            "id": "veins",
+            "name": "肾静脉及属支",
+            "meshes": [
+              "VEIN_L",
+              "VEIN_L.arcuate.01.1",
+              "VEIN_L.arcuate.01.2",
+              "VEIN_L.arcuate.03.1",
+              "VEIN_L.arcuate.03.2",
+              "VEIN_L.arcuate.04.1",
+              "VEIN_L.arcuate.04.2",
+              "VEIN_L.arcuate.06.1",
+              "VEIN_L.arcuate.06.2",
+              "VEIN_L.arcuate.07.1",
+              "VEIN_L.arcuate.07.2",
+              "VEIN_L.cortical.01.1.8",
+              "VEIN_L.cortical.01.2.8",
+              "VEIN_L.cortical.03.1.8",
+              "VEIN_L.cortical.03.2.8",
+              "VEIN_L.cortical.04.1.8",
+              "VEIN_L.cortical.04.2.8",
+              "VEIN_L.cortical.06.1.8",
+              "VEIN_L.cortical.06.2.8",
+              "VEIN_L.cortical.07.1.8",
+              "VEIN_L.cortical.07.2.8",
+              "VEIN_L.interlobar.01",
+              "VEIN_L.interlobar.03",
+              "VEIN_L.interlobar.04",
+              "VEIN_L.interlobar.06",
+              "VEIN_L.interlobar.07",
+              "VEIN_L.segmental.inferior",
+              "VEIN_L.segmental.superior"
+            ],
+            "defaultMode": "solid"
           },
           {
-            "id": "hilarSupport",
-            "name": "肾门唇与管根入口",
-            "color": "#a46653",
+            "id": "fat",
+            "name": "肾窦脂肪",
+            "meshes": [
+              "SINUS_FAT_L.posterior"
+            ],
+            "defaultMode": "solid"
+          },
+          {
+            "id": "hilar_support",
+            "name": "肾门唇",
             "meshes": [
               "HILAR_SUPPORT_L"
-            ]
+            ],
+            "defaultMode": "solid"
           }
+        ],
+        "coordinateSpace": "blender-gltf",
+        "view": [
+          0,
+          1,
+          0
         ],
         "note": "沿管道朝肾门看。隐藏「肾门唇与管根入口」可以观察其后的共同肾窦。「肾门外形对照」展示相同方向的另一件模型。"
       },
-      "medialBefore": {
+      "medial-before": {
         "url": "./models/kidney/medial-before.glb",
-        "view": [
-          -1,
-          0,
-          0
-        ],
         "parts": [
           {
-            "id": "frontCortex",
-            "name": "前半肾实质（含被膜表面）",
-            "color": "#9f6253",
+            "id": "front_parenchyma",
+            "name": "前半肾实质",
             "meshes": [
-              "CORTEX_L.anterior"
-            ]
+              "PREVIEW_BEFORE.CORTEX_L.anterior"
+            ],
+            "defaultMode": "solid"
           },
           {
-            "id": "backCortex",
-            "name": "后半肾实质（含肾柱）",
-            "color": "#c99078",
+            "id": "back_parenchyma",
+            "name": "后半肾实质",
             "meshes": [
-              "CORTEX_L.posterior"
-            ]
+              "PREVIEW_BEFORE.CORTEX_L.posterior"
+            ],
+            "defaultMode": "solid"
           },
           {
-            "id": "frontMedulla",
-            "name": "髓锥与乳头 · 前部",
-            "color": "#ab6b63",
+            "id": "front_medulla",
+            "name": "髓锥和乳头前部",
             "meshes": [
               "PYRAMID_L.01.anterior",
               "PYRAMID_L.02.anterior",
@@ -1817,12 +3097,12 @@ export const specimens = [
               "PYRAMID_L.07.anterior",
               "PYRAMID_L.08.anterior",
               "PYRAMID_L.09.anterior"
-            ]
+            ],
+            "defaultMode": "solid"
           },
           {
-            "id": "backMedulla",
-            "name": "髓锥与乳头 · 后部",
-            "color": "#ab6b63",
+            "id": "back_medulla",
+            "name": "髓锥和乳头后部",
             "meshes": [
               "PYRAMID_L.01.posterior",
               "PYRAMID_L.02.posterior",
@@ -1833,20 +3113,22 @@ export const specimens = [
               "PYRAMID_L.07.posterior",
               "PYRAMID_L.08.posterior",
               "PYRAMID_L.10.posterior"
-            ]
+            ],
+            "defaultMode": "solid"
           },
           {
-            "id": "sinusFat",
-            "name": "肾窦脂肪",
-            "color": "#d8bc83",
+            "id": "major",
+            "name": "大肾盏",
             "meshes": [
-              "SINUS_FAT_L.posterior"
-            ]
+              "MAJOR_CALYX_L.01",
+              "MAJOR_CALYX_L.02",
+              "MAJOR_CALYX_L.03"
+            ],
+            "defaultMode": "solid"
           },
           {
-            "id": "minorCalyces",
+            "id": "minor",
             "name": "小肾盏",
-            "color": "#dcc7aa",
             "meshes": [
               "MINOR_CALYX_L.01",
               "MINOR_CALYX_L.02",
@@ -1858,71 +3140,150 @@ export const specimens = [
               "MINOR_CALYX_L.08",
               "MINOR_CALYX_L.09",
               "MINOR_CALYX_L.10"
-            ]
+            ],
+            "defaultMode": "solid"
           },
           {
-            "id": "majorCalyces",
-            "name": "大肾盏",
-            "color": "#dcc7aa",
-            "meshes": [
-              "MAJOR_CALYX_L.01",
-              "MAJOR_CALYX_L.02",
-              "MAJOR_CALYX_L.03"
-            ]
-          },
-          {
-            "id": "renalPelvis",
+            "id": "pelvis",
             "name": "肾盂",
-            "color": "#d8c1a3",
             "meshes": [
               "PELVIS_L"
-            ]
+            ],
+            "defaultMode": "solid"
           },
           {
-            "id": "proximalUreter",
-            "name": "近端输尿管",
-            "color": "#d3bfa5",
+            "id": "ureter",
+            "name": "输尿管近段",
             "meshes": [
               "URETER_L"
-            ]
+            ],
+            "defaultMode": "solid"
           },
           {
-            "id": "renalArteries",
-            "name": "肾动脉与肾内分支",
-            "color": "#b66350",
-            "materials": [
-              "Kidney | Renal artery"
-            ]
+            "id": "arteries",
+            "name": "肾动脉及分支",
+            "meshes": [
+              "ARTERY_L",
+              "ARTERY_L.arcuate.01.1",
+              "ARTERY_L.arcuate.01.2",
+              "ARTERY_L.arcuate.02.1",
+              "ARTERY_L.arcuate.02.2",
+              "ARTERY_L.arcuate.03.1",
+              "ARTERY_L.arcuate.03.2",
+              "ARTERY_L.arcuate.04.1",
+              "ARTERY_L.arcuate.04.2",
+              "ARTERY_L.arcuate.05.1",
+              "ARTERY_L.arcuate.05.2",
+              "ARTERY_L.arcuate.06.1",
+              "ARTERY_L.arcuate.06.2",
+              "ARTERY_L.arcuate.07.1",
+              "ARTERY_L.arcuate.07.2",
+              "ARTERY_L.cortical.01.1.12",
+              "ARTERY_L.cortical.01.1.6",
+              "ARTERY_L.cortical.01.2.12",
+              "ARTERY_L.cortical.01.2.6",
+              "ARTERY_L.cortical.02.1.12",
+              "ARTERY_L.cortical.02.1.6",
+              "ARTERY_L.cortical.02.2.12",
+              "ARTERY_L.cortical.02.2.6",
+              "ARTERY_L.cortical.03.1.12",
+              "ARTERY_L.cortical.03.1.6",
+              "ARTERY_L.cortical.03.2.12",
+              "ARTERY_L.cortical.03.2.6",
+              "ARTERY_L.cortical.04.1.12",
+              "ARTERY_L.cortical.04.1.6",
+              "ARTERY_L.cortical.04.2.12",
+              "ARTERY_L.cortical.04.2.6",
+              "ARTERY_L.cortical.05.1.12",
+              "ARTERY_L.cortical.05.1.6",
+              "ARTERY_L.cortical.05.2.12",
+              "ARTERY_L.cortical.05.2.6",
+              "ARTERY_L.cortical.06.1.12",
+              "ARTERY_L.cortical.06.1.6",
+              "ARTERY_L.cortical.06.2.12",
+              "ARTERY_L.cortical.06.2.6",
+              "ARTERY_L.cortical.07.1.12",
+              "ARTERY_L.cortical.07.1.6",
+              "ARTERY_L.cortical.07.2.12",
+              "ARTERY_L.cortical.07.2.6",
+              "ARTERY_L.interlobar.01",
+              "ARTERY_L.interlobar.02",
+              "ARTERY_L.interlobar.03",
+              "ARTERY_L.interlobar.04",
+              "ARTERY_L.interlobar.05",
+              "ARTERY_L.interlobar.06",
+              "ARTERY_L.interlobar.07",
+              "ARTERY_L.segmental.inferior",
+              "ARTERY_L.segmental.superior"
+            ],
+            "defaultMode": "solid"
           },
           {
-            "id": "renalVeins",
-            "name": "肾静脉与肾内属支",
-            "color": "#577d91",
-            "materials": [
-              "Kidney | Renal vein"
-            ]
+            "id": "veins",
+            "name": "肾静脉及属支",
+            "meshes": [
+              "VEIN_L",
+              "VEIN_L.arcuate.01.1",
+              "VEIN_L.arcuate.01.2",
+              "VEIN_L.arcuate.03.1",
+              "VEIN_L.arcuate.03.2",
+              "VEIN_L.arcuate.04.1",
+              "VEIN_L.arcuate.04.2",
+              "VEIN_L.arcuate.06.1",
+              "VEIN_L.arcuate.06.2",
+              "VEIN_L.arcuate.07.1",
+              "VEIN_L.arcuate.07.2",
+              "VEIN_L.cortical.01.1.8",
+              "VEIN_L.cortical.01.2.8",
+              "VEIN_L.cortical.03.1.8",
+              "VEIN_L.cortical.03.2.8",
+              "VEIN_L.cortical.04.1.8",
+              "VEIN_L.cortical.04.2.8",
+              "VEIN_L.cortical.06.1.8",
+              "VEIN_L.cortical.06.2.8",
+              "VEIN_L.cortical.07.1.8",
+              "VEIN_L.cortical.07.2.8",
+              "VEIN_L.interlobar.01",
+              "VEIN_L.interlobar.03",
+              "VEIN_L.interlobar.04",
+              "VEIN_L.interlobar.06",
+              "VEIN_L.interlobar.07",
+              "VEIN_L.segmental.inferior",
+              "VEIN_L.segmental.superior"
+            ],
+            "defaultMode": "solid"
+          },
+          {
+            "id": "fat",
+            "name": "肾窦脂肪",
+            "meshes": [
+              "SINUS_FAT_L.posterior"
+            ],
+            "defaultMode": "solid"
           }
         ],
-        "version": "肾门外形对照",
-        "status": "教学展示",
-        "note": "从内侧比较肾动静脉周围的间隙，以及肾门前后两面的轮廓。"
+        "coordinateSpace": "blender-gltf",
+        "view": [
+          0,
+          1,
+          0
+        ],
+        "note": "与内侧肾门使用相同方向，可对照本次运行中收拢开口与加厚肾体前的外形。"
       },
       "window": {
         "url": "./models/kidney/window.glb",
-        "note": "在冠状剖面的基础上切去集合系统的部分前壁，显露乳头尖、肾盏和肾盂的内壁。深米色窄边是人为切缘。",
         "parts": [
           {
-            "id": "backCortex",
-            "name": "后半肾实质（含肾柱）",
-            "color": "#c99078",
+            "id": "back_parenchyma",
+            "name": "后半肾实质",
             "meshes": [
               "CORTEX_L.posterior"
-            ]
+            ],
+            "defaultMode": "solid"
           },
           {
-            "id": "backMedulla",
-            "name": "髓锥与乳头 · 后部",
-            "color": "#ab6b63",
+            "id": "back_medulla",
+            "name": "髓锥和乳头后部",
             "meshes": [
               "PYRAMID_L.01.posterior",
               "PYRAMID_L.02.posterior",
@@ -1933,52 +3294,559 @@ export const specimens = [
               "PYRAMID_L.07.posterior",
               "PYRAMID_L.08.posterior",
               "PYRAMID_L.10.posterior"
-            ]
+            ],
+            "defaultMode": "solid"
           },
           {
-            "id": "sinusFat",
-            "name": "肾窦脂肪",
-            "color": "#d8bc83",
-            "meshes": [
-              "SINUS_FAT_L.posterior"
-            ]
-          },
-          {
-            "id": "openWall",
-            "name": "切开的盏盂与输尿管壁",
+            "id": "open_wall",
+            "name": "切开的集合系统",
             "meshes": [
               "Collecting system | opened wall"
             ],
-            "color": "#d8c1a3"
+            "defaultMode": "solid"
+          },
+          {
+            "id": "fat",
+            "name": "肾窦脂肪",
+            "meshes": [
+              "SINUS_FAT_L.posterior"
+            ],
+            "defaultMode": "solid"
           }
-        ]
+        ],
+        "coordinateSpace": "blender-gltf",
+        "view": [
+          0,
+          1,
+          0
+        ],
+        "note": "打开集合系统前壁后，可以转动观察盏腔和真实切缘。"
       },
       "papilla": {
         "url": "./models/kidney/papilla.glb",
-        "view": [
-          -0.008,
-          0.046,
-          0.999
-        ],
-        "note": "取上方中央的一枚乳头及对应小肾盏。转动查看乳头尖、盏内面和两侧保留的盏壁。",
         "parts": [
           {
-            "id": "papillaDetail",
-            "name": "上方乳头及相连髓质",
-            "meshes": [
-              "Papilla_02"
-            ],
-            "color": "#ac7268"
-          },
-          {
-            "id": "calyxDetail",
-            "name": "同一小肾盏的开窗壁",
+            "id": "calyx-window",
+            "name": "小肾盏壁",
             "meshes": [
               "Minor_calyx_02_window"
             ],
-            "color": "#dac6aa"
+            "defaultMode": "solid"
+          },
+          {
+            "id": "papilla",
+            "name": "乳头及部分髓质",
+            "meshes": [
+              "Papilla_02"
+            ],
+            "defaultMode": "solid"
           }
-        ]
+        ],
+        "coordinateSpace": "blender-gltf",
+        "view": [
+          0,
+          1,
+          0
+        ],
+        "note": "沿乳头长轴观察小盏内壁、盏口和伸进杯口的乳头尖。"
+      },
+      "papilla-oblique": {
+        "url": "./models/kidney/papilla.glb",
+        "parts": [
+          {
+            "id": "calyx-window",
+            "name": "小肾盏壁",
+            "meshes": [
+              "Minor_calyx_02_window"
+            ],
+            "defaultMode": "solid"
+          },
+          {
+            "id": "papilla",
+            "name": "乳头及部分髓质",
+            "meshes": [
+              "Papilla_02"
+            ],
+            "defaultMode": "solid"
+          }
+        ],
+        "coordinateSpace": "blender-gltf",
+        "view": [
+          0,
+          1,
+          0
+        ],
+        "note": "换到斜位，观察同一乳头和小肾盏的深度关系。"
+      },
+      "networks": {
+        "url": "./models/kidney/whole.glb",
+        "parts": [
+          {
+            "id": "front_parenchyma",
+            "name": "前半肾实质",
+            "meshes": [
+              "CORTEX_L.anterior"
+            ],
+            "defaultMode": "hidden"
+          },
+          {
+            "id": "back_parenchyma",
+            "name": "后半肾实质",
+            "meshes": [
+              "CORTEX_L.posterior"
+            ],
+            "defaultMode": "hidden"
+          },
+          {
+            "id": "front_medulla",
+            "name": "髓锥和乳头前部",
+            "meshes": [
+              "PYRAMID_L.01.anterior",
+              "PYRAMID_L.02.anterior",
+              "PYRAMID_L.03.anterior",
+              "PYRAMID_L.04.anterior",
+              "PYRAMID_L.05.anterior",
+              "PYRAMID_L.06.anterior",
+              "PYRAMID_L.07.anterior",
+              "PYRAMID_L.08.anterior",
+              "PYRAMID_L.09.anterior"
+            ],
+            "defaultMode": "hidden"
+          },
+          {
+            "id": "back_medulla",
+            "name": "髓锥和乳头后部",
+            "meshes": [
+              "PYRAMID_L.01.posterior",
+              "PYRAMID_L.02.posterior",
+              "PYRAMID_L.03.posterior",
+              "PYRAMID_L.04.posterior",
+              "PYRAMID_L.05.posterior",
+              "PYRAMID_L.06.posterior",
+              "PYRAMID_L.07.posterior",
+              "PYRAMID_L.08.posterior",
+              "PYRAMID_L.10.posterior"
+            ],
+            "defaultMode": "hidden"
+          },
+          {
+            "id": "major",
+            "name": "大肾盏",
+            "meshes": [
+              "MAJOR_CALYX_L.01",
+              "MAJOR_CALYX_L.02",
+              "MAJOR_CALYX_L.03"
+            ],
+            "defaultMode": "solid"
+          },
+          {
+            "id": "minor",
+            "name": "小肾盏",
+            "meshes": [
+              "MINOR_CALYX_L.01",
+              "MINOR_CALYX_L.02",
+              "MINOR_CALYX_L.03",
+              "MINOR_CALYX_L.04",
+              "MINOR_CALYX_L.05",
+              "MINOR_CALYX_L.06",
+              "MINOR_CALYX_L.07",
+              "MINOR_CALYX_L.08",
+              "MINOR_CALYX_L.09",
+              "MINOR_CALYX_L.10"
+            ],
+            "defaultMode": "solid"
+          },
+          {
+            "id": "pelvis",
+            "name": "肾盂",
+            "meshes": [
+              "PELVIS_L"
+            ],
+            "defaultMode": "solid"
+          },
+          {
+            "id": "ureter",
+            "name": "输尿管近段",
+            "meshes": [
+              "URETER_L"
+            ],
+            "defaultMode": "solid"
+          },
+          {
+            "id": "arteries",
+            "name": "肾动脉及分支",
+            "meshes": [
+              "ARTERY_L",
+              "ARTERY_L.arcuate.01.1",
+              "ARTERY_L.arcuate.01.2",
+              "ARTERY_L.arcuate.02.1",
+              "ARTERY_L.arcuate.02.2",
+              "ARTERY_L.arcuate.03.1",
+              "ARTERY_L.arcuate.03.2",
+              "ARTERY_L.arcuate.04.1",
+              "ARTERY_L.arcuate.04.2",
+              "ARTERY_L.arcuate.05.1",
+              "ARTERY_L.arcuate.05.2",
+              "ARTERY_L.arcuate.06.1",
+              "ARTERY_L.arcuate.06.2",
+              "ARTERY_L.arcuate.07.1",
+              "ARTERY_L.arcuate.07.2",
+              "ARTERY_L.cortical.01.1.12",
+              "ARTERY_L.cortical.01.1.6",
+              "ARTERY_L.cortical.01.2.12",
+              "ARTERY_L.cortical.01.2.6",
+              "ARTERY_L.cortical.02.1.12",
+              "ARTERY_L.cortical.02.1.6",
+              "ARTERY_L.cortical.02.2.12",
+              "ARTERY_L.cortical.02.2.6",
+              "ARTERY_L.cortical.03.1.12",
+              "ARTERY_L.cortical.03.1.6",
+              "ARTERY_L.cortical.03.2.12",
+              "ARTERY_L.cortical.03.2.6",
+              "ARTERY_L.cortical.04.1.12",
+              "ARTERY_L.cortical.04.1.6",
+              "ARTERY_L.cortical.04.2.12",
+              "ARTERY_L.cortical.04.2.6",
+              "ARTERY_L.cortical.05.1.12",
+              "ARTERY_L.cortical.05.1.6",
+              "ARTERY_L.cortical.05.2.12",
+              "ARTERY_L.cortical.05.2.6",
+              "ARTERY_L.cortical.06.1.12",
+              "ARTERY_L.cortical.06.1.6",
+              "ARTERY_L.cortical.06.2.12",
+              "ARTERY_L.cortical.06.2.6",
+              "ARTERY_L.cortical.07.1.12",
+              "ARTERY_L.cortical.07.1.6",
+              "ARTERY_L.cortical.07.2.12",
+              "ARTERY_L.cortical.07.2.6",
+              "ARTERY_L.interlobar.01",
+              "ARTERY_L.interlobar.02",
+              "ARTERY_L.interlobar.03",
+              "ARTERY_L.interlobar.04",
+              "ARTERY_L.interlobar.05",
+              "ARTERY_L.interlobar.06",
+              "ARTERY_L.interlobar.07",
+              "ARTERY_L.segmental.inferior",
+              "ARTERY_L.segmental.superior"
+            ],
+            "defaultMode": "solid"
+          },
+          {
+            "id": "veins",
+            "name": "肾静脉及属支",
+            "meshes": [
+              "VEIN_L",
+              "VEIN_L.arcuate.01.1",
+              "VEIN_L.arcuate.01.2",
+              "VEIN_L.arcuate.03.1",
+              "VEIN_L.arcuate.03.2",
+              "VEIN_L.arcuate.04.1",
+              "VEIN_L.arcuate.04.2",
+              "VEIN_L.arcuate.06.1",
+              "VEIN_L.arcuate.06.2",
+              "VEIN_L.arcuate.07.1",
+              "VEIN_L.arcuate.07.2",
+              "VEIN_L.cortical.01.1.8",
+              "VEIN_L.cortical.01.2.8",
+              "VEIN_L.cortical.03.1.8",
+              "VEIN_L.cortical.03.2.8",
+              "VEIN_L.cortical.04.1.8",
+              "VEIN_L.cortical.04.2.8",
+              "VEIN_L.cortical.06.1.8",
+              "VEIN_L.cortical.06.2.8",
+              "VEIN_L.cortical.07.1.8",
+              "VEIN_L.cortical.07.2.8",
+              "VEIN_L.interlobar.01",
+              "VEIN_L.interlobar.03",
+              "VEIN_L.interlobar.04",
+              "VEIN_L.interlobar.06",
+              "VEIN_L.interlobar.07",
+              "VEIN_L.segmental.inferior",
+              "VEIN_L.segmental.superior"
+            ],
+            "defaultMode": "solid"
+          },
+          {
+            "id": "fat",
+            "name": "肾窦脂肪",
+            "meshes": [
+              "SINUS_FAT_L.posterior"
+            ],
+            "defaultMode": "hidden"
+          },
+          {
+            "id": "hilar_support",
+            "name": "肾门唇",
+            "meshes": [
+              "HILAR_SUPPORT_L"
+            ],
+            "defaultMode": "hidden"
+          }
+        ],
+        "coordinateSpace": "blender-gltf",
+        "view": [
+          0,
+          1,
+          0
+        ],
+        "note": "可分别隐藏动脉、静脉或集合系统，查看它们在肾内的走向。"
+      },
+      "collecting": {
+        "url": "./models/kidney/whole.glb",
+        "parts": [
+          {
+            "id": "front_parenchyma",
+            "name": "前半肾实质",
+            "meshes": [
+              "CORTEX_L.anterior"
+            ],
+            "defaultMode": "hidden"
+          },
+          {
+            "id": "back_parenchyma",
+            "name": "后半肾实质",
+            "meshes": [
+              "CORTEX_L.posterior"
+            ],
+            "defaultMode": "hidden"
+          },
+          {
+            "id": "front_medulla",
+            "name": "髓锥和乳头前部",
+            "meshes": [
+              "PYRAMID_L.01.anterior",
+              "PYRAMID_L.02.anterior",
+              "PYRAMID_L.03.anterior",
+              "PYRAMID_L.04.anterior",
+              "PYRAMID_L.05.anterior",
+              "PYRAMID_L.06.anterior",
+              "PYRAMID_L.07.anterior",
+              "PYRAMID_L.08.anterior",
+              "PYRAMID_L.09.anterior"
+            ],
+            "defaultMode": "hidden"
+          },
+          {
+            "id": "back_medulla",
+            "name": "髓锥和乳头后部",
+            "meshes": [
+              "PYRAMID_L.01.posterior",
+              "PYRAMID_L.02.posterior",
+              "PYRAMID_L.03.posterior",
+              "PYRAMID_L.04.posterior",
+              "PYRAMID_L.05.posterior",
+              "PYRAMID_L.06.posterior",
+              "PYRAMID_L.07.posterior",
+              "PYRAMID_L.08.posterior",
+              "PYRAMID_L.10.posterior"
+            ],
+            "defaultMode": "hidden"
+          },
+          {
+            "id": "major",
+            "name": "大肾盏",
+            "meshes": [
+              "MAJOR_CALYX_L.01",
+              "MAJOR_CALYX_L.02",
+              "MAJOR_CALYX_L.03"
+            ],
+            "defaultMode": "solid"
+          },
+          {
+            "id": "minor",
+            "name": "小肾盏",
+            "meshes": [
+              "MINOR_CALYX_L.01",
+              "MINOR_CALYX_L.02",
+              "MINOR_CALYX_L.03",
+              "MINOR_CALYX_L.04",
+              "MINOR_CALYX_L.05",
+              "MINOR_CALYX_L.06",
+              "MINOR_CALYX_L.07",
+              "MINOR_CALYX_L.08",
+              "MINOR_CALYX_L.09",
+              "MINOR_CALYX_L.10"
+            ],
+            "defaultMode": "solid"
+          },
+          {
+            "id": "pelvis",
+            "name": "肾盂",
+            "meshes": [
+              "PELVIS_L"
+            ],
+            "defaultMode": "solid"
+          },
+          {
+            "id": "ureter",
+            "name": "输尿管近段",
+            "meshes": [
+              "URETER_L"
+            ],
+            "defaultMode": "solid"
+          },
+          {
+            "id": "arteries",
+            "name": "肾动脉及分支",
+            "meshes": [
+              "ARTERY_L",
+              "ARTERY_L.arcuate.01.1",
+              "ARTERY_L.arcuate.01.2",
+              "ARTERY_L.arcuate.02.1",
+              "ARTERY_L.arcuate.02.2",
+              "ARTERY_L.arcuate.03.1",
+              "ARTERY_L.arcuate.03.2",
+              "ARTERY_L.arcuate.04.1",
+              "ARTERY_L.arcuate.04.2",
+              "ARTERY_L.arcuate.05.1",
+              "ARTERY_L.arcuate.05.2",
+              "ARTERY_L.arcuate.06.1",
+              "ARTERY_L.arcuate.06.2",
+              "ARTERY_L.arcuate.07.1",
+              "ARTERY_L.arcuate.07.2",
+              "ARTERY_L.cortical.01.1.12",
+              "ARTERY_L.cortical.01.1.6",
+              "ARTERY_L.cortical.01.2.12",
+              "ARTERY_L.cortical.01.2.6",
+              "ARTERY_L.cortical.02.1.12",
+              "ARTERY_L.cortical.02.1.6",
+              "ARTERY_L.cortical.02.2.12",
+              "ARTERY_L.cortical.02.2.6",
+              "ARTERY_L.cortical.03.1.12",
+              "ARTERY_L.cortical.03.1.6",
+              "ARTERY_L.cortical.03.2.12",
+              "ARTERY_L.cortical.03.2.6",
+              "ARTERY_L.cortical.04.1.12",
+              "ARTERY_L.cortical.04.1.6",
+              "ARTERY_L.cortical.04.2.12",
+              "ARTERY_L.cortical.04.2.6",
+              "ARTERY_L.cortical.05.1.12",
+              "ARTERY_L.cortical.05.1.6",
+              "ARTERY_L.cortical.05.2.12",
+              "ARTERY_L.cortical.05.2.6",
+              "ARTERY_L.cortical.06.1.12",
+              "ARTERY_L.cortical.06.1.6",
+              "ARTERY_L.cortical.06.2.12",
+              "ARTERY_L.cortical.06.2.6",
+              "ARTERY_L.cortical.07.1.12",
+              "ARTERY_L.cortical.07.1.6",
+              "ARTERY_L.cortical.07.2.12",
+              "ARTERY_L.cortical.07.2.6",
+              "ARTERY_L.interlobar.01",
+              "ARTERY_L.interlobar.02",
+              "ARTERY_L.interlobar.03",
+              "ARTERY_L.interlobar.04",
+              "ARTERY_L.interlobar.05",
+              "ARTERY_L.interlobar.06",
+              "ARTERY_L.interlobar.07",
+              "ARTERY_L.segmental.inferior",
+              "ARTERY_L.segmental.superior"
+            ],
+            "defaultMode": "hidden"
+          },
+          {
+            "id": "veins",
+            "name": "肾静脉及属支",
+            "meshes": [
+              "VEIN_L",
+              "VEIN_L.arcuate.01.1",
+              "VEIN_L.arcuate.01.2",
+              "VEIN_L.arcuate.03.1",
+              "VEIN_L.arcuate.03.2",
+              "VEIN_L.arcuate.04.1",
+              "VEIN_L.arcuate.04.2",
+              "VEIN_L.arcuate.06.1",
+              "VEIN_L.arcuate.06.2",
+              "VEIN_L.arcuate.07.1",
+              "VEIN_L.arcuate.07.2",
+              "VEIN_L.cortical.01.1.8",
+              "VEIN_L.cortical.01.2.8",
+              "VEIN_L.cortical.03.1.8",
+              "VEIN_L.cortical.03.2.8",
+              "VEIN_L.cortical.04.1.8",
+              "VEIN_L.cortical.04.2.8",
+              "VEIN_L.cortical.06.1.8",
+              "VEIN_L.cortical.06.2.8",
+              "VEIN_L.cortical.07.1.8",
+              "VEIN_L.cortical.07.2.8",
+              "VEIN_L.interlobar.01",
+              "VEIN_L.interlobar.03",
+              "VEIN_L.interlobar.04",
+              "VEIN_L.interlobar.06",
+              "VEIN_L.interlobar.07",
+              "VEIN_L.segmental.inferior",
+              "VEIN_L.segmental.superior"
+            ],
+            "defaultMode": "hidden"
+          },
+          {
+            "id": "fat",
+            "name": "肾窦脂肪",
+            "meshes": [
+              "SINUS_FAT_L.posterior"
+            ],
+            "defaultMode": "hidden"
+          },
+          {
+            "id": "hilar_support",
+            "name": "肾门唇",
+            "meshes": [
+              "HILAR_SUPPORT_L"
+            ],
+            "defaultMode": "hidden"
+          }
+        ],
+        "coordinateSpace": "blender-gltf",
+        "view": [
+          0,
+          1,
+          0
+        ],
+        "note": "从十个小肾盏追到三个大肾盏，再向下找到肾盂和输尿管近段。"
+      },
+      "white": {
+        "url": "./models/kidney/white.glb",
+        "parts": [
+          {
+            "id": "body",
+            "name": "肾体",
+            "meshes": [
+              "KIDNEY_L.surface"
+            ],
+            "defaultMode": "solid"
+          },
+          {
+            "id": "vein",
+            "name": "肾静脉",
+            "meshes": [
+              "VEIN_L"
+            ],
+            "defaultMode": "solid"
+          },
+          {
+            "id": "artery",
+            "name": "肾动脉",
+            "meshes": [
+              "ARTERY_L"
+            ],
+            "defaultMode": "solid"
+          },
+          {
+            "id": "ureter",
+            "name": "输尿管近段",
+            "meshes": [
+              "URETER_L"
+            ],
+            "defaultMode": "solid"
+          }
+        ],
+        "coordinateSpace": "blender-gltf",
+        "view": [
+          -0.65,
+          0.12,
+          0.76
+        ],
+        "note": "只显示本轮生成的肾体和肾门三种管道，可与带材质整件对照。"
       },
       "previous": {
         "version": "肾体与近肾门管段",
@@ -2016,7 +3884,8 @@ export const specimens = [
           }
         ]
       }
-    }
+    },
+    "legacyLayers": "previous"
   },
   {
     "id": "pancreas",
@@ -2031,139 +3900,236 @@ export const specimens = [
       0.09,
       1
     ],
-    "thumbnail": "./media/pancreas.webp",
-    "note": "打开胰实质看主胰管从尾部延向胰头，以及胰体切面中的小叶和组织隔。组织放大图可分别查看腺泡、胰岛和闰管。",
+    "thumbnail": "./media/pancreas.png",
+    "note": "查看胰头至胰尾、后方钩突和两个胰管截端。显微区域按自身尺寸放大。",
     "parts": [
       {
         "id": "gland",
         "name": "胰实质",
-        "color": "#c48265",
         "meshes": [
           "PA_Parenchyma"
-        ]
+        ],
+        "color": "#c28f78"
       },
       {
         "id": "mainDuct",
         "name": "主胰管外壁",
-        "color": "#e1c4a2",
         "materials": [
-          "PAN_MainDuct_Outer"
-        ]
+          "Main pancreatic duct | wall"
+        ],
+        "color": "#d8bd99"
       },
       {
         "id": "accessoryDuct",
         "name": "副胰管外壁",
-        "color": "#c9af89",
         "materials": [
-          "PAN_AccessoryDuct_Outer"
-        ]
+          "Accessory pancreatic duct | wall"
+        ],
+        "color": "#d8bd99"
       },
       {
         "id": "tributaries",
-        "name": "侧支外壁",
-        "color": "#d7b596",
+        "name": "胰管侧支",
         "materials": [
-          "PAN_Tributary_Outer"
-        ]
+          "Pancreatic tributary | wall"
+        ],
+        "color": "#d8bd99"
       },
       {
         "id": "innerWall",
-        "name": "各级胰管内壁",
-        "color": "#b88771",
+        "name": "管腔内衬",
         "materials": [
-          "PAN_Duct_Inner"
-        ]
+          "Duct lumen | lining"
+        ],
+        "color": "#d8bd99"
+      },
+      {
+        "id": "rim",
+        "name": "出口切缘",
+        "materials": [
+          "Duct cut margin"
+        ],
+        "color": "#d8bd99"
       }
     ],
-    "legacyLayers": "previous",
+    "legacyLayers": "originalRegions",
     "interior": {
-      "label": "打开胰腺切面",
+      "label": "前方开窗",
       "asset": "section"
     },
     "isolatedViews": [
       {
+        "key": "posterior",
+        "label": "后方开窗",
+        "asset": "posterior"
+      },
+      {
         "key": "ducts",
-        "label": "仅看胰管",
+        "label": "单看胰管",
         "asset": "ducts"
       },
       {
         "key": "micro",
-        "label": "组织局部放大",
+        "label": "显微组织",
         "asset": "micro"
       },
       {
+        "key": "white",
+        "label": "本版外形白模",
+        "asset": "white"
+      },
+      {
         "key": "previous",
-        "label": "原版外形分区",
+        "label": "上一版本",
         "asset": "previous"
+      },
+      {
+        "key": "originalRegions",
+        "label": "原版形态分区",
+        "asset": "originalRegions"
       }
     ],
     "assets": {
+      "white": {
+        "url": "./models/pancreas/white.glb",
+        "parts": [
+          {
+            "id": "gland",
+            "name": "胰腺白模",
+            "meshes": [
+              "PA_White"
+            ],
+            "color": "#c28f78"
+          }
+        ]
+      },
       "section": {
         "url": "./models/pancreas/section.glb",
         "parts": [
           {
             "id": "gland",
-            "name": "胰实质与切面",
-            "color": "#c48265",
+            "name": "剖面实质",
             "meshes": [
               "PA_Section"
-            ]
+            ],
+            "color": "#c28f78"
           },
           {
             "id": "lobules",
-            "name": "胰体局部小叶群",
-            "color": "#bb7e64",
+            "name": "胰体局部小叶",
             "meshes": [
               "PA_Lobules"
-            ]
+            ],
+            "color": "#c28f78"
           },
           {
             "id": "septa",
-            "name": "小叶间组织隔",
-            "color": "#d6ab90",
+            "name": "小叶间隔",
             "meshes": [
               "PA_Septa"
-            ]
+            ],
+            "color": "#c28f78"
           },
           {
             "id": "mainDuct",
             "name": "主胰管外壁",
-            "color": "#e1c4a2",
             "materials": [
-              "PAN_MainDuct_Outer"
-            ]
+              "Main pancreatic duct | wall"
+            ],
+            "color": "#d8bd99"
           },
           {
             "id": "accessoryDuct",
             "name": "副胰管外壁",
-            "color": "#c9af89",
             "materials": [
-              "PAN_AccessoryDuct_Outer"
-            ]
+              "Accessory pancreatic duct | wall"
+            ],
+            "color": "#d8bd99"
           },
           {
             "id": "tributaries",
-            "name": "侧支外壁",
-            "color": "#d7b596",
+            "name": "胰管侧支",
             "materials": [
-              "PAN_Tributary_Outer"
-            ]
+              "Pancreatic tributary | wall"
+            ],
+            "color": "#d8bd99"
           },
           {
             "id": "innerWall",
-            "name": "各级胰管内壁",
-            "color": "#b88771",
+            "name": "管腔内衬",
             "materials": [
-              "PAN_Duct_Inner"
-            ]
+              "Duct lumen | lining"
+            ],
+            "color": "#d8bd99"
+          },
+          {
+            "id": "rim",
+            "name": "出口切缘",
+            "materials": [
+              "Duct cut margin"
+            ],
+            "color": "#d8bd99"
           }
         ],
-        "view": [
-          -0.035,
-          0.065,
-          1
-        ],
         "note": "可沿纵向切面追踪胰管。胰体的一组小叶和组织隔可分别隐藏或切到线框。"
+      },
+      "posterior": {
+        "url": "./models/pancreas/posterior.glb",
+        "view": [
+          0,
+          0.02,
+          -1
+        ],
+        "parts": [
+          {
+            "id": "gland",
+            "name": "背侧开窗实质",
+            "meshes": [
+              "PA_PosteriorWindow"
+            ],
+            "color": "#c28f78"
+          },
+          {
+            "id": "mainDuct",
+            "name": "主胰管外壁",
+            "materials": [
+              "Main pancreatic duct | wall"
+            ],
+            "color": "#d8bd99"
+          },
+          {
+            "id": "accessoryDuct",
+            "name": "副胰管外壁",
+            "materials": [
+              "Accessory pancreatic duct | wall"
+            ],
+            "color": "#d8bd99"
+          },
+          {
+            "id": "tributaries",
+            "name": "胰管侧支",
+            "materials": [
+              "Pancreatic tributary | wall"
+            ],
+            "color": "#d8bd99"
+          },
+          {
+            "id": "innerWall",
+            "name": "管腔内衬",
+            "materials": [
+              "Duct lumen | lining"
+            ],
+            "color": "#d8bd99"
+          },
+          {
+            "id": "rim",
+            "name": "出口切缘",
+            "materials": [
+              "Duct cut margin"
+            ],
+            "color": "#d8bd99"
+          }
+        ]
       },
       "ducts": {
         "url": "./models/pancreas/ducts.glb",
@@ -2171,6 +4137,108 @@ export const specimens = [
           {
             "id": "mainDuct",
             "name": "主胰管外壁",
+            "materials": [
+              "Main pancreatic duct | wall"
+            ],
+            "color": "#d8bd99"
+          },
+          {
+            "id": "accessoryDuct",
+            "name": "副胰管外壁",
+            "materials": [
+              "Accessory pancreatic duct | wall"
+            ],
+            "color": "#d8bd99"
+          },
+          {
+            "id": "tributaries",
+            "name": "胰管侧支",
+            "materials": [
+              "Pancreatic tributary | wall"
+            ],
+            "color": "#d8bd99"
+          },
+          {
+            "id": "innerWall",
+            "name": "管腔内衬",
+            "materials": [
+              "Duct lumen | lining"
+            ],
+            "color": "#d8bd99"
+          },
+          {
+            "id": "rim",
+            "name": "出口切缘",
+            "materials": [
+              "Duct cut margin"
+            ],
+            "color": "#d8bd99"
+          }
+        ]
+      },
+      "micro": {
+        "url": "./models/pancreas/micro.glb",
+        "view": [
+          0,
+          0,
+          1
+        ],
+        "parts": [
+          {
+            "id": "acini",
+            "name": "外分泌腺泡",
+            "meshes": [
+              "PA_Acini"
+            ],
+            "color": "#c28f78"
+          },
+          {
+            "id": "islet",
+            "name": "胰岛",
+            "meshes": [
+              "PA_Islet"
+            ],
+            "color": "#c28f78"
+          },
+          {
+            "id": "smallDuct",
+            "name": "闰管",
+            "meshes": [
+              "PA_IntercalatedDuct"
+            ],
+            "color": "#c28f78"
+          },
+          {
+            "id": "stroma",
+            "name": "周围间质",
+            "meshes": [
+              "PA_MicroStroma"
+            ],
+            "color": "#c28f78"
+          }
+        ]
+      },
+      "previous": {
+        "url": "./models/pancreas/previous.glb",
+        "thumbnail": "./media/pancreas-previous.webp",
+        "view": [
+          -0.035,
+          0.09,
+          1
+        ],
+        "note": "六个选区展示胰头、胰颈、胰体、胰尾、钩突和切迹周围的表面。此视图仅展示外形。",
+        "parts": [
+          {
+            "id": "gland",
+            "name": "胰实质",
+            "color": "#c48265",
+            "meshes": [
+              "PA_Parenchyma"
+            ]
+          },
+          {
+            "id": "mainDuct",
+            "name": "主胰管外壁",
             "color": "#e1c4a2",
             "materials": [
               "PAN_MainDuct_Outer"
@@ -2201,78 +4269,18 @@ export const specimens = [
             ]
           }
         ],
-        "view": [
-          -0.035,
-          0.075,
-          1
-        ],
-        "note": "进入胰头前后可沿主胰管追踪转向、副胰管和侧支。可分别隐藏三组外壁，查看腔面。此处展示代表性走行。"
-      },
-      "micro": {
-        "url": "./models/pancreas/micro.glb",
-        "parts": [
-          {
-            "id": "acini",
-            "name": "外分泌腺泡",
-            "color": "#bd7668",
-            "meshes": [
-              "PA_Acini"
-            ]
-          },
-          {
-            "id": "islet",
-            "name": "胰岛细胞群",
-            "color": "#e1b297",
-            "meshes": [
-              "PA_Islet"
-            ]
-          },
-          {
-            "id": "smallDuct",
-            "name": "闰管（局部小导管）",
-            "color": "#ddc3a0",
-            "meshes": [
-              "PA_IntercalatedDuct"
-            ]
-          },
-          {
-            "id": "stroma",
-            "name": "周围结缔组织",
-            "color": "#d4b09a",
-            "meshes": [
-              "PA_MicroStroma"
-            ]
-          }
-        ],
-        "view": [
-          0,
-          0.06,
-          1
-        ],
-        "note": "这块约 420 × 248 微米的局部组织按自身尺寸单独放大，可分别查看外分泌腺泡、胰岛细胞群、闰管和周围结缔组织。"
-      },
-      "previous": {
-        "id": "pancreas",
-        "name": "胰腺",
-        "latin": "Pancreas",
-        "system": "消化系统",
         "version": "胰腺外形分区",
-        "url": "./models/pancreas/previous.glb",
-        "thumbnail": "./media/pancreas-previous.webp",
-        "status": "教学展示",
-        "note": "六个选区展示胰头、胰颈、胰体、胰尾、钩突和切迹周围的表面。此视图仅展示外形。",
+        "status": "教学展示"
+      },
+      "originalRegions": {
+        "url": "./models/pancreas/original-regions.glb",
+        "thumbnail": "./media/pancreas-original-regions.webp",
         "view": [
           0,
           0,
           1
         ],
-        "regions": {
-          "mesh": "Pancreas",
-          "url": "./media/pancreas-previous-regions.bin",
-          "triangles": 47760,
-          "modelSha256": "82df18d891be8625e820fbbd662c3cb57c4cec7c495228b09c2c0e9f0c6389e3",
-          "sha256": "f8491aa8b5d865bf0d30c4b3e56767d634664671f4e6ae44f4dcb965f361f6c9"
-        },
+        "note": "六个选区来自同一连续外壳。切迹周围单列，边界沿用建模分区。这一版未建胰管。",
         "parts": [
           {
             "id": "head",
@@ -2322,7 +4330,16 @@ export const specimens = [
             ],
             "region": 6
           }
-        ]
+        ],
+        "regions": {
+          "mesh": "Pancreas",
+          "url": "./media/pancreas-original-regions-regions.bin",
+          "triangles": 47760,
+          "modelSha256": "82df18d891be8625e820fbbd662c3cb57c4cec7c495228b09c2c0e9f0c6389e3",
+          "sha256": "f8491aa8b5d865bf0d30c4b3e56767d634664671f4e6ae44f4dcb965f361f6c9"
+        },
+        "version": "连续外形父版",
+        "status": "教学展示"
       }
     }
   },
@@ -2337,10 +4354,10 @@ export const specimens = [
     "thumbnail": "./media/spleen.webp",
     "view": [
       1,
-      0.03,
-      -0.075
+      0.12,
+      0.08
     ],
-    "note": "脾门位于脏面，脾动静脉由这里出入。打开切面可看红髓、小梁和沿动脉分布的白髓示教区。",
+    "note": "旋转可看膈面的隆起和脏面的脾门。切面显示红髓中的血管腔、小梁和沿动脉分布的白髓。白髓采用放大的教学尺度。",
     "parts": [
       {
         "id": "capsule",
@@ -2356,7 +4373,8 @@ export const specimens = [
         "name": "红髓",
         "color": "#9e4146",
         "materials": [
-          "Red pulp | exposed tissue"
+          "Red pulp | exposed tissue",
+          "Red pulp | section face"
         ]
       },
       {
@@ -2432,17 +4450,17 @@ export const specimens = [
         "url": "./models/spleen/section.glb",
         "view": [
           -1,
-          0.5,
-          0.18
+          0.16,
+          -0.04
         ],
         "note": "沿膈面一侧切开后可旋转看实质和保留的脾门。白髓团块和小梁按教学尺度显示。"
       },
       "dissection": {
         "url": "./models/spleen/dissection.glb",
         "view": [
-          -0.65,
-          0.8,
-          0.22
+          -1,
+          0.25,
+          -0.3
         ],
         "note": "移去一部分被膜与红髓后，可沿着显露的血管走向追踪分支，也可单独查看相邻的小梁和白髓。"
       },
@@ -2626,7 +4644,7 @@ export const specimens = [
     "status": "教学展示",
     "note": "上下颌各 14 颗恒牙，每个象限从中切牙排到第二磨牙。左右按患者自身标注，可按 FDI 牙号聚焦。右下磨牙根端略钝。上下颌轻度分开，闭口接触未经验证。",
     "url": "./models/dentition/whole.glb",
-    "thumbnail": "./media/dentition.webp",
+    "thumbnail": "./media/dentition.png",
     "view": [
       -0.66,
       0.34,
@@ -2876,6 +4894,7 @@ export const specimens = [
     ],
     "assets": {
       "upper": {
+        "soloLabel": "选择一颗上颌牙",
         "view": [
           0,
           -1,
@@ -2884,6 +4903,7 @@ export const specimens = [
         "note": "从下向上看上牙弓，前牙朝画面上方。画面左侧是患者右上 11–17，右侧是患者左上 21–27。"
       },
       "lower": {
+        "soloLabel": "选择一颗下颌牙",
         "view": [
           0,
           1,

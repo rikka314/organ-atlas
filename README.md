@@ -4,6 +4,10 @@
 
 这里展示的三维人体器官模型均由 **Agent 操作 Blender 生成**。模型库会持续更新，陆续加入新的器官和已有模型的修订版。
 
+## 当前模型选择
+
+本次更新采用 2026 年 11 月 23 日最新 Harness 源码复建的双肺、气管与主支气管、肝脏、胃、食管、大小肠、左肾、胰腺、脾脏和上下恒牙列。右眼继续使用现有的最新 Harness 成品；心脏保留心耳遮挡修订版，大脑保留 USCBrain 成人 MRI 大体外观版。每件模型的研究范围和仍待核实之处见网页中的「标本说明」。
+
 [![三维人体总览](preview/overview.png)](https://rikka314.github.io/organ-atlas/)
 
 图中用于定位的体表来自 [BodyParts3D](https://dbarchive.biosciencedbc.jp/en/bodyparts3d/lic.html)，© The Database Center for Life Science，采用 [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/) 许可。
