@@ -93,6 +93,10 @@ async function loadCamera() {
 }
 
 for (const button of choices) button.addEventListener('click', () => selectMode(button.dataset.mode));
+document.getElementById('select-camera').addEventListener('click', () => {
+  selectMode('model');
+  canvas.focus();
+});
 spin.addEventListener('click', () => viewer?.setSpin(spin.getAttribute('aria-pressed') !== 'true'));
 document.getElementById('camera-zoom-out').addEventListener('click', () => viewer?.zoom(.8));
 document.getElementById('camera-zoom-in').addEventListener('click', () => viewer?.zoom(1.25));
