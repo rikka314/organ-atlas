@@ -2,6 +2,8 @@
 
 **[在线查看三维人体图谱](https://rikka314.github.io/organ-atlas/)**
 
+[方法迁移 · 索尼 α7R V](https://rikka314.github.io/organ-atlas/method-transfer.html)展示同一套 Blender 建模方法在相机上的应用。可以旋转观察机身和 FE 50mm F1.4 GM 镜头，也可以查看前后两面的成品渲染图。
+
 这里展示的三维人体器官模型均由 **Agent 操作 Blender 生成**。模型库会持续更新，陆续加入新的器官和已有模型的修订版。
 
 ## 当前模型选择
