@@ -2,7 +2,9 @@
 
 **[在线查看三维人体图谱](https://rikka314.github.io/organ-atlas/)**
 
-[方法迁移 · 索尼 α7R V](https://rikka314.github.io/organ-atlas/method-transfer.html)展示同一套 Blender 建模方法在相机上的应用。可以旋转观察机身和 FE 50mm F1.4 GM 镜头，也可以查看前后两面的成品渲染图。
+方法迁移展区收录了四件可旋转的 Blender 作品。可以查看耳机右侧的旋钮、机器人的背部和公交站的线路牌，也可以切换到对应的成品渲染图。
+
+[Sony α7R V](https://rikka314.github.io/organ-atlas/method-transfer.html?model=sony-a7rv) · [AirPods Max 蓝色 USB-C 款](https://rikka314.github.io/organ-atlas/method-transfer.html?model=airpods-max) · [宇树 H2-X](https://rikka314.github.io/organ-atlas/method-transfer.html?model=unitree-h2-x) · [雨歇 · 码头街公交站](https://rikka314.github.io/organ-atlas/method-transfer.html?model=quay-street)
 
 这里展示的三维人体器官模型均由 **Agent 操作 Blender 生成**。模型库会持续更新，陆续加入新的器官和已有模型的修订版。
 

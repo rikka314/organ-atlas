@@ -4,16 +4,16 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="theme-color" content="#111412">
-  <meta name="description" content="在 Organ Atlas 的方法迁移展区选择模型，旋转查看 Sony α7R V 相机或切换正面、背面渲染。">
+  <meta name="description" content="在 Organ Atlas 旋转查看 Sony 相机、AirPods Max 耳机、宇树 H2-X 和码头街公交站，或切换到各件作品的成品渲染。">
   <link rel="icon" type="image/svg+xml" href="./favicon.svg">
-  <title>方法迁移 · Sony α7R V · Organ Atlas</title>
+  <title>方法迁移 · Organ Atlas</title>
   <link rel="stylesheet" href="./style.css">
   <link rel="stylesheet" href="./body.css">
-  <link rel="stylesheet" href="./method-transfer.css?v=2">
+  <link rel="stylesheet" href="./method-transfer.css?v=4">
   <script type="importmap">{"imports":{"three":"./vendor/three/three.module.min.js"}}</script>
 </head>
 <body>
-  <a class="skip-link" href="#transfer-main">进入相机展示</a>
+  <a class="skip-link" href="#transfer-main">进入模型展示</a>
   <svg class="symbols" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"><defs>
     <symbol id="i-brand" viewBox="0 0 40 40"><path d="M6 20.5c0-5.9 4.4-12.6 10.8-15.1 5.6-2.2 14.2-.6 16.8 4.9 2 4.2-2 7.2-1.4 12.3.7 6.5-4.3 11.4-10.3 12.1C14.6 35.5 6 28.3 6 20.5Z"/><path d="M11.4 20c.3-5 4.2-10 9.1-10.9 4.4-.8 9.2 1.1 9.3 4.8.1 3.1-2.6 5.4-2 9.1.5 3.7-2.6 6.9-6.3 7-5.1.2-10.4-5.1-10.1-10Z"/><path d="M16.5 19.4c.5-3.4 3.6-6.1 6.3-5.5 2.5.6 2.4 2.7 1.5 4.9-1 2.3-.1 4.2-1.8 5.5-2.4 1.9-6.6-1.3-6-4.9Z"/></symbol>
     <symbol id="i-scan" viewBox="0 0 24 24"><path d="M8 4H5a1 1 0 0 0-1 1v3m12-4h3a1 1 0 0 1 1 1v3M4 16v3a1 1 0 0 0 1 1h3m8 0h3a1 1 0 0 0 1-1v-3"/><circle cx="12" cy="12" r="3.3"/></symbol>
@@ -40,16 +40,16 @@
 
   <main class="main transfer-main" id="transfer-main" tabindex="-1">
     <div class="transfer-heading">
-      <div><p class="transfer-section">方法迁移</p><h1>Sony α7R V</h1></div>
-      <p class="lens-name">FE 50mm F1.4 GM</p>
+      <div><p class="transfer-section">方法迁移</p><h1 id="exhibit-title"></h1></div>
+      <p class="lens-name" id="exhibit-subtitle"></p>
     </div>
     <div class="transfer-layout">
-      <section class="camera-gallery" aria-label="相机模型与成品渲染">
+      <section class="camera-gallery" aria-label="三维模型与成品渲染">
         <div class="camera-stage" id="camera-stage">
-          <canvas id="camera-canvas" tabindex="0" aria-label="Sony α7R V 三维模型。拖动或按方向键旋转，加减键缩放，Home 键复位。"></canvas>
-          <img id="camera-photo" class="studio-photo" src="./media/method-transfer/sony-a7rv/front.webp?v=4829a8a84dec41" alt="Sony α7R V 及 50 毫米镜头的前斜视渲染" hidden>
+          <canvas id="camera-canvas" tabindex="0" aria-label="三维模型。拖动或按方向键旋转，加减键缩放，Home 键复位。"></canvas>
+          <img id="camera-photo" class="studio-photo" alt="" hidden>
           <div class="camera-status" id="camera-status" role="status">
-            <span id="camera-message">正在载入相机模型…</span>
+            <span id="camera-message">正在载入模型…</span>
             <button id="camera-retry" type="button" hidden>重新加载</button>
           </div>
           <div class="dock camera-dock" id="camera-dock" role="group" aria-label="模型视角">
@@ -63,8 +63,8 @@
         <div class="gallery-strip">
           <div class="view-choices" role="group" aria-label="选择展示方式">
             <button type="button" data-mode="model" aria-pressed="true" aria-controls="camera-stage"><svg class="icon" aria-hidden="true"><use href="#i-cube"/></svg>三维模型</button>
-            <button type="button" data-mode="front" aria-pressed="false" aria-controls="camera-stage"><img src="./media/method-transfer/sony-a7rv/front.webp?v=4829a8a84dec41" alt="">正面渲染</button>
-            <button type="button" data-mode="rear" aria-pressed="false" aria-controls="camera-stage"><img src="./media/method-transfer/sony-a7rv/rear.webp?v=858a9914c04546" alt="">背面渲染</button>
+            <button type="button" data-mode="front" aria-pressed="false" aria-controls="camera-stage"><img alt=""><span></span></button>
+            <button type="button" data-mode="rear" aria-pressed="false" aria-controls="camera-stage"><img alt=""><span></span></button>
           </div>
           <p id="camera-hint">拖动旋转 · 滚轮缩放</p>
         </div>
@@ -72,16 +72,36 @@
       <aside class="model-picker" aria-labelledby="model-heading">
         <h2 id="model-heading">模型选择</h2>
         <ul class="model-options">
-          <li><button class="model-option" id="select-camera" type="button" aria-current="true" aria-controls="camera-stage">
+          <li><a class="model-option" id="select-camera" href="?model=sony-a7rv">
             <img src="./media/method-transfer/sony-a7rv/front.webp?v=4829a8a84dec41" alt="" width="76" height="60">
             <span class="model-label"><strong>Sony α7R V</strong><small>FE 50mm F1.4 GM</small></span>
             <svg class="icon" aria-hidden="true"><use href="#i-check"/></svg>
-          </button></li>
+          </a></li>
+          <li><a class="model-option" href="?model=airpods-max">
+            <img src="./media/method-transfer/airpods-max/hero.webp" alt="" width="76" height="60">
+            <span class="model-label"><strong>AirPods Max</strong><small>USB-C · 金属外壳</small></span>
+            <svg class="icon" aria-hidden="true"><use href="#i-check"/></svg>
+          </a></li>
+          <li><a class="model-option" href="?model=unitree-h2-x">
+            <img src="./media/method-transfer/unitree-h2-x/hero.webp" alt="" width="76" height="60">
+            <span class="model-label"><strong>宇树 H2-X</strong><small>人形机器人</small></span>
+            <svg class="icon" aria-hidden="true"><use href="#i-check"/></svg>
+          </a></li>
+          <li><a class="model-option" href="?model=quay-street">
+            <img src="./media/method-transfer/quay-street/evening.webp" alt="" width="76" height="60">
+            <span class="model-label"><strong>雨歇 · 码头街公交站</strong><small>雨后港区街景</small></span>
+            <svg class="icon" aria-hidden="true"><use href="#i-check"/></svg>
+          </a></li>
         </ul>
       </aside>
     </div>
-    <noscript>三维操作需要 JavaScript。<a href="./media/method-transfer/sony-a7rv/front.webp?v=4829a8a84dec41">查看相机正面渲染</a> · <a href="./media/method-transfer/sony-a7rv/rear.webp?v=858a9914c04546">查看背面渲染</a></noscript>
+    <noscript>启用 JavaScript 即可旋转模型，也可以直接查看渲染图。
+      <a href="./media/method-transfer/sony-a7rv/front.webp?v=4829a8a84dec41">相机</a> ·
+      <a href="./media/method-transfer/airpods-max/hero.webp">耳机</a> ·
+      <a href="./media/method-transfer/unitree-h2-x/hero.webp">机器人</a> ·
+      <a href="./media/method-transfer/quay-street/evening.webp">公交站</a>
+    </noscript>
   </main>
-  <script type="module" src="./method-transfer.js?v=398ed46123e7d0"></script>
+  <script type="module" src="./method-transfer.js?v=4"></script>
 </body>
 </html>
