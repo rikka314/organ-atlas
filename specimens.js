@@ -5,7 +5,7 @@ export const specimens = [
     "latin": "Cor",
     "system": "循环系统",
     "version": "房室瓣支撑 R1",
-    "url": "./models/heart-av-support-r1/whole.glb",
+    "url": "./models/heart-av-support-r1/whole.glb?v=144328b9e587b2",
     "thumbnail": "./media/heart.webp",
     "status": "教学展示",
     "note": "选择「显露心瓣膜」，沿腱索从瓣叶追到乳头肌与心室壁；可分别切换左、右支撑链。模型为静态教学构型，不模拟瓣膜运动或血流。",
@@ -511,7 +511,7 @@ export const specimens = [
     ],
     "assets": {
       "opened": {
-        "url": "./models/heart-av-support-r1/open-wall.glb",
+        "url": "./models/heart-av-support-r1/open-wall.glb?v=83a2d94cf1bfbd",
         "parts": [
           {
             "id": "lv-wall",
@@ -923,7 +923,7 @@ export const specimens = [
         }
       },
       "left-open": {
-        "url": "./models/heart-av-support-r1/open-wall.glb",
+        "url": "./models/heart-av-support-r1/open-wall.glb?v=83a2d94cf1bfbd",
         "parts": [
           {
             "id": "lv-wall",
@@ -1335,7 +1335,7 @@ export const specimens = [
         }
       },
       "right-open": {
-        "url": "./models/heart-av-support-r1/open-wall.glb",
+        "url": "./models/heart-av-support-r1/open-wall.glb?v=83a2d94cf1bfbd",
         "parts": [
           {
             "id": "lv-wall",
@@ -1754,7 +1754,7 @@ export const specimens = [
     "latin": "Pulmones",
     "system": "呼吸系统",
     "version": "肺叶、肺底与肺门",
-    "url": "./models/lungs/whole.glb",
+    "url": "./models/lungs/whole.glb?v=19a017fff0fe4b",
     "thumbnail": "./media/lungs.png",
     "status": "教学展示",
     "note": "肺叶、气道、动静脉、剖面与材质均来自本次程序生成。旋转或切换局部剥开视图观察前后层次。",
@@ -1854,7 +1854,7 @@ export const specimens = [
     ],
     "assets": {
       "inferior": {
-        "url": "./models/lungs/whole.glb",
+        "url": "./models/lungs/whole.glb?v=19a017fff0fe4b",
         "view": [
           0,
           -1,
@@ -1864,7 +1864,7 @@ export const specimens = [
         "note": "可逐叶隐藏，观察本件的左右肺底和叶裂。"
       },
       "previous-inferior": {
-        "url": "./models/lungs/previous-inferior.glb",
+        "url": "./models/lungs/previous-inferior.glb?v=e36b00fd75efd7",
         "view": [
           0,
           -1,
@@ -1874,7 +1874,7 @@ export const specimens = [
         "note": "可与「正下方看肺叶」在相同方向比较左上叶舌部和右中叶在肺底前方的显露范围。"
       },
       "lung-base": {
-        "url": "./models/lungs/whole.glb",
+        "url": "./models/lungs/whole.glb?v=19a017fff0fe4b",
         "view": [
           0.29209,
           -0.75743,
@@ -1884,7 +1884,7 @@ export const specimens = [
         "note": "可逐叶隐藏，观察本件的左右肺底和叶裂。"
       },
       "medial-base": {
-        "url": "./models/lungs/whole.glb",
+        "url": "./models/lungs/whole.glb?v=19a017fff0fe4b",
         "view": [
           0.3303,
           -0.0923,
@@ -1894,7 +1894,7 @@ export const specimens = [
         "note": "可逐叶隐藏，观察本件的左右肺底和叶裂。"
       },
       "dissection": {
-        "url": "./models/lungs/dissection.glb",
+        "url": "./models/lungs/dissection.glb?v=26c7b27998d0d8",
         "version": "本件右肺局部剥开",
         "view": [
           -0.099228,
@@ -2026,7 +2026,7 @@ export const specimens = [
         ]
       },
       "dissection-oblique": {
-        "url": "./models/lungs/dissection.glb",
+        "url": "./models/lungs/dissection.glb?v=26c7b27998d0d8",
         "version": "本件右肺局部剥开",
         "view": [
           -0.255567,
@@ -2158,7 +2158,7 @@ export const specimens = [
         ]
       },
       "hilum": {
-        "url": "./models/lungs/hilum.glb",
+        "url": "./models/lungs/hilum.glb?v=e41d1d1ef8e3b9",
         "version": "本件肺门",
         "view": [
           0.2419219,
@@ -2299,7 +2299,7 @@ export const specimens = [
         ]
       },
       "hilum-opposite": {
-        "url": "./models/lungs/hilum.glb",
+        "url": "./models/lungs/hilum.glb?v=e41d1d1ef8e3b9",
         "version": "本件肺门",
         "view": [
           -0.2419219,
@@ -2441,7 +2441,7 @@ export const specimens = [
       },
       "right-fissure": {
         "version": "从空场景构建的双肺",
-        "url": "./models/lungs/whole.glb",
+        "url": "./models/lungs/whole.glb?v=19a017fff0fe4b",
         "view": [
           -0.9063078,
           0,
@@ -2452,7 +2452,7 @@ export const specimens = [
       "section": {
         "version": "本件实体冠状剖面",
         "status": "教学展示",
-        "url": "./models/lungs/section.glb",
+        "url": "./models/lungs/section.glb?v=70217cefbfa6b4",
         "note": "切去双肺前部后，粉色区域是暴露的肺实质。浅色、蓝色和红色的管壁分别属于气道、肺动脉和肺静脉。旋转可看剩余肺叶，每个图层同时控制该部位的表面和切面。",
         "parts": [
           {
@@ -2580,7 +2580,7 @@ export const specimens = [
       "airway-recess": {
         "version": "叶支气管入口",
         "status": "教学展示",
-        "url": "./models/lungs/airway-recess.glb",
+        "url": "./models/lungs/airway-recess.glb?v=fded18177ee19a",
         "view": [
           -0.92,
           0.12,
@@ -2714,7 +2714,7 @@ export const specimens = [
         "version": "十八个教学肺段",
         "status": "教学展示",
         "note": "右肺十段，左肺八段。左侧尖段与后段合为尖后段，内侧底段与前底段合为前内侧底段。段间界面用于教学，未经个体影像配准。",
-        "url": "./models/lungs/segments.glb",
+        "url": "./models/lungs/segments.glb?v=ba82222fa53c65",
         "soloLabel": "单独查看肺段",
         "parts": [
           {
@@ -2864,7 +2864,7 @@ export const specimens = [
         ]
       },
       "interior": {
-        "url": "./models/lungs/interior.glb",
+        "url": "./models/lungs/interior.glb?v=c9190cb02d4b07",
         "parts": [
           {
             "id": "airway",
@@ -3032,7 +3032,7 @@ export const specimens = [
     "system": "呼吸系统",
     "version": "气管及主支气管近段",
     "status": "教学展示",
-    "url": "./models/trachea/whole.glb",
+    "url": "./models/trachea/whole.glb?v=f28417d5d8f0f9",
     "thumbnail": "./media/trachea.webp",
     "view": [
       0,
@@ -3117,7 +3117,7 @@ export const specimens = [
     "latin": "Hepar",
     "system": "消化系统",
     "version": "肝实质、胆囊与肝内管道",
-    "url": "./models/liver/whole.glb",
+    "url": "./models/liver/whole.glb?v=7f0593c4ebf5b4",
     "thumbnail": "./media/liver.png",
     "status": "教学展示",
     "note": "隐藏肝实质可追踪四系管网，选择「只看肝实质孔口」可观察肝门孔口及下腔静脉沟。管段为封端实体。",
@@ -3246,7 +3246,7 @@ export const specimens = [
     "latin": "Gaster",
     "system": "消化系统",
     "version": "胃壁与黏膜皱襞",
-    "url": "./models/stomach/whole.glb",
+    "url": "./models/stomach/whole.glb?v=88324ecad3ee5b",
     "thumbnail": "./media/stomach.jpg",
     "status": "教学展示",
     "note": "打开胃前壁可观察后壁的黏膜皱襞。幽门前的胃窦逐渐收窄，出口朝向仍待核实。",
@@ -3318,7 +3318,7 @@ export const specimens = [
     ],
     "assets": {
       "opened": {
-        "url": "./models/stomach/opened.glb",
+        "url": "./models/stomach/opened.glb?v=7eb7b4345d6702",
         "parts": [
           {
             "id": "backOuter",
@@ -3363,7 +3363,7 @@ export const specimens = [
         ]
       },
       "white": {
-        "url": "./models/stomach/white.glb",
+        "url": "./models/stomach/white.glb?v=2324276a2f1c12",
         "parts": [
           {
             "id": "frontOuter",
@@ -3425,7 +3425,7 @@ export const specimens = [
     "version": "食管与胃的交界",
     "status": "教学展示",
     "thumbnail": "./media/esophagus.webp",
-    "url": "./models/esophagus/whole.glb",
+    "url": "./models/esophagus/whole.glb?v=990c2c75c9cc8e",
     "view": [
       0,
       0,
@@ -3502,7 +3502,7 @@ export const specimens = [
     ],
     "assets": {
       "isolated": {
-        "url": "./models/esophagus/whole.glb",
+        "url": "./models/esophagus/whole.glb?v=990c2c75c9cc8e",
         "view": [
           -1,
           0,
@@ -3548,7 +3548,7 @@ export const specimens = [
         "note": "人体右侧观，图右为前方。"
       },
       "chest": {
-        "url": "./models/esophagus/whole.glb",
+        "url": "./models/esophagus/whole.glb?v=990c2c75c9cc8e",
         "view": [
           -1,
           0,
@@ -3603,7 +3603,7 @@ export const specimens = [
         "note": "人体右侧局部，图右为前方。由前缘浅凹向上下追踪轮廓。"
       },
       "opened": {
-        "url": "./models/esophagus/opened.glb",
+        "url": "./models/esophagus/opened.glb?v=638a5f0a270855",
         "view": [
           0,
           0,
@@ -3649,7 +3649,7 @@ export const specimens = [
         "note": "后半壁及两侧断缘可见，管腔从上口延续至贲门端。"
       },
       "previousAssembly": {
-        "url": "./models/esophagus/previous-assembly.glb",
+        "url": "./models/esophagus/previous-assembly.glb?v=f2ef7c261c6278",
         "parts": [
           {
             "id": "neck",
@@ -3701,7 +3701,7 @@ export const specimens = [
         "note": "此历史总装可同时查看食管、胃和十二指肠短段。"
       },
       "previousSection": {
-        "url": "./models/esophagus/previous-section.glb",
+        "url": "./models/esophagus/previous-section.glb?v=1a8739310eca30",
         "parts": [
           {
             "id": "neck",
@@ -3753,7 +3753,7 @@ export const specimens = [
         "note": "此历史总装沿前壁切开，可查看胃壁皱襞及贲门连接。"
       },
       "previousIsolated": {
-        "url": "./models/esophagus/previous-isolated.glb",
+        "url": "./models/esophagus/previous-isolated.glb?v=e0465e63894c4a",
         "parts": [
           {
             "id": "neck",
@@ -3802,7 +3802,7 @@ export const specimens = [
     "system": "消化系统",
     "version": "胃、小肠和大肠",
     "status": "教学展示",
-    "url": "./models/intestines/whole.glb",
+    "url": "./models/intestines/whole.glb?v=ec823ef8407a3c",
     "thumbnail": "./media/intestines.png",
     "coordinateSpace": "blender-gltf",
     "view": [
@@ -3998,7 +3998,7 @@ export const specimens = [
     ],
     "assets": {
       "ileocaecal": {
-        "url": "./models/intestines/ileocaecal.glb",
+        "url": "./models/intestines/ileocaecal.glb?v=dc19fe3f5f8dfd",
         "view": [
           -1,
           0.06,
@@ -4034,7 +4034,7 @@ export const specimens = [
         ]
       },
       "previousAssembly": {
-        "url": "./models/intestines/previous-assembly.glb",
+        "url": "./models/intestines/previous-assembly.glb?v=77b098d9cf6719",
         "parts": [
           {
             "id": "stomach",
@@ -4165,7 +4165,7 @@ export const specimens = [
     "version": "左肾、肾门与集合系统",
     "status": "肾盂与静脉的显露范围仍待核实",
     "thumbnail": "./media/kidney.png",
-    "url": "./models/kidney/whole.glb",
+    "url": "./models/kidney/whole.glb?v=5a21fb70ad298e",
     "parts": [
       {
         "id": "front_parenchyma",
@@ -4437,7 +4437,7 @@ export const specimens = [
     ],
     "assets": {
       "medial": {
-        "url": "./models/kidney/whole.glb",
+        "url": "./models/kidney/whole.glb?v=5a21fb70ad298e",
         "parts": [
           {
             "id": "front_parenchyma",
@@ -4650,7 +4650,7 @@ export const specimens = [
         "note": "沿管道朝肾门看。隐藏「肾门唇与管根入口」可以观察其后的共同肾窦。「肾门外形对照」展示相同方向的另一件模型。"
       },
       "medial-before": {
-        "url": "./models/kidney/medial-before.glb",
+        "url": "./models/kidney/medial-before.glb?v=a50ce8820bba98",
         "parts": [
           {
             "id": "front_parenchyma",
@@ -4855,7 +4855,7 @@ export const specimens = [
         "note": "与内侧肾门使用相同方向，可对照本次运行中收拢开口与加厚肾体前的外形。"
       },
       "window": {
-        "url": "./models/kidney/window.glb",
+        "url": "./models/kidney/window.glb?v=9183f06bfdb39c",
         "parts": [
           {
             "id": "back_parenchyma",
@@ -4907,7 +4907,7 @@ export const specimens = [
         "note": "打开集合系统前壁后，可以转动观察盏腔和真实切缘。"
       },
       "papilla": {
-        "url": "./models/kidney/papilla.glb",
+        "url": "./models/kidney/papilla.glb?v=c5960dfb5b9cc2",
         "parts": [
           {
             "id": "calyx-window",
@@ -4935,7 +4935,7 @@ export const specimens = [
         "note": "沿乳头长轴观察小盏内壁、盏口和伸进杯口的乳头尖。"
       },
       "papilla-oblique": {
-        "url": "./models/kidney/papilla.glb",
+        "url": "./models/kidney/papilla.glb?v=c5960dfb5b9cc2",
         "parts": [
           {
             "id": "calyx-window",
@@ -4963,7 +4963,7 @@ export const specimens = [
         "note": "换到斜位，观察同一乳头和小肾盏的深度关系。"
       },
       "networks": {
-        "url": "./models/kidney/whole.glb",
+        "url": "./models/kidney/whole.glb?v=5a21fb70ad298e",
         "parts": [
           {
             "id": "front_parenchyma",
@@ -5176,7 +5176,7 @@ export const specimens = [
         "note": "可分别隐藏动脉、静脉或集合系统，查看它们在肾内的走向。"
       },
       "collecting": {
-        "url": "./models/kidney/whole.glb",
+        "url": "./models/kidney/whole.glb?v=5a21fb70ad298e",
         "parts": [
           {
             "id": "front_parenchyma",
@@ -5389,7 +5389,7 @@ export const specimens = [
         "note": "从十个小肾盏追到三个大肾盏，再向下找到肾盂和输尿管近段。"
       },
       "white": {
-        "url": "./models/kidney/white.glb",
+        "url": "./models/kidney/white.glb?v=c5b590985cf8fa",
         "parts": [
           {
             "id": "body",
@@ -5435,7 +5435,7 @@ export const specimens = [
       "previous": {
         "version": "肾体与近肾门管段",
         "status": "教学展示",
-        "url": "./models/kidney/previous.glb",
+        "url": "./models/kidney/previous.glb?v=d2c883a6dc2f1f",
         "note": "可观察肾体外形和近肾门管段。肾门接面仍待核实。",
         "parts": [
           {
@@ -5476,7 +5476,7 @@ export const specimens = [
     "name": "胰腺",
     "latin": "Pancreas",
     "system": "消化系统",
-    "url": "./models/pancreas/whole.glb",
+    "url": "./models/pancreas/whole.glb?v=2fa638ad1d6f32",
     "version": "胰实质、胰管与局部组织",
     "status": "胰头钩突根部的外形仍待核实",
     "view": [
@@ -5575,7 +5575,7 @@ export const specimens = [
     ],
     "assets": {
       "white": {
-        "url": "./models/pancreas/white.glb",
+        "url": "./models/pancreas/white.glb?v=7f66c86ea9ad6d",
         "parts": [
           {
             "id": "gland",
@@ -5588,7 +5588,7 @@ export const specimens = [
         ]
       },
       "section": {
-        "url": "./models/pancreas/section.glb",
+        "url": "./models/pancreas/section.glb?v=d664ad150b77ae",
         "parts": [
           {
             "id": "gland",
@@ -5658,7 +5658,7 @@ export const specimens = [
         "note": "可沿纵向切面追踪胰管。胰体的一组小叶和组织隔可分别隐藏或切到线框。"
       },
       "posterior": {
-        "url": "./models/pancreas/posterior.glb",
+        "url": "./models/pancreas/posterior.glb?v=4809094988c5c6",
         "view": [
           0,
           0.02,
@@ -5716,7 +5716,7 @@ export const specimens = [
         ]
       },
       "ducts": {
-        "url": "./models/pancreas/ducts.glb",
+        "url": "./models/pancreas/ducts.glb?v=8f771c582e7ed3",
         "parts": [
           {
             "id": "mainDuct",
@@ -5761,7 +5761,7 @@ export const specimens = [
         ]
       },
       "micro": {
-        "url": "./models/pancreas/micro.glb",
+        "url": "./models/pancreas/micro.glb?v=bb22243e9d3231",
         "view": [
           0,
           0,
@@ -5803,7 +5803,7 @@ export const specimens = [
         ]
       },
       "previous": {
-        "url": "./models/pancreas/previous.glb",
+        "url": "./models/pancreas/previous.glb?v=190fb449a4d651",
         "thumbnail": "./media/pancreas-previous.webp",
         "view": [
           -0.035,
@@ -5857,7 +5857,7 @@ export const specimens = [
         "status": "教学展示"
       },
       "originalRegions": {
-        "url": "./models/pancreas/original-regions.glb",
+        "url": "./models/pancreas/original-regions.glb?v=b7c3171fffb411",
         "thumbnail": "./media/pancreas-original-regions.webp",
         "view": [
           0,
@@ -5919,7 +5919,7 @@ export const specimens = [
           "mesh": "Pancreas",
           "url": "./media/pancreas-original-regions-regions.bin",
           "triangles": 47760,
-          "modelSha256": "82df18d891be8625e820fbbd662c3cb57c4cec7c495228b09c2c0e9f0c6389e3",
+          "modelSha256": "b7c3171fffb411eecc50abd2ee9c48e3c65690afc714ecd3687a0c21314f8105",
           "sha256": "f8491aa8b5d865bf0d30c4b3e56767d634664671f4e6ae44f4dcb965f361f6c9"
         },
         "version": "连续外形父版",
@@ -5934,7 +5934,7 @@ export const specimens = [
     "system": "淋巴系统",
     "version": "脾实质与脾门血管",
     "status": "脾门沟缘与部分静脉末端的外形仍待核实",
-    "url": "./models/spleen/whole.glb",
+    "url": "./models/spleen/whole.glb?v=7f0fd55b3f59b3",
     "thumbnail": "./media/spleen.webp",
     "view": [
       1,
@@ -6031,7 +6031,7 @@ export const specimens = [
     ],
     "assets": {
       "section": {
-        "url": "./models/spleen/section.glb",
+        "url": "./models/spleen/section.glb?v=e154f0a68aa577",
         "view": [
           -1,
           0.16,
@@ -6040,7 +6040,7 @@ export const specimens = [
         "note": "沿膈面一侧切开后可旋转看实质和保留的脾门。白髓团块和小梁按教学尺度显示。"
       },
       "dissection": {
-        "url": "./models/spleen/dissection.glb",
+        "url": "./models/spleen/dissection.glb?v=eb2549a3ddaf6b",
         "view": [
           -1,
           0.25,
@@ -6052,7 +6052,7 @@ export const specimens = [
         "version": "脾脏外表面",
         "status": "教学展示",
         "note": "六个选区显示外表面各部位。点部位名称可以聚焦相应区域。",
-        "url": "./models/spleen/previous.glb",
+        "url": "./models/spleen/previous.glb?v=081d08c96c8f29",
         "view": [
           1,
           0.03,
@@ -6062,7 +6062,7 @@ export const specimens = [
           "mesh": "SPLEEN",
           "url": "./media/spleen-previous-regions.bin",
           "triangles": 44616,
-          "modelSha256": "966bcd5019fa27b48313d5f42acea8dbc0a388bef2c1c74062a789be69b40c27",
+          "modelSha256": "081d08c96c8f29cffef510946fd0af04a7e16364550e9e136cb449b67fbe450c",
           "sha256": "2b8e720efcb54b4b6653569605a83935e221e98e3c41f51843265062b60cbfd3"
         },
         "parts": [
@@ -6125,7 +6125,7 @@ export const specimens = [
     "system": "视觉器官",
     "version": "右眼球与视神经短段",
     "status": "教学展示",
-    "url": "./models/eye/whole.glb",
+    "url": "./models/eye/whole.glb?v=821c8a43f0b905",
     "thumbnail": "./media/eye.webp",
     "view": [
       0,
@@ -6227,7 +6227,7 @@ export const specimens = [
     "version": "上下颌 28 颗恒牙",
     "status": "教学展示",
     "note": "上下颌各 14 颗恒牙，每个象限从中切牙排到第二磨牙。左右按患者自身标注，可按 FDI 牙号聚焦。右下磨牙根端略钝。上下颌轻度分开，闭口接触未经验证。",
-    "url": "./models/dentition/whole.glb",
+    "url": "./models/dentition/whole.glb?v=c6963c69053c3d",
     "thumbnail": "./media/dentition.png",
     "view": [
       -0.66,
@@ -6504,7 +6504,7 @@ export const specimens = [
     "system": "中枢神经系统",
     "version": "成人脑大体外观",
     "status": "严格底面延髓显露待修订 · USCBrain · CC BY-NC-SA 4.0",
-    "url": "./models/brain/whole.glb",
+    "url": "./models/brain/whole.glb?v=84c083943d6789",
     "thumbnail": "./media/brain.webp",
     "view": [
       -1,

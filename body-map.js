@@ -1,4 +1,4 @@
-import { bodySpecimens } from './body-specimens.js';
+import { bodySpecimens } from './body-specimens.js?v=639ef82774f7';
 
 const byId = id => document.getElementById(id);
 const svgNS = 'http://www.w3.org/2000/svg';
@@ -186,7 +186,7 @@ export function createBodyMap(specimens, openDetail, onSelection) {
     showMessage('正在装入人体和器官模型');
     loading = true;
     try {
-      const {createBodyViewer} = await import('./body-viewer.js');
+      const {createBodyViewer} = await import('./body-viewer.js?v=639ef82774f7');
       if (disposed || token !== generation) return;
       viewer = createBodyViewer(canvas,{
         onPick: id => select(id), onHover: id => { hovered=id; requestLabels(); },

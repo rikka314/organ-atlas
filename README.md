@@ -6,6 +6,8 @@
 
 这里展示的三维人体器官模型均由 **Agent 操作 Blender 生成**。模型库会持续更新，陆续加入新的器官和已有模型的修订版。
 
+13 个器官的整件、切面、拆解视图与人体总览均使用 Agent 编写程序生成的贴图。颜色、表面起伏和粗糙度分别计算。观察[脾脏切面](https://rikka314.github.io/organ-atlas/?organ=spleen&view=interior)时，可以对照边缘的薄被膜与中央红髓；观察[右眼](https://rikka314.github.io/organ-atlas/?organ=eye)时，可以旋转查看透明角膜下的虹膜。颜色及光泽用于教学示意，未经同一光照下的人体标本测量标定。
+
 ## 当前模型选择
 
 本次更新采用 2026 年 11 月 23 日最新 Harness 源码复建的双肺、气管与主支气管、肝脏、胃、食管、大小肠、左肾、胰腺、脾脏和上下恒牙列。右眼继续使用现有的最新 Harness 成品；[默认心脏](https://rikka314.github.io/organ-atlas/?organ=heart)采用房室瓣支撑 R1：打开[显露心瓣膜](https://rikka314.github.io/organ-atlas/?organ=heart&view=interior)，可分别沿[左侧](https://rikka314.github.io/organ-atlas/?organ=heart&view=left-chain)和[右侧](https://rikka314.github.io/organ-atlas/?organ=heart&view=right-chain)腱索从瓣叶追到乳头肌与室壁。[下载心脏模型](models/heart-av-support-r1/README.md)。大脑保留 USCBrain 成人 MRI 大体外观版。每件模型的研究范围和仍待核实之处见网页中的「标本说明」。

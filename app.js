@@ -1,5 +1,5 @@
-import { specimens } from './specimens.js';
-import { createBodyMap } from './body-map.js';
+import { specimens } from './specimens.js?v=639ef82774f7';
+import { createBodyMap } from './body-map.js?v=639ef82774f7';
 
 const byId = id => document.getElementById(id);
 const svgNS = 'http://www.w3.org/2000/svg';

@@ -1,9 +1,9 @@
 import * as THREE from 'three';
 import { OrbitControls } from './vendor/three/controls/OrbitControls.js';
 import { GLTFLoader } from './vendor/three/loaders/GLTFLoader.js';
-import { bodySpecimens } from './body-specimens.js';
+import { bodySpecimens } from './body-specimens.js?v=639ef82774f7';
 
-const SHELL = './media/body-reference.glb';
+const SHELL = './media/body-reference.glb?v=c5fc114afdf189';
 const FRAMES = {
   whole: { y: 0.85, height: 1.89, width: 0.79 },
   torso: { y: 1.125, height: 0.76, width: 0.55 },
@@ -12,35 +12,26 @@ const VIEWS = { front: [0, 0, 1], back: [0, 0, -1] };
 const DISTANCE = 3.2;
 const toDegrees = THREE.MathUtils.radToDeg;
 
-function skinMaterial() {
-  // The reference's own surface normals reveal its facial features and limbs.
-  // Give the trunk less opacity so that it remains possible to inspect organs.
-  return new THREE.ShaderMaterial({
-    transparent: true, depthWrite: false, side: THREE.FrontSide,
-    uniforms: { focus: { value: 0 } },
-    vertexShader: `
-      varying vec3 vNormal, vWorld;
-      void main() {
-        vNormal = normalize(normalMatrix * normal);
-        vWorld = (modelMatrix * vec4(position, 1.0)).xyz;
-        gl_Position = projectionMatrix * modelViewMatrix * vec4(position, 1.0);
-      }`,
-    fragmentShader: `
-      varying vec3 vNormal, vWorld;
-      uniform float focus;
-      void main() {
-        vec3 n = normalize(vNormal);
-        float rim = pow(1.0 - clamp(n.z, 0.0, 1.0), 1.65);
-        float light = clamp(0.38 + 0.60 * dot(n, normalize(vec3(-0.52, 0.71, 0.71))), 0.0, 1.0);
-        float detail = max(smoothstep(1.39, 1.52, vWorld.y), 1.0 - smoothstep(0.72, 0.91, vWorld.y));
-        detail = max(detail, smoothstep(0.15, 0.25, abs(vWorld.x)));
-        vec3 color = mix(vec3(0.072, 0.094, 0.087), vec3(0.39, 0.47, 0.405), light);
-        color = mix(color, vec3(0.52, 0.64, 0.53), rim * 0.82);
-        float alpha = mix(0.145 - 0.066 * focus, 0.39, detail) + rim * 0.42;
-        gl_FragColor = vec4(color, min(alpha, 0.80));
-        #include <colorspace_fragment>
-      }`,
-  });
+function enableSkinFocus(material, focus) {
+  // Keep the GLB's maps and Three.js lighting; fade the trunk to reveal its organs.
+  material.transparent = true;
+  material.depthWrite = false;
+  material.side = THREE.FrontSide;
+  material.onBeforeCompile = shader => {
+    shader.uniforms.atlasFocus = focus;
+    shader.vertexShader = 'varying vec3 atlasSurfaceWorld;\n' + shader.vertexShader.replace(
+      '#include <project_vertex>',
+      '#include <project_vertex>\n atlasSurfaceWorld = (modelMatrix * vec4(transformed, 1.0)).xyz;'
+    );
+    shader.fragmentShader = 'uniform float atlasFocus;\nvarying vec3 atlasSurfaceWorld;\n' +
+      shader.fragmentShader.replace('#include <opaque_fragment>', `
+        float rim = pow(1.0 - clamp(dot(normal, normalize(vViewPosition)), 0.0, 1.0), 1.65);
+        float detail = max(smoothstep(1.39, 1.52, atlasSurfaceWorld.y),
+                           1.0 - smoothstep(0.72, 0.91, atlasSurfaceWorld.y));
+        detail = max(detail, smoothstep(0.15, 0.25, abs(atlasSurfaceWorld.x)));
+        diffuseColor.a *= min(mix(0.145 - 0.066 * atlasFocus, 0.39, detail) + rim * 0.42, 0.80);
+        #include <opaque_fragment>`);
+  };
 }
 
 function collect(root) {
@@ -134,7 +125,7 @@ export function createBodyViewer(canvas, events = {}) {
   const reduce = matchMedia('(prefers-reduced-motion: reduce)');
   controls.enableDamping = !reduce.matches;
   controls.update();
-  const skin = skinMaterial(), loader = new GLTFLoader(), raycaster = new THREE.Raycaster();
+  const skinFocus = { value: 0 }, loader = new GLTFLoader(), raycaster = new THREE.Raycaster();
   const organs = new Map(), meshOwners = new WeakMap(), resources = [];
   const requests = new AbortController(), listeners = new AbortController();
   const listen = { signal: listeners.signal };
@@ -191,7 +182,7 @@ export function createBodyViewer(canvas, events = {}) {
       const overlaps = b && a.min.x < b.max.x && a.max.x > b.min.x && a.min.y < b.max.y && a.max.y > b.min.y;
       organ.targetOpacity = organ !== focus && overlaps && a.min.z < b.max.z ? 0.15 : 1;
     }
-    skin.uniforms.focus.value = focus ? 1 : 0;
+    skinFocus.value = focus ? 1 : 0;
     focusDirty = false;
   }
 
@@ -368,9 +359,10 @@ export function createBodyViewer(canvas, events = {}) {
     const size = bounds.getSize(new THREE.Vector3());
     if (!Number.isFinite(size.length()) || !size.lengthSq()) throw new Error('三维尺寸无效');
     if (job.shell) {
+      for (const material of owned.materials) enableSkinFocus(material, skinFocus);
       for (const mesh of owned.meshes) {
         if (!mesh.geometry.attributes.normal) mesh.geometry.computeVertexNormals();
-        mesh.material = skin; mesh.renderOrder = 10;
+        mesh.renderOrder = 10;
       }
       surfaceReady = true;
     } else {
@@ -474,7 +466,7 @@ export function createBodyViewer(canvas, events = {}) {
       disposed = true; cancelAnimationFrame(frame);
       requests.abort(); resumeWaiters.forEach(resolve => resolve()); resumeWaiters.clear(); listeners.abort();
       observer.disconnect(); controls.dispose();
-      resources.forEach(resource => resource.dispose()); skin.dispose(); renderer.dispose();
+      resources.forEach(resource => resource.dispose()); renderer.dispose();
     },
   };
 }
