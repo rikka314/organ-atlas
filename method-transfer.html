@@ -47,7 +47,7 @@
       <section class="camera-gallery" aria-label="相机模型与成品渲染">
         <div class="camera-stage" id="camera-stage">
           <canvas id="camera-canvas" tabindex="0" aria-label="Sony α7R V 三维模型。拖动或按方向键旋转，加减键缩放，Home 键复位。"></canvas>
-          <img id="camera-photo" class="studio-photo" src="./media/method-transfer/sony-a7rv/front.webp" alt="Sony α7R V 及 50 毫米镜头的前斜视渲染" hidden>
+          <img id="camera-photo" class="studio-photo" src="./media/method-transfer/sony-a7rv/front.webp?v=4829a8a84dec41" alt="Sony α7R V 及 50 毫米镜头的前斜视渲染" hidden>
           <div class="camera-status" id="camera-status" role="status">
             <span id="camera-message">正在载入相机模型…</span>
             <button id="camera-retry" type="button" hidden>重新加载</button>
@@ -63,8 +63,8 @@
         <div class="gallery-strip">
           <div class="view-choices" role="group" aria-label="选择展示方式">
             <button type="button" data-mode="model" aria-pressed="true" aria-controls="camera-stage"><svg class="icon" aria-hidden="true"><use href="#i-cube"/></svg>三维模型</button>
-            <button type="button" data-mode="front" aria-pressed="false" aria-controls="camera-stage"><img src="./media/method-transfer/sony-a7rv/front.webp" alt="">正面渲染</button>
-            <button type="button" data-mode="rear" aria-pressed="false" aria-controls="camera-stage"><img src="./media/method-transfer/sony-a7rv/rear.webp" alt="">背面渲染</button>
+            <button type="button" data-mode="front" aria-pressed="false" aria-controls="camera-stage"><img src="./media/method-transfer/sony-a7rv/front.webp?v=4829a8a84dec41" alt="">正面渲染</button>
+            <button type="button" data-mode="rear" aria-pressed="false" aria-controls="camera-stage"><img src="./media/method-transfer/sony-a7rv/rear.webp?v=858a9914c04546" alt="">背面渲染</button>
           </div>
           <p id="camera-hint">拖动旋转 · 滚轮缩放</p>
         </div>
@@ -73,15 +73,15 @@
         <h2 id="model-heading">模型选择</h2>
         <ul class="model-options">
           <li><button class="model-option" id="select-camera" type="button" aria-current="true" aria-controls="camera-stage">
-            <img src="./media/method-transfer/sony-a7rv/front.webp" alt="" width="76" height="60">
+            <img src="./media/method-transfer/sony-a7rv/front.webp?v=4829a8a84dec41" alt="" width="76" height="60">
             <span class="model-label"><strong>Sony α7R V</strong><small>FE 50mm F1.4 GM</small></span>
             <svg class="icon" aria-hidden="true"><use href="#i-check"/></svg>
           </button></li>
         </ul>
       </aside>
     </div>
-    <noscript>三维操作需要 JavaScript。<a href="./media/method-transfer/sony-a7rv/front.webp">查看相机正面渲染</a> · <a href="./media/method-transfer/sony-a7rv/rear.webp">查看背面渲染</a></noscript>
+    <noscript>三维操作需要 JavaScript。<a href="./media/method-transfer/sony-a7rv/front.webp?v=4829a8a84dec41">查看相机正面渲染</a> · <a href="./media/method-transfer/sony-a7rv/rear.webp?v=858a9914c04546">查看背面渲染</a></noscript>
   </main>
-  <script type="module" src="./method-transfer.js?v=2"></script>
+  <script type="module" src="./method-transfer.js?v=398ed46123e7d0"></script>
 </body>
 </html>

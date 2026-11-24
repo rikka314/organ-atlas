@@ -9,13 +9,13 @@ const choices = Array.from(document.querySelectorAll('[data-mode]'));
 
 const assetBase = './media/method-transfer/sony-a7rv/';
 const specimen = {
-  url: assetBase + 'model.glb',
+  url: assetBase + 'model.glb?v=2b46269a480c8f',
   view: [-0.53, 0.38, 1],
   parts: [{ id: 'camera', name: '机身与镜头' }],
 };
 const photos = {
-  front: { file: 'front.webp', alt: '从握柄一侧观看 Sony α7R V、镜口刻字与镜片反光' },
-  rear: { file: 'rear.webp', alt: 'Sony α7R V 背面的眼罩、背屏、摇杆和控制拨轮' },
+  front: { file: 'front.webp?v=4829a8a84dec41', alt: '从握柄一侧观看 Sony α7R V、镜口刻字与镜片反光' },
+  rear: { file: 'rear.webp?v=858a9914c04546', alt: 'Sony α7R V 背面的眼罩、背屏、摇杆和控制拨轮' },
 };
 
 let viewer;
@@ -56,9 +56,10 @@ async function loadCamera() {
   updateControls();
   try {
     if (!viewer) {
-      const { createViewer } = await import('./viewer.js');
+      const { createViewer } = await import('./viewer.js?v=fd17c38593011b');
       if (disposed) return;
       viewer = createViewer(canvas, {
+        lighting: 'product',
         onLoadProgress(value) {
           if (lost) return;
           message.textContent = value >= .88 ? '正在准备模型材质…' : '正在载入相机模型…';

@@ -14,13 +14,41 @@ const DIRECTIONS = {
   top: [0, 1, 0.0001], bottom: [0, -1, 0.0001],
 };
 
-function studio(camera, scene) {
+function productReflections() {
+  // Two broad panels give curved glass and coated metal portable studio reflections.
+  const width = 256, height = 128;
+  const data = new Uint8Array(width * height * 4);
+  for (let y = 0; y < height; y++) {
+    for (let x = 0; x < width; x++) {
+      const u = (x + 0.5) / width, v = (y + 0.5) / height;
+      const key = u > 0.53 && u < 0.59 && v > 0.51 && v < 0.76;
+      const fill = u > 0.76 && u < 0.88 && v > 0.56 && v < 0.62;
+      const tone = key ? 242 : fill ? 194 : 12;
+      const i = (y * width + x) * 4;
+      data[i] = tone;
+      data[i + 1] = tone;
+      data[i + 2] = tone;
+      data[i + 3] = 255;
+    }
+  }
+  const texture = new THREE.DataTexture(data, width, height);
+  texture.mapping = THREE.EquirectangularReflectionMapping;
+  texture.colorSpace = THREE.LinearSRGBColorSpace;
+  texture.needsUpdate = true;
+  return texture;
+}
+
+function studio(camera, scene, isProduct) {
   scene.add(camera, new THREE.HemisphereLight(0xfff9f3, 0xaebed0, 0.9));
+  if (isProduct) {
+    scene.environment = productReflections();
+    scene.environmentIntensity = 0.8;
+  }
   // Lights move with the observer so a posterior or close-up view stays readable.
   for (const [color, intensity, x, y, z] of [
     [0xfff4e7, 2.4, -3, 4, 4],
     [0xe1eefb, 0.85, 4, 0.2, 2],
-    [0xf0f8ff, 1.6, 0, 3, -3],
+    isProduct ? [0xf0f8ff, 0.65, -2.5, 3, -3] : [0xf0f8ff, 1.6, 0, 3, -3],
   ]) {
     const light = new THREE.DirectionalLight(color, intensity);
     light.position.set(x, y, z);
@@ -222,7 +250,7 @@ export function createViewer(canvas, events = {}) {
   const scene = new THREE.Scene();
   const camera = new THREE.OrthographicCamera(-1, 1, 1, -1, 0.01, 40);
   camera.position.set(0, 0, EYE_DISTANCE);
-  studio(camera, scene);
+  studio(camera, scene, events.lighting === 'product');
   const controls = new OrbitControls(camera, canvas);
   const motion = window.matchMedia('(prefers-reduced-motion: reduce)');
   controls.enableDamping = !motion.matches;
@@ -556,6 +584,7 @@ export function createViewer(canvas, events = {}) {
       controls.dispose();
       unload();
       invisible.dispose();
+      scene.environment?.dispose();
       renderer.dispose();
     },
   };
